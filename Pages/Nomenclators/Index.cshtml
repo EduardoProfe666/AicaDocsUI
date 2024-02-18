@@ -1,0 +1,71 @@
+@page
+@model AicaDocsUI.Pages.Nomenclators.Index
+
+@{
+    ViewData["Title"] = "Nomencladores";
+}
+
+<h2 class="card-text md-5">Listado de Nomencladores</h2>
+
+<div class="row mb-4">
+    <div class="col">
+        <a class="btn btn-outline-primary " href="/Nomenclators/Create">
+            <i class="fas fa-plus"></i>
+            Agregar Nomenclador
+        </a>
+
+    </div>
+    <div class="col">
+        <form class="d-flex">
+            <select title="Tipo de Nomenclador" class="form-select select-picker me-2" asp-for="ValueNomenclator" asp-items="Model.ListItems">
+            </select>
+            <button class="btn btn-outline-primary"> <i class="fas fa-search"></i></button>
+
+        </form>
+    </div>
+</div>
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Nombre</th>
+        <th>Acción</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.Nomenclators)
+    {
+        <tr>
+            <td class="col-10">
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+
+            <td class="white-space:nowrap">
+                <a class="btn btn-outline-warning btn-sm" asp-page="./Edit" asp-route-id="@item.Id" asp-route-typeOfNomenclator="@item.Type">
+                    <i class="fas fa-edit"></i>
+                </a>
+            </td>
+        </tr>
+    }
+
+    </tbody>
+
+
+</table>
+
+<form method="post">
+    <!-- Contenido del formulario -->
+</form>
+
+
+<div id="notyf"></div>
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            url: '/Nomenclators/Index',
+            type: 'POST'
+        });
+    });
+</script>
