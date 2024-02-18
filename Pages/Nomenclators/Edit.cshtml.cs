@@ -12,8 +12,8 @@ namespace AicaDocsUI.Pages.Nomenclators;
 public class Edit : PageModel
 {
     private readonly INomenclatorRepository _repository;
-    private int Id { get; set; }
-    private string Name { get; set; }
+    [BindProperty] public IntegerWrapperValue Id11 { get; set; }
+    public string Name { get; set; }
     [BindProperty] public NomenclatorPatchDto NomenclatorDto { get; set; }
 
     public Edit(INomenclatorRepository repository)
@@ -23,7 +23,7 @@ public class Edit : PageModel
 
     public async Task OnGetAsync(TypeOfNomenclator typeOfNomenclator, int id)
     {
-        Id = id;
+        Id11 = new IntegerWrapperValue{Id = id};
         var data = await _repository.GetNomenclatorAsync((int)typeOfNomenclator, id);
         Name = data.Name;
         NomenclatorDto = new NomenclatorPatchDto() { Name = Name };
@@ -33,14 +33,17 @@ public class Edit : PageModel
     {
         if (ModelState.IsValid)
         {
-            await _repository.PatchNomenclatorAsync(Id, NomenclatorDto);
-            TempData["Update Nomenclator"] = true;
+            await _repository.PatchNomenclatorAsync(Id11.Id, NomenclatorDto);
+            TempData["Edited Nomenclator"] = true;
             Response.Redirect("/Nomenclators/Index");
-
             //clear the Form
             NomenclatorDto.Name = "";
             ModelState.Clear();
         }
         
+    }
+    public class IntegerWrapperValue
+    {
+        public int Id { get; set; }
     }
 }

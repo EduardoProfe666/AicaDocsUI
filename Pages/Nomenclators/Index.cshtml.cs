@@ -11,14 +11,13 @@ namespace AicaDocsUI.Pages.Nomenclators;
 public class Index : PageModel
 {
     private readonly INomenclatorRepository _repository;
-    private readonly INotyfService _toastNotificationService;
+    public bool ShowCreated { get; set; }
+    public bool ShowEdited { get; set; }
     public TypeOfNomenclator ValueNomenclator { get; set; } = TypeOfNomenclator.ProcessOfDocument;
     public IEnumerable<SelectListItem> ListItems { get; set; } = new List<SelectListItem>();
 
-    public Index(INomenclatorRepository repository, INotyfService toastNotificationService)
+    public Index(INomenclatorRepository repository)
     {
-        _toastNotificationService = toastNotificationService;
-        _toastNotificationService.Success("Nomenclador creado con éxito");
         this._repository = repository;
     }
 
@@ -39,22 +38,13 @@ public class Index : PageModel
                 Text = v.GetDescription(),
                 Value = v.ToString()
             });
-
-    }
-
-    public void OnPostSuccessNotification()
-    {
-        var created1 = TempData["Created Nomenclator"] as bool? ?? false;
-        var edited1 = TempData["Edited Nomenclator"] as bool? ?? false;
         
-        _toastNotificationService.Success("Nomenclador creado con éxito");
-        if (created1)
-            _toastNotificationService.Success("Nomenclador creado con éxito");
-        
-        if(edited1)
-            _toastNotificationService.Success("Nomenclador actualizado con éxito");
+        ShowCreated = TempData["Created Nomenclator"] as bool? ?? false;
+        ShowEdited = TempData["Edited Nomenclator"] as bool? ?? false;
         
         TempData["Created Nomenclator"] = false;
         TempData["Edited Nomenclator"] = false;
+
     }
+    
 }

@@ -25,7 +25,7 @@ public class NomenclatorRepository : INomenclatorRepository
         if (response.IsSuccessStatusCode)
         {
             var nomencladores = await response.Content.ReadFromJsonAsync<ApiResponse<IEnumerable<Nomenclator>>>();
-            return nomencladores!.Data!;
+            return nomencladores!.Data!.OrderBy(x => x.Name);
         }
         return null;
     }
@@ -50,6 +50,6 @@ public class NomenclatorRepository : INomenclatorRepository
     public async Task PatchNomenclatorAsync(int id, NomenclatorPatchDto name)
     {
         var content = new StringContent(JsonSerializer.Serialize(name), Encoding.UTF8, "application/json");
-        var response = await _httpClient.PostAsync($"{_rootProvider.RootPage}/nomenclator/{id}/", content);
+        var response = await _httpClient.PatchAsync($"{_rootProvider.RootPage}/nomenclator/{id}/", content);
     }
 }

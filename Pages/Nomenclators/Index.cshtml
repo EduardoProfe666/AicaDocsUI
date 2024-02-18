@@ -3,6 +3,8 @@
 
 @{
     ViewData["Title"] = "Nomencladores";
+    bool showCreated = Model.ShowCreated;
+    bool showEdited = Model.ShowEdited;
 }
 
 <h2 class="card-text md-5">Listado de Nomencladores</h2>
@@ -17,7 +19,7 @@
     </div>
     <div class="col">
         <form class="d-flex">
-            <select title="Tipo de Nomenclador" class="form-select select-picker me-2" asp-for="ValueNomenclator" asp-items="Model.ListItems">
+            <select title="Tipo de Nomenclador" class=" form-select me-2" asp-for="ValueNomenclator" asp-items="Model.ListItems">
             </select>
             <button class="btn btn-outline-primary"> <i class="fas fa-search"></i></button>
 
@@ -54,18 +56,39 @@
 
 </table>
 
-<form method="post">
-    <!-- Contenido del formulario -->
-</form>
+<div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index:  9999;">
+    <!-- Primer toast -->
+    <div id="liveToast1" class="toast bg-success" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header bg-success">
+            <strong class="me-auto text-light">Tipo de Nomenclador creado con éxito</strong>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
 
+    <!-- Segundo toast -->
+    <div id="liveToast2" class="toast bg-success" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header bg-success">
+            <strong class="me-auto text-light">Tipo de Nomenclador actualizado con éxito</strong>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
+</div>
 
-<div id="notyf"></div>
-<script src="/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    $(document).ready(function () {
-        $.ajax({
-            url: '/Nomenclators/Index',
-            type: 'POST'
-        });
-    });
+    let shouldShowCreated = @(showCreated.ToString().ToLower());
+    let shouldShowEdited = @(showEdited.ToString().ToLower());
+    
+    window.onload = (event) => {
+        let liveToast1 = document.getElementById('liveToast1');
+        let liveToast2 = document.getElementById('liveToast2');
+
+        let toastInstance1 = new bootstrap.Toast(liveToast1);
+        let toastInstance2 = new bootstrap.Toast(liveToast2);
+
+        if (shouldShowCreated)
+            toastInstance1.show();
+        if (shouldShowEdited)
+            toastInstance2.show();
+    };
 </script>
