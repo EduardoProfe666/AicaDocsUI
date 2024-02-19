@@ -1,3 +1,4 @@
+using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
 using AicaDocsApi.Dto.Documents.Filter;
@@ -45,7 +46,24 @@ public class DocumentRepository : IDocumentRepository
 
     public async Task<bool> CreateDocument(DocumentCreatedDto documentCreatedDto)
     {
-        var content = new StringContent(JsonSerializer.Serialize(documentCreatedDto), Encoding.UTF8, "multipart/form-data");
+        using var content = new MultipartFormDataContent();
+        content.Add(new StringContent(documentCreatedDto.Title), "title");
+        content.Add(new StringContent(documentCreatedDto.Code), "code");
+        content.Add(new StringContent(documentCreatedDto.Edition.ToString()), "edition");
+        content.Add(new StringContent(documentCreatedDto.DateOfValidity.ToString("O")), "dateOfValidity");
+        content.Add(new StringContent(documentCreatedDto.TypeId.ToString()), "typeId");
+        content.Add(new StringContent(documentCreatedDto.ProcessId.ToString()), "processId");
+        content.Add(new StringContent(documentCreatedDto.ScopeId.ToString()), "scopeId");
+        
+        using var pdfStreamContent = new StreamContent(documentCreatedDto.Pdf.OpenReadStream());
+        pdfStreamContent.Headers.ContentType = MediaTypeHeaderValue.Parse(documentCreatedDto.Pdf.ContentType);
+        
+        using var wordStreamContent = new StreamContent(documentCreatedDto.Word.OpenReadStream());
+        wordStreamContent.Headers.ContentType = MediaTypeHeaderValue.Parse(documentCreatedDto.Word.ContentType);
+        
+        content.Add(pdfStreamContent, "pdf", documentCreatedDto.Pdf.FileName);
+        content.Add(wordStreamContent, "word", documentCreatedDto.Word.FileName);
+        
         var response = await _httpClient.PostAsync($"{_rootProvider.RootPage}/document/", content);
         Console.WriteLine(await response.Content.ReadAsStringAsync());
         return response.IsSuccessStatusCode;

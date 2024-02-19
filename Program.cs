@@ -3,6 +3,7 @@ using AicaDocsUI.Repositories.Documents;
 using AicaDocsUI.Repositories.Downloads;
 using AicaDocsUI.Repositories.Nomenclators;
 using AicaDocsUI.Utils;
+using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,10 @@ builder.Services.AddSingleton(new RootProvider { RootPage = @"https://aica-docs.
 builder.Services.AddScoped<INomenclatorRepository, NomenclatorRepository>();
 builder.Services.AddScoped<IDownloadRepository, DownloadRepository>();
 builder.Services.AddScoped<IDocumentRepository, DocumentRepository>();
+builder.Services.AddControllersWithViews(options =>
+{
+    options.Filters.Add(new IgnoreAntiforgeryTokenAttribute());
+});
 
 var app = builder.Build();
 

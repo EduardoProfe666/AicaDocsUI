@@ -157,7 +157,7 @@
 <nav>
     <ul class="pagination">
         <li class="page-item">
-            <a class="page-link" href="@(currentUrl)?PageNumber=@(previousPag)&Code=@Model.Code&DateOfValidity=@Model.DateOfValidity&Title=@Model.Title&Edition=@Model.Edition&Pages=@Model.Pages&TypeId=@Model.TypeId&ProcessId=@Model.ProcessId&ScopeId=@Model.ScopeId&SortBy=@Model.SortBy&SortOrder=@Model.SortOrder&DateComparator=@Model.DateComparator" aria-label="Previous">
+            <a class="page-link" href="@(currentUrl)?PageNumber=@(previousPag)&Code=@Model.Code&DateOfValidity=@Model.DateOfValidity?.ToString("O")&Title=@Model.Title&Edition=@Model.Edition&Pages=@Model.Pages&TypeId=@Model.TypeId&ProcessId=@Model.ProcessId&ScopeId=@Model.ScopeId&SortBy=@Model.SortBy&SortOrder=@Model.SortOrder&DateComparator=@Model.DateComparator" aria-label="Previous">
                 <span aria-hidden="true">&laquo;</span>
             </a>
         </li>
@@ -166,11 +166,11 @@
             string activeClass = "";
             if (i == Model.PageNumber) activeClass = "active";
             <li class="page-item @activeClass" aria-current="@(i == Model.PageNumber ? "page" : "false")">
-                <a class="page-link" href="@(currentUrl)?PageNumber=@(i)&Code=@Model.Code&DateOfValidity=@Model.DateOfValidity&Title=@Model.Title&Edition=@Model.Edition&Pages=@Model.Pages&TypeId=@Model.TypeId&ProcessId=@Model.ProcessId&ScopeId=@Model.ScopeId&SortBy=@Model.SortBy&SortOrder=@Model.SortOrder&DateComparator=@Model.DateComparator">@i</a>
+                <a class="page-link" href="@(currentUrl)?PageNumber=@(i)&Code=@Model.Code&DateOfValidity=@Model.DateOfValidity?.ToString("O")&Title=@Model.Title&Edition=@Model.Edition&Pages=@Model.Pages&TypeId=@Model.TypeId&ProcessId=@Model.ProcessId&ScopeId=@Model.ScopeId&SortBy=@Model.SortBy&SortOrder=@Model.SortOrder&DateComparator=@Model.DateComparator">@i</a>
             </li>
         }
         <li class="page-item">
-            <a class="page-link" href="@(currentUrl)?PageNumber=@(nextPag)&Code=@Model.Code&DateOfValidity=@Model.DateOfValidity&Title=@Model.Title&Edition=@Model.Edition&Pages=@Model.Pages&TypeId=@Model.TypeId&ProcessId=@Model.ProcessId&ScopeId=@Model.ScopeId&SortBy=@Model.SortBy&SortOrder=@Model.SortOrder&DateComparator=@Model.DateComparator" aria-label="Next">
+            <a class="page-link" href="@(currentUrl)?PageNumber=@(nextPag)&Code=@Model.Code&DateOfValidity=@Model.DateOfValidity?.ToString("O")&Title=@Model.Title&Edition=@Model.Edition&Pages=@Model.Pages&TypeId=@Model.TypeId&ProcessId=@Model.ProcessId&ScopeId=@Model.ScopeId&SortBy=@Model.SortBy&SortOrder=@Model.SortOrder&DateComparator=@Model.DateComparator" aria-label="Next">
                 <span aria-hidden="true">&raquo;</span>
             </a>
         </li>

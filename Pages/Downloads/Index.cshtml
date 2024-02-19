@@ -92,7 +92,7 @@
             else { currentorderBy = @SortOrder.Desc; }
 
         }
-        window.location.href = "@(currentUrl)?PageNumber=@(Model.PageNumber)&Format=@Model.Format&DateDownload=@Model.DateDownload&Username=@Model.Username&DocumentId=@Model.DocumentId&ReasonId=@Model.ReasonId&SortBy="+currentColumn+"&SortOrder="+currentorderBy+"&DateComparator=@Model.DateComparator";
+        window.location.href = "@(currentUrl)?PageNumber=@(Model.PageNumber)&Format=@Model.Format&DateDownload=@Model.DateDownload?.ToString("O")&Username=@Model.Username&DocumentId=@Model.DocumentId&ReasonId=@Model.ReasonId&SortBy="+currentColumn+"&SortOrder="+currentorderBy+"&DateComparator=@Model.DateComparator";
     }
 
 </script>
@@ -143,7 +143,7 @@
 <nav>
     <ul class="pagination">
         <li class="page-item">
-            <a class="page-link" href="@(currentUrl)?PageNumber=@(previousPag)&Format=@Model.Format&DateDownload=@Model.DateDownload&Username=@Model.Username&DocumentId=@Model.DocumentId&ReasonId=@Model.ReasonId&SortBy=@Model.SortBy&SortOrder=@Model.SortOrder&DateComparator=@Model.DateComparator" aria-label="Previous">
+            <a class="page-link" href="@(currentUrl)?PageNumber=@(previousPag)&Format=@Model.Format&DateDownload=@Model.DateDownload?.ToString("O")&Username=@Model.Username&DocumentId=@Model.DocumentId&ReasonId=@Model.ReasonId&SortBy=@Model.SortBy&SortOrder=@Model.SortOrder&DateComparator=@Model.DateComparator" aria-label="Previous">
                 <span aria-hidden="true">&laquo;</span>
             </a>
         </li>
@@ -152,11 +152,11 @@
             string activeClass = "";
             if (i == Model.PageNumber) activeClass = "active";
             <li class="page-item @activeClass" aria-current="@(i == Model.PageNumber ? "page" : "false")">
-                <a class="page-link" href="@(currentUrl)?PageNumber=@(i)&Format=@Model.Format&DateDownload=@Model.DateDownload&Username=@Model.Username&DocumentId=@Model.DocumentId&ReasonId=@Model.ReasonId&SortBy=@Model.SortBy&SortOrder=@Model.SortOrder&DateComparator=@Model.DateComparator">@i</a>
+                <a class="page-link" href="@(currentUrl)?PageNumber=@(i)&Format=@Model.Format&DateDownload=@Model.DateDownload?.ToString("O")&Username=@Model.Username&DocumentId=@Model.DocumentId&ReasonId=@Model.ReasonId&SortBy=@Model.SortBy&SortOrder=@Model.SortOrder&DateComparator=@Model.DateComparator">@i</a>
             </li>
         }
         <li class="page-item">
-            <a class="page-link" href="@(currentUrl)?PageNumber=@(nextPag)&Format=@Model.Format&DateDownload=@Model.DateDownload&Username=@Model.Username&DocumentId=@Model.DocumentId&ReasonId=@Model.ReasonId&SortBy=@Model.SortBy&SortOrder=@Model.SortOrder&DateComparator=@Model.DateComparator" aria-label="Next">
+            <a class="page-link" href="@(currentUrl)?PageNumber=@(nextPag)&Format=@Model.Format&DateDownload=@Model.DateDownload?.ToString("O")&Username=@Model.Username&DocumentId=@Model.DocumentId&ReasonId=@Model.ReasonId&SortBy=@Model.SortBy&SortOrder=@Model.SortOrder&DateComparator=@Model.DateComparator" aria-label="Next">
                 <span aria-hidden="true">&raquo;</span>
             </a>
         </li>
