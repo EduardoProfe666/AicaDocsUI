@@ -6,10 +6,12 @@ namespace AicaDocsUI.Dto.Documents;
 public class DocumentCreatedDto
 {
     [Required(ErrorMessage = "El título es requerido"),
+     MinLength(1, ErrorMessage = "La mínima extensión de caracteres es de 1"),
      MaxLength(64, ErrorMessage = "La máxima extensión de caracteres es de 64")]
     public required string Title { get; set; }
 
     [Required(ErrorMessage = "El código es requerido"),
+     MinLength(1, ErrorMessage = "La mínima extensión de caracteres es de 1"),
      MaxLength(64, ErrorMessage = "La máxima extensión de caracteres es de 64")]
     public required string Code { get; set; }
 

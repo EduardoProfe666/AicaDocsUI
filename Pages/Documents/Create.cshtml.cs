@@ -17,9 +17,6 @@ public class Create : PageModel
     public IEnumerable<SelectListItem> ListProcessId { get; set; } = new List<SelectListItem>();
     public IEnumerable<SelectListItem> ListScopeId { get; set; } = new List<SelectListItem>();
     
-    public IEnumerable<Nomenclator> TypesDoc { get; set; }
-    public IEnumerable<Nomenclator> ProcessDoc { get; set; }
-    public IEnumerable<Nomenclator> ScopeDoc { get; set; }
 
     [BindProperty] public DocumentCreatedDto DocumentCreatedDto { get; set; }
 
@@ -48,7 +45,6 @@ public class Create : PageModel
                 Text = v.Name,
                 Value = v.Id.ToString()
             });
-        TypesDoc = dataType!;
 
         ListProcessId = dataProcess!
             .Select(v => new SelectListItem
@@ -56,7 +52,6 @@ public class Create : PageModel
                 Text = v.Name,
                 Value = v.Id.ToString()
             });
-        ProcessDoc = dataProcess!;
 
         ListScopeId = dataScope!
             .Select(v => new SelectListItem
@@ -64,7 +59,6 @@ public class Create : PageModel
                 Text = v.Name,
                 Value = v.Id.ToString()
             });
-        ScopeDoc = dataScope!;
     }
 
     public async Task OnPostAsync()
@@ -80,23 +74,26 @@ public class Create : PageModel
         }
         else
         {
-            ListTypeId = TypesDoc!
+            var dataType = await _nomenclatorRepository.GetNomenclatorsByTypeAsync((int)TypeOfNomenclator.TypeOfDocument);
+            var dataProcess =
+                await _nomenclatorRepository.GetNomenclatorsByTypeAsync((int)TypeOfNomenclator.ProcessOfDocument);
+            var dataScope = await _nomenclatorRepository.GetNomenclatorsByTypeAsync((int)TypeOfNomenclator.ScopeOfDocument);
+
+            ListTypeId = dataType!
                 .Select(v => new SelectListItem
                 {
                     Text = v.Name,
                     Value = v.Id.ToString()
                 });
 
-            var data = await _nomenclatorRepository.GetNomenclatorsByTypeAsync((int)TypeOfNomenclator.ReasonOfDownload);
-
-            ListProcessId = ProcessDoc
+            ListProcessId = dataProcess!
                 .Select(v => new SelectListItem
                 {
                     Text = v.Name,
                     Value = v.Id.ToString()
                 });
-            
-            ListScopeId = ScopeDoc
+
+            ListScopeId = dataScope!
                 .Select(v => new SelectListItem
                 {
                     Text = v.Name,
