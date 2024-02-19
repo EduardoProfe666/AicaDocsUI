@@ -54,6 +54,8 @@ public class DownloadRepository: IDownloadRepository
             var data = await response.Content.ReadFromJsonAsync<ApiResponse<string>>();
             return data!.Data;
         }
+
+        Console.WriteLine(await response.Content.ReadAsStringAsync());
         return null;
     }
 }
