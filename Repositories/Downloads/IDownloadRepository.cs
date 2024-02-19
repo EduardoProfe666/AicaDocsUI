@@ -1,4 +1,5 @@
 using AicaDocsApi.Dto.FilterCommons;
+using AicaDocsUI.Dto.Downloads;
 using AicaDocsUI.Dto.Downloads.Filter;
 using AicaDocsUI.Models;
 using AicaDocsUI.Responses;
@@ -9,4 +10,5 @@ public interface IDownloadRepository
 {
     Task<Download?> GetDownloadById(int id);
     Task<FilterResponse<Download>?> GetDownloadsFilter(FilterDownloadDto filter);
+    Task<string?> DownloadDocument(DownloadCreatedDto downloadCreatedDto);
 }

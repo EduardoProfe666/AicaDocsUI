@@ -5,7 +5,7 @@
 @model AicaDocsUI.Pages.Downloads.Index
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Descargas";
     var currentUrl = HttpContext.Request.Path;
     var previousPag = Model.PageNumber - 1;
     var nextPag = Model.PageNumber + 1;
@@ -102,9 +102,8 @@
         <th style="cursor:pointer" onclick="sortTable(@SortByDownload.DateDownload)">Fecha de Descarga</th>
         <th style="cursor:pointer" onclick="sortTable(@SortByDownload.Format)">Formato</th>
         <th style="cursor:pointer" onclick="sortTable(@SortByDownload.Username)">Usuario</th>
-        <th style="cursor:pointer">Documento</th>
         <th style="cursor:pointer">Razón de Descarga</th>
-        <th>Action </th>
+        <th>Acción</th>
 
     </tr>
     </thead>
@@ -123,9 +122,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Username)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DocumentId)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => reasonName)

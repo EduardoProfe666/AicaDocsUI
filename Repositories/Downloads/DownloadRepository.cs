@@ -1,6 +1,7 @@
 using System.Text;
 using System.Text.Json;
 using AicaDocsApi.Dto.FilterCommons;
+using AicaDocsUI.Dto.Downloads;
 using AicaDocsUI.Dto.Downloads.Filter;
 using AicaDocsUI.Models;
 using AicaDocsUI.Responses;
@@ -41,6 +42,18 @@ public class DownloadRepository: IDownloadRepository
         }
 
         Console.WriteLine(await response.Content.ReadAsStringAsync());
+        return null;
+    }
+
+    public async Task<string?> DownloadDocument(DownloadCreatedDto downloadCreatedDto)
+    {
+        var content = new StringContent(JsonSerializer.Serialize(downloadCreatedDto), Encoding.UTF8, "application/json");
+        var response = await _httpClient.PostAsync($"{_rootProvider.RootPage}/download/", content);
+        if (response.IsSuccessStatusCode)
+        {
+            var data = await response.Content.ReadFromJsonAsync<ApiResponse<string>>();
+            return data!.Data;
+        }
         return null;
     }
 }

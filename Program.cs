@@ -1,4 +1,5 @@
 using AicaDocsUI.Models;
+using AicaDocsUI.Repositories.Documents;
 using AicaDocsUI.Repositories.Downloads;
 using AicaDocsUI.Repositories.Nomenclators;
 using AicaDocsUI.Utils;
@@ -11,6 +12,7 @@ builder.Services.AddHttpClient();
 builder.Services.AddSingleton(new RootProvider { RootPage = @"https://aica-docs.onrender.com" });
 builder.Services.AddScoped<INomenclatorRepository, NomenclatorRepository>();
 builder.Services.AddScoped<IDownloadRepository, DownloadRepository>();
+builder.Services.AddScoped<IDocumentRepository, DocumentRepository>();
 
 var app = builder.Build();
 

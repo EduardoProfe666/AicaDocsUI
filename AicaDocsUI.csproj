@@ -19,8 +19,4 @@
       <_ContentIncludedByDefault Remove="Pages\Nomenclators\NomenclatorList.cshtml" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Pages\Documents\" />
-    </ItemGroup>
-
 </Project>

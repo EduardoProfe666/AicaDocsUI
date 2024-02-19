@@ -1,0 +1,216 @@
+@page
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model Index
+
+@{
+    ViewData["Title"] = "Documentos";
+    var currentUrl = HttpContext.Request.Path;
+    var previousPag = Model.PageNumber - 1;
+    var nextPag = Model.PageNumber + 1;
+    if (previousPag == 0)
+        previousPag = Model.PageNumber;
+    if (nextPag > Model.PageTotal)
+        nextPag = Model.PageNumber;
+    bool showCreated = Model.ShowCreated;
+    bool showEdited = Model.ShowDownload;
+}
+
+<h2 class="card-text md-5">Listado de Documentos</h2>
+
+<h4 class="card-text md-3">Criterios de Búsqueda</h4>
+
+<form>
+    <div class="row mb-4">
+        <div class="col-md mb-1">
+            <div class="form-floating">
+                <select id="floatingSelectFormat" class=" form-select me-2" asp-for="ProcessId" asp-items="Model.ListProcessId">
+                    <option selected>Seleccione un proceso</option>
+                </select>
+                <label for="floatingSelectFormat">Proceso de Documento</label>
+            </div>
+        </div>
+        <div class="col-md mb-1">
+            <div class="form-floating">
+                <select id="floatingSelectFormat1" class=" form-select me-2" asp-for="TypeId" asp-items="Model.ListTypeId">
+                    <option selected>Seleccione un tipo</option>
+                </select>
+                <label for="floatingSelectFormat1">Tipo de Documento</label>
+            </div>
+        </div>
+        <div class="col-md mb-1">
+            <div class="form-floating">
+                <select id="floatingSelectFormat2" class=" form-select me-2" asp-for="ScopeId" asp-items="Model.ListScopeId">
+                    <option selected>Seleccione un alcance</option>
+                </select>
+                <label for="floatingSelectFormat2">Alcance de Documento</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-md mb-1">
+            <div class="form-floating">
+                <input id="floatingSelectDDownload" type="datetime-local" class=" form-control me-2" asp-for="DateOfValidity"/>
+                <label for="floatingSelectDDownload">Fecha de Vigencia</label>
+            </div>
+        </div>
+        <div class="col-md mb-1">
+            <div class="form-floating">
+                <select id="floatingSelectDComp" class=" form-select me-2" asp-for="DateComparator" asp-items="Model.ListDateComparator">
+                    <option selected>Seleccione un comparador de fecha</option>
+                </select>
+                <label for="floatingSelectDComp">Comparador de Fecha</label>
+            </div>
+        </div>
+        <div class="col-md mb-1">
+            <div class="form-floating">
+                <input id="floatingSelectDocument" type="number" class="form-control me-2" asp-for="Pages"/>
+                <label for="floatingSelectDocument">Cantidad de Páginas</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-md mb-1">
+            <div class="form-floating">
+                <input id="floatingSelectUsername2" type="text" class="form-control me-2" asp-for="Title"/>
+                <label for="floatingSelectUsername2">Título</label>
+            </div>
+        </div>
+        <div class="col-md mb-1">
+            <div class="form-floating">
+                <input id="floatingSelectUsername3" type="text" class="form-control me-2" asp-for="Code"/>
+                <label for="floatingSelectUsername3">Código</label>
+            </div>
+        </div>
+        <div class="col-md mb-1">
+            <div class="form-floating">
+                <input id="floatingSelectDocument4" type="number" class="form-control me-2" asp-for="Edition"/>
+                <label for="floatingSelectDocument4">Edición</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-md text-start">
+            <a href="/Documents/Created" class="btn btn-primary text-start">
+                <i class="fas fa-plus"> Agregar Documento</i>
+            </a>
+        </div>
+        <div class="col-md text-end">
+            <a href="/Documents" class="btn btn-outline-warning text-end">
+                <i class="fas fa-recycle"> Resetear</i>
+            </a>
+            <button type="submit" class="btn btn-outline-primary">
+                <i class="fas fa-search"> Buscar</i>
+            </button>
+        </div>
+    </div>
+</form>
+
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Título</th>
+        <th>Código</th>
+        <th>Edición</th>
+        <th>Fecha de Vigencia</th>
+        <th>Acción</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.Documents)
+    {
+        var date = item.DateOfValidity.ToString("dd/MM/yyyy hh:mm:ss tt");
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Edition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => date)
+            </td>
+
+
+            <td class="white-space:nowrap">
+                <a class="btn btn-outline-info btn-sm" asp-page="./Details" asp-route-id="@item.Id">
+                    <i class="fas fa-book"></i>
+                </a>
+                <a class="btn btn-outline-success btn-sm" asp-page="./Download" asp-route-id="@item.Id">
+                    <i class="fas fa-download"></i>
+                </a>
+            </td>
+        </tr>
+    }
+
+    </tbody>
+
+
+</table>
+<nav>
+    <ul class="pagination">
+        <li class="page-item">
+            <a class="page-link" href="@(currentUrl)?PageNumber=@(previousPag)&Code=@Model.Code&DateOfValidity=@Model.DateOfValidity&Title=@Model.Title&Edition=@Model.Edition&Pages=@Model.Pages&TypeId=@Model.TypeId&ProcessId=@Model.ProcessId&ScopeId=@Model.ScopeId&SortBy=@Model.SortBy&SortOrder=@Model.SortOrder&DateComparator=@Model.DateComparator" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        @for (int i = 1; i <= Model.PageTotal; i++)
+        {
+            string activeClass = "";
+            if (i == Model.PageNumber) activeClass = "active";
+            <li class="page-item @activeClass" aria-current="@(i == Model.PageNumber ? "page" : "false")">
+                <a class="page-link" href="@(currentUrl)?PageNumber=@(i)&Code=@Model.Code&DateOfValidity=@Model.DateOfValidity&Title=@Model.Title&Edition=@Model.Edition&Pages=@Model.Pages&TypeId=@Model.TypeId&ProcessId=@Model.ProcessId&ScopeId=@Model.ScopeId&SortBy=@Model.SortBy&SortOrder=@Model.SortOrder&DateComparator=@Model.DateComparator">@i</a>
+            </li>
+        }
+        <li class="page-item">
+            <a class="page-link" href="@(currentUrl)?PageNumber=@(nextPag)&Code=@Model.Code&DateOfValidity=@Model.DateOfValidity&Title=@Model.Title&Edition=@Model.Edition&Pages=@Model.Pages&TypeId=@Model.TypeId&ProcessId=@Model.ProcessId&ScopeId=@Model.ScopeId&SortBy=@Model.SortBy&SortOrder=@Model.SortOrder&DateComparator=@Model.DateComparator" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+
+</nav>
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index:  9999;">
+    <!-- Primer toast -->
+    <div id="liveToast1" class="toast bg-success" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header bg-success">
+            <strong class="me-auto text-light">Documento creado con éxito</strong>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
+
+    <!-- Segundo toast -->
+    <div id="liveToast2" class="toast bg-success" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header bg-success">
+            <strong class="me-auto text-light">Documento descargado con éxito</strong>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
+</div>
+
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    let shouldShowCreated = @(showCreated.ToString().ToLower());
+    let shouldShowEdited = @(showEdited.ToString().ToLower());
+    
+    window.onload = (event) => {
+        let liveToast1 = document.getElementById('liveToast1');
+        let liveToast2 = document.getElementById('liveToast2');
+
+        let toastInstance1 = new bootstrap.Toast(liveToast1);
+        let toastInstance2 = new bootstrap.Toast(liveToast2);
+
+        if (shouldShowCreated)
+            toastInstance1.show();
+        if (shouldShowEdited)
+            toastInstance2.show();
+    };
+</script>
