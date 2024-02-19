@@ -39,6 +39,7 @@ public class DownloadRepository: IDownloadRepository
             return pages!.Data;
         }
 
+        Console.WriteLine(await response.Content.ReadAsStringAsync());
         return null;
     }
 }

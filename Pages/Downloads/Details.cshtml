@@ -1,0 +1,52 @@
+@page
+@using AicaDocsUI.Extensions
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model AicaDocsUI.Pages.Downloads.Details
+
+@{
+    ViewData["Title"] = "Detalles de Descarga";
+    var description = Model.Download.Format.GetDescription();
+    var date = Model.Download.DateOfDownload.ToString("dd/MM/yyyy hh:mm:ss tt");
+}
+
+<h1>Detalles de Descarga</h1>
+
+<div>
+    <h4>Info de Descarga</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.Raw("Formato")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.Raw(description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Raw("Fecha de Descarga")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.Raw(date)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Raw("Usuario")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Download.Username)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Raw("Id de Documento")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Download.DocumentId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Raw("Razón de Descarga")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Reason)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-outline-primary" asp-page="./Index">Atrás</a>
+</div>
