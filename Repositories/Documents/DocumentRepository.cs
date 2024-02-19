@@ -36,6 +36,7 @@ public class DocumentRepository : IDocumentRepository
     {
         var content = new StringContent(JsonSerializer.Serialize(filter), Encoding.UTF8, "application/json");
         var response = await _httpClient.PostAsync($"{_rootProvider.RootPage}/document/filter/", content);
+        Console.WriteLine(await response.Content.ReadAsStringAsync());
         if (response.IsSuccessStatusCode)
         {
             var pages = await response.Content.ReadFromJsonAsync<ApiResponse<FilterResponse<Document>>>();

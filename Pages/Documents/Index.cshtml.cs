@@ -114,6 +114,8 @@ public class Index : PageModel
             });
         ScopeDoc = dataScope!;
 
+        Filter.DateOfValidity = Filter.DateOfValidity?.UtcDateTime;
+
         var data1 = (await _documentRepository.FilterDocuments(Filter))!;
         Documents = data1!.Data;
         PageTotal = data1.TotalPages;
