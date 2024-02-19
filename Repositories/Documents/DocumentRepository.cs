@@ -47,6 +47,7 @@ public class DocumentRepository : IDocumentRepository
     {
         var content = new StringContent(JsonSerializer.Serialize(documentCreatedDto), Encoding.UTF8, "multipart/form-data");
         var response = await _httpClient.PostAsync($"{_rootProvider.RootPage}/document/", content);
+        Console.WriteLine(await response.Content.ReadAsStringAsync());
         return response.IsSuccessStatusCode;
     }
 }
