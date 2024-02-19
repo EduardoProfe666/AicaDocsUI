@@ -1,12 +1,10 @@
 using AicaDocsApi.Dto.Downloads.Filter;
 using AicaDocsApi.Dto.FilterCommons;
-using AicaDocsApi.Dto.PaginationCommons;
 using AicaDocsUI.Dto.Downloads.Filter;
 using AicaDocsUI.Extensions;
 using AicaDocsUI.Models;
 using AicaDocsUI.Repositories.Downloads;
 using AicaDocsUI.Repositories.Nomenclators;
-using AicaDocsUI.Repositories.Utils;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -15,32 +13,22 @@ namespace AicaDocsUI.Pages.Downloads;
 
 public class Index : PageModel
 {
-    private readonly IPaginationRepository _paginationRepository;
     private readonly IDownloadRepository _downloadRepository;
     private readonly INomenclatorRepository _nomenclatorRepository;
 
     public int PageTotal { get; set; }
 
     public FilterDownloadDto Filter { get; set; }
-    
-    [BindProperty]
-    public Format? Format { get; set; }
-    [BindProperty]
-    public DateTimeOffset? DateDownload { get; set; }
-    [BindProperty]
-    public string? Username { get; set; }
-    [BindProperty]
-    public int? DocumentId { get; set; }
-    [BindProperty]
-    public int? ReasonId { get; set; }
-    [BindProperty]
-    public SortByDownload SortBy { get; set; }
-    [BindProperty]
-    public SortOrder SortOrder { get; set; }
-    [BindProperty]
-    public DateComparator DateComparator { get; set; }
-    [BindProperty]
-    public int PageNumber { get; set; }
+
+    [BindProperty] public Format? Format { get; set; }
+    [BindProperty] public DateTimeOffset? DateDownload { get; set; }
+    [BindProperty] public string? Username { get; set; }
+    [BindProperty] public int? DocumentId { get; set; }
+    [BindProperty] public int? ReasonId { get; set; }
+    [BindProperty] public SortByDownload SortBy { get; set; }
+    [BindProperty] public SortOrder SortOrder { get; set; }
+    [BindProperty] public DateComparator DateComparator { get; set; }
+    [BindProperty] public int PageNumber { get; set; }
 
     public IEnumerable<SelectListItem> ListFormat { get; set; } = new List<SelectListItem>();
     public IEnumerable<SelectListItem> ListDateComparator { get; set; } = new List<SelectListItem>();
@@ -48,10 +36,9 @@ public class Index : PageModel
 
     public IEnumerable<Nomenclator> Reasons { get; set; }
 
-    public Index(IPaginationRepository repository, IDownloadRepository downloadRepository,
+    public Index(IDownloadRepository downloadRepository,
         INomenclatorRepository nomenclatorRepository)
     {
-        _paginationRepository = repository;
         _downloadRepository = downloadRepository;
         _nomenclatorRepository = nomenclatorRepository;
     }
@@ -66,7 +53,8 @@ public class Index : PageModel
         {
             Format = format, Username = username, DateDownload = dateDownload, DocumentId = documentId,
             ReasonId = reasonId, DateComparator = DateComparator.Equal, SortOrder = SortOrder.Asc,
-            SortBy = SortByDownload.DateDownload, PaginationParams = new PaginationParams() { PageSize = 6, PageNumber = 1 }
+            SortBy = SortByDownload.DateDownload,
+            PaginationParams = new PaginationParams() { PageSize = 5, PageNumber = 1 }
         };
 
         if (sortBy != null)
@@ -79,9 +67,6 @@ public class Index : PageModel
             Filter.PaginationParams.PageNumber = pageNumber.Value;
         if (Filter.DateDownload != null)
             Filter.DateDownload = Filter.DateDownload.Value.UtcDateTime;
-
-        PageTotal = (await _paginationRepository.GetCountPages((int)TypeOfDataSet.Downloads,
-            Filter.PaginationParams.PageSize))!.Value;
 
         ListFormat = Enum.GetValues(typeof(Format))
             .Cast<Format>()
@@ -108,7 +93,10 @@ public class Index : PageModel
                 Value = v.Id.ToString()
             });
         Reasons = data!;
-        Downloads = (await _downloadRepository.GetDownloadsFilter(Filter))!;
+
+        var data1 = (await _downloadRepository.GetDownloadsFilter(Filter))!;
+        Downloads = data1!.Data;
+        PageTotal = data1.TotalPages;
 
         Format = Filter.Format;
         DateDownload = Filter.DateDownload;
