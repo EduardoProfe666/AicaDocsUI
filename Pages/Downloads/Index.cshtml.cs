@@ -3,6 +3,7 @@ using AicaDocsApi.Dto.FilterCommons;
 using AicaDocsUI.Dto.Downloads.Filter;
 using AicaDocsUI.Extensions;
 using AicaDocsUI.Models;
+using AicaDocsUI.Repositories.Documents;
 using AicaDocsUI.Repositories.Downloads;
 using AicaDocsUI.Repositories.Nomenclators;
 using Microsoft.AspNetCore.Mvc;
@@ -15,6 +16,7 @@ public class Index : PageModel
 {
     private readonly IDownloadRepository _downloadRepository;
     private readonly INomenclatorRepository _nomenclatorRepository;
+    private readonly IDocumentRepository _documentRepository;
 
     public int PageTotal { get; set; }
 
@@ -37,13 +39,14 @@ public class Index : PageModel
     public IEnumerable<Nomenclator> Reasons { get; set; }
 
     public Index(IDownloadRepository downloadRepository,
-        INomenclatorRepository nomenclatorRepository)
+        INomenclatorRepository nomenclatorRepository, IDocumentRepository documentRepository)
     {
         _downloadRepository = downloadRepository;
         _nomenclatorRepository = nomenclatorRepository;
+        _documentRepository = documentRepository;
     }
 
-    public IEnumerable<Download> Downloads { get; set; } = new List<Download>();
+    public List<DownloadDocument> Downloads { get; set; } = new();
 
     public async Task OnGetAsync(Format? format, DateTimeOffset? dateDownload, string? username, int? documentId,
         int? reasonId, SortByDownload? sortBy, SortOrder? sortOrder, DateComparator? dateComparator, int? pageNumber)
@@ -95,7 +98,7 @@ public class Index : PageModel
         Reasons = data!;
 
         var data1 = (await _downloadRepository.GetDownloadsFilter(Filter))!;
-        Downloads = data1!.Data;
+        var downloads = data1!.Data;
         PageTotal = data1.TotalPages;
 
         Format = Filter.Format;
@@ -107,5 +110,25 @@ public class Index : PageModel
         SortOrder = Filter.SortOrder;
         DateComparator = Filter.DateComparator;
         PageNumber = Filter.PaginationParams.PageNumber;
+        foreach (var download in downloads)
+        {
+            var doc = (await _documentRepository.GetDocumentById(download.DocumentId))!;
+            Downloads.Add(new DownloadDocument
+            {
+                Id= download.Id,
+                CodeEdition = $"{doc.Code}-{doc.Edition}",
+                Format = download.Format,
+                Username = download.Username,
+                DocumentId = download.DocumentId,
+                ReasonId = download.ReasonId,
+                DateOfDownload = download.DateOfDownload
+            });
+        }
     }
+
+    public class DownloadDocument: Download
+    {
+        public required string CodeEdition { get; set; }
+    }
+    
 }
