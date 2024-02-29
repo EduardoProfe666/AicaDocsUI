@@ -1,29 +1,21 @@
 @page
-@model AicaDocsUI.Pages.Nomenclators.Index
+@model AicaDocsUI.Pages.Reason.Index
 
 @{
-    ViewData["Title"] = "Nomencladores";
+    ViewData["Title"] = "Razón de descarga";
     bool showCreated = Model.ShowCreated;
     bool showEdited = Model.ShowEdited;
 }
 
-<h2 class="card-text md-5">Listado de Nomencladores</h2>
+<h2 class="card-text md-5">Listado de Razones de descarga</h2>
 
 <div class="row mb-4">
     <div class="col">
-        <a class="btn btn-outline-primary " href="/Nomenclators/Create">
+        <a class="btn btn-outline-primary " href="/Reason/Create">
             <i class="fas fa-plus"></i>
-            Agregar Nomenclador
+            Agregar Alcance
         </a>
 
-    </div>
-    <div class="col">
-        <form class="d-flex">
-            <select title="Tipo de Nomenclador" class=" form-select me-2" asp-for="ValueNomenclator" asp-items="Model.ListItems">
-            </select>
-            <button class="btn btn-outline-primary"> <i class="fas fa-search"></i></button>
-
-        </form>
     </div>
 </div>
 
@@ -60,7 +52,7 @@
     <!-- Primer toast -->
     <div id="liveToast1" class="toast bg-success" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header bg-success">
-            <strong class="me-auto text-light">Tipo de Nomenclador creado con éxito</strong>
+            <strong class="me-auto text-light">Razón de descarga creado con éxito</strong>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
     </div>
@@ -68,13 +60,12 @@
     <!-- Segundo toast -->
     <div id="liveToast2" class="toast bg-success" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header bg-success">
-            <strong class="me-auto text-light">Tipo de Nomenclador actualizado con éxito</strong>
+            <strong class="me-auto text-light">Razón de descarga actualizado con éxito</strong>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
     </div>
 </div>
 
-<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script>
     let shouldShowCreated = @(showCreated.ToString().ToLower());
     let shouldShowEdited = @(showEdited.ToString().ToLower());

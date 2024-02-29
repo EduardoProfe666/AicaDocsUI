@@ -6,12 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace AicaDocsUI.Pages.Nomenclators;
+namespace AicaDocsUI.Pages.Process;
 
 public class Create : PageModel
 {
     private readonly INomenclatorRepository _repository;
-    public IEnumerable<SelectListItem> ListItems { get; set; }
 
     [BindProperty] public NomenclatorCreatedDto NomenclatorDto { get; set; }
 
@@ -22,37 +21,22 @@ public class Create : PageModel
 
     public void OnGet()
     {
-        ListItems = Enum.GetValues(typeof(TypeOfNomenclator))
-            .Cast<TypeOfNomenclator>()
-            .Select(v => new SelectListItem
-            {
-                Text = v.GetDescription(),
-                Value = v.ToString()
-            });
+        NomenclatorDto = new() { Name = "", Type = TypeOfNomenclator.ProcessOfDocument };
     }
 
     public async Task OnPostAsync()
     {
         if (ModelState.IsValid)
         {
+            NomenclatorDto.Type = TypeOfNomenclator.ProcessOfDocument;
             await _repository.CreateNomenclatorAsync(NomenclatorDto);
-            TempData["Created Nomenclator"] = true;
-            Response.Redirect("/Nomenclators/Index");
+            TempData["Created Process"] = true;
+            Response.Redirect("/Process/Index");
 
             //clear the Form
             NomenclatorDto.Name = "";
             NomenclatorDto.Type = TypeOfNomenclator.ProcessOfDocument;
             ModelState.Clear();
-        }
-        else
-        {
-            ListItems = Enum.GetValues(typeof(TypeOfNomenclator))
-                .Cast<TypeOfNomenclator>()
-                .Select(v => new SelectListItem
-                {
-                    Text = v.GetDescription(),
-                    Value = v.ToString()
-                });
         }
     }
     

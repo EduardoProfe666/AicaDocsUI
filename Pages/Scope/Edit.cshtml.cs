@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace AicaDocsUI.Pages.Nomenclators;
+namespace AicaDocsUI.Pages.Scope;
 
 public class Edit : PageModel
 {
@@ -21,10 +21,10 @@ public class Edit : PageModel
         this._repository = repository;
     }
 
-    public async Task OnGetAsync(TypeOfNomenclator typeOfNomenclator, int id)
+    public async Task OnGetAsync(int id)
     {
         Id11 = new IntegerWrapperValue{Id = id};
-        var data = await _repository.GetNomenclatorAsync((int)typeOfNomenclator, id);
+        var data = await _repository.GetNomenclatorAsync((int)TypeOfNomenclator.ScopeOfDocument, id);
         Name = data.Name;
         NomenclatorDto = new NomenclatorPatchDto() { Name = Name };
     }
@@ -34,8 +34,8 @@ public class Edit : PageModel
         if (ModelState.IsValid)
         {
             await _repository.PatchNomenclatorAsync(Id11.Id, NomenclatorDto);
-            TempData["Edited Nomenclator"] = true;
-            Response.Redirect("/Nomenclators/Index");
+            TempData["Edited Scope"] = true;
+            Response.Redirect("/Scope/Index");
             //clear the Form
             NomenclatorDto.Name = "";
             ModelState.Clear();
