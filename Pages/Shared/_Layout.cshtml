@@ -1,4 +1,14 @@
 ﻿<!DOCTYPE html>
+@{
+    ViewContext.HttpContext.Response.Headers.Add("Vary", "HX-Boosted");
+}
+
+@if (ViewContext.HttpContext.Request.Headers["HX-Boosted"].Contains("true"))
+{
+    <title>@ViewData["Title"] - AicaDocs UI</title>
+    <text>@RenderBody()</text>
+}
+else{
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
@@ -19,7 +29,7 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
     <link rel="stylesheet" href="~/AicaDocsUI.styles.css" asp-append-version="true"/>
 </head>
-<body>
+<body hx-boost="true" hx-target="main">
 <header>
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
         <div class="container">
@@ -83,6 +93,9 @@
     </div>
 </footer>
 
+<script src="~/lib/htmx.min.js"></script>
+
 @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+}

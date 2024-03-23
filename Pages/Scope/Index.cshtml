@@ -50,6 +50,7 @@
 
 <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index:  9999;">
     <!-- Primer toast -->
+    
     <div id="liveToast1" class="toast bg-success" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header bg-success">
             <strong class="me-auto text-light">Alcance de documento creado con éxito</strong>
@@ -67,8 +68,8 @@
 </div>
 
 <script>
-    let shouldShowCreated = @(showCreated.ToString().ToLower());
-    let shouldShowEdited = @(showEdited.ToString().ToLower());
+    var shouldShowCreated = @(showCreated.ToString().ToLower());
+    var shouldShowEdited = @(showEdited.ToString().ToLower());
     
     window.onload = (event) => {
         let liveToast1 = document.getElementById('liveToast1');
