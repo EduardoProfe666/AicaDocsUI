@@ -10,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddHttpClient();
-builder.Services.AddSingleton(new RootProvider { RootPage = @"https://aica-docs.onrender.com" });
+builder.Services.AddSingleton(new RootProvider { RootPage = @"https://aicadocsapi.onrender.com" });
 builder.Services.AddScoped<INomenclatorRepository, NomenclatorRepository>();
 builder.Services.AddScoped<IDownloadRepository, DownloadRepository>();
 builder.Services.AddScoped<IDocumentRepository, DocumentRepository>();
