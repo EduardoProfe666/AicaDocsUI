@@ -55,7 +55,7 @@ public class Index : PageModel
     {
         Filter = new()
         {
-            Format = format, Username = username, DateDownload = dateDownload, DocumentId = documentId,
+            Format = format, UserEmail = username, DateDownload = dateDownload, DocumentId = documentId,
             ReasonId = reasonId, DateComparator = DateComparator.Equal, SortOrder = SortOrder.Asc,
             SortBy = SortByDownload.DateDownload,
             PaginationParams = new PaginationParams() { PageSize = 5, PageNumber = 1 }
@@ -104,7 +104,7 @@ public class Index : PageModel
 
         Format = Filter.Format;
         DateDownload = Filter.DateDownload;
-        Username = Filter.Username;
+        Username = Filter.UserEmail;
         DocumentId = Filter.DocumentId;
         ReasonId = Filter.ReasonId;
         SortBy = Filter.SortBy;
@@ -119,7 +119,7 @@ public class Index : PageModel
                 Id= download.Id,
                 CodeEdition = $"{doc.Code}-{doc.Edition}",
                 Format = download.Format,
-                Username = download.Username,
+                UserEmail = download.UserEmail,
                 DocumentId = download.DocumentId,
                 ReasonId = download.ReasonId,
                 DateOfDownload = download.DateOfDownload
