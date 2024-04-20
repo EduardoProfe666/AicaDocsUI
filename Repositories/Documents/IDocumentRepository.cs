@@ -7,7 +7,7 @@ namespace AicaDocsUI.Repositories.Documents;
 
 public interface IDocumentRepository
 {
-    Task<Document?> GetDocumentById(int id);
-    Task<FilterResponse<Document>?> FilterDocuments(FilterDocumentDto filter);
+    Task<DocumentDto?> GetDocumentById(int id);
+    Task<FilterResponse<DocumentDto>?> FilterDocuments(FilterDocumentDto filter);
     Task<bool> CreateDocument(DocumentCreatedDto documentCreatedDto);
 }

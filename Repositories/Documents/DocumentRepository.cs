@@ -5,8 +5,10 @@ using AicaDocsApi.Dto.Documents.Filter;
 using AicaDocsApi.Dto.FilterCommons;
 using AicaDocsUI.Dto.Documents;
 using AicaDocsUI.Models;
+using AicaDocsUI.Repositories.Auth;
 using AicaDocsUI.Responses;
-using AicaDocsUI.Utils;
+using AicaDocsUI.Utils.RootProviderServices;
+using AicaDocsUI.Utils.TokenServices;
 
 namespace AicaDocsUI.Repositories.Documents;
 
@@ -14,32 +16,45 @@ public class DocumentRepository : IDocumentRepository
 {
     private readonly HttpClient _httpClient;
     private readonly RootProvider _rootProvider;
+    private readonly ITokenManager _tm;
+    private readonly IAuthRepository _auth;
 
-    public DocumentRepository(HttpClient httpClient, RootProvider rootProvider)
+    public DocumentRepository(HttpClient httpClient, ITokenManager tm, IAuthRepository auth, RootProvider rootProvider)
     {
         _httpClient = httpClient;
         _rootProvider = rootProvider;
+        _tm = tm;
+        _auth = auth;
     }
-    public async Task<Document?> GetDocumentById(int id)
+    public async Task<DocumentDto?> GetDocumentById(int id)
     {
-        var response = await _httpClient.GetAsync($"{_rootProvider.RootPage}/document/{id}/");
+        if (!await _auth.IsLoginAdvance()) return null;
+        var tk = _tm.GetAccessToken();
+            
+        _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tk);
+        var response = await _httpClient.GetAsync($"{_rootProvider.RootApi}/document/{id}/");
         if (response.IsSuccessStatusCode)
         {
-            var pages = await response.Content.ReadFromJsonAsync<ApiResponse<Document>>();
+            var pages = await response.Content.ReadFromJsonAsync<ApiResponse<DocumentDto>>();
             return pages!.Data;
         }
 
         return null;
+
     }
 
-    public async Task<FilterResponse<Document>?> FilterDocuments(FilterDocumentDto filter)
+    public async Task<FilterResponse<DocumentDto>?> FilterDocuments(FilterDocumentDto filter)
     {
+        if (!await _auth.IsLoginAdvance()) return null;
+        var tk = _tm.GetAccessToken();
+            
+        _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tk);
         var content = new StringContent(JsonSerializer.Serialize(filter), Encoding.UTF8, "application/json");
-        var response = await _httpClient.PostAsync($"{_rootProvider.RootPage}/document/filter/", content);
+        var response = await _httpClient.PostAsync($"{_rootProvider.RootApi}/document/filter/", content);
         Console.WriteLine(await response.Content.ReadAsStringAsync());
         if (response.IsSuccessStatusCode)
         {
-            var pages = await response.Content.ReadFromJsonAsync<ApiResponse<FilterResponse<Document>>>();
+            var pages = await response.Content.ReadFromJsonAsync<ApiResponse<FilterResponse<DocumentDto>>>();
             return pages!.Data;
         }
         return null;
@@ -47,6 +62,11 @@ public class DocumentRepository : IDocumentRepository
 
     public async Task<bool> CreateDocument(DocumentCreatedDto documentCreatedDto)
     {
+        if (!await _auth.IsLoginAdvance()) return false;
+        var tk = _tm.GetAccessToken();
+            
+        _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tk);
+        
         using var content = new MultipartFormDataContent();
         content.Add(new StringContent(documentCreatedDto.Title), "title");
         content.Add(new StringContent(documentCreatedDto.Code), "code");
@@ -65,7 +85,7 @@ public class DocumentRepository : IDocumentRepository
         content.Add(pdfStreamContent, "pdf", documentCreatedDto.Pdf.FileName);
         content.Add(wordStreamContent, "word", documentCreatedDto.Word.FileName);
         
-        var response = await _httpClient.PostAsync($"{_rootProvider.RootPage}/document/", content);
+        var response = await _httpClient.PostAsync($"{_rootProvider.RootApi}/document/", content);
         Console.WriteLine(await response.Content.ReadAsStringAsync());
         return response.IsSuccessStatusCode;
     }

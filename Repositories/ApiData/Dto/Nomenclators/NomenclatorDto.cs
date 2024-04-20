@@ -1,6 +1,6 @@
 namespace AicaDocsUI.Models;
 
-public class Nomenclator
+public class NomenclatorDto
 {
     public int Id { get; set; }
     public required string Name { get; set; }

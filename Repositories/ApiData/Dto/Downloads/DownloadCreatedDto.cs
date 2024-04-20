@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using AicaDocsUI.DataModels;
 using AicaDocsUI.Models;
 using Microsoft.Extensions.Options;
 

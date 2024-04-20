@@ -40,9 +40,9 @@ public class Index : PageModel
     public IEnumerable<SelectListItem> ListProcessId { get; set; } = new List<SelectListItem>();
     public IEnumerable<SelectListItem> ListScopeId { get; set; } = new List<SelectListItem>();
 
-    public IEnumerable<Nomenclator> TypesDoc { get; set; }
-    public IEnumerable<Nomenclator> ProcessDoc { get; set; }
-    public IEnumerable<Nomenclator> ScopeDoc { get; set; }
+    public IEnumerable<NomenclatorDto> TypesDoc { get; set; }
+    public IEnumerable<NomenclatorDto> ProcessDoc { get; set; }
+    public IEnumerable<NomenclatorDto> ScopeDoc { get; set; }
 
     public Index(INomenclatorRepository nomenclatorRepository,
         IDocumentRepository documentRepository)
@@ -51,7 +51,7 @@ public class Index : PageModel
         _documentRepository = documentRepository;
     }
 
-    public IEnumerable<Document> Documents { get; set; } = new List<Document>();
+    public IEnumerable<DocumentDto> Documents { get; set; } = new List<DocumentDto>();
 
     public async Task OnGetAsync(string? code, DateTimeOffset? dateOfValidity, string? title, int? edition, int? pages,
         int? typeId,

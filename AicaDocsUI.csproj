@@ -28,4 +28,8 @@
       <AdditionalFiles Include="Pages\Scope\Index.cshtml" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Repositories\ApiData\" />
+    </ItemGroup>
+
 </Project>
