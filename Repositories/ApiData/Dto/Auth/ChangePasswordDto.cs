@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 using AicaDocsUI.Validations;
 
 namespace AicaDocsUI.Models.Auth;

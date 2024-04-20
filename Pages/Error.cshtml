@@ -1,15 +1,30 @@
 ﻿@page
 @model ErrorModel
 @{
-    ViewData["Title"] = "Error";
+    var statusCode = Model.Code;
+
+    ViewData["Title"] = statusCode switch
+    {
+        404 => "Página no encontrada",
+        401 => "Acceso Denegado",
+        _ => "Error"
+    };
 }
 
-<h1 class="text-danger">Error ☹</h1>
-<h3 class="text-danger">Un error ha ocurrido mientras se procesaba su petición... Inténtelo de nuevo más tarde</h3>
+<h1 class="text-danger">
+    @(statusCode switch
+    {
+        404 => "Página no encontrada",
+        401 => "Acceso Denegado",
+        _ => "Error Desconocido"
+    })
+</h1>
+<h3 class="text-danger">
+    @(statusCode switch
+    {
+        404 => "Lo sentimos, la página que estás buscando no existe.",
+        401 => "Lo sentimos, no tienes permiso para acceder a esta página.",
+        _ => "Lo sentimos, ha ocurrido un error desconocido."
+    })
+</h3>
 
-@if (Model.ShowRequestId)
-{
-    <p>
-        <strong>Request ID:</strong> <code>@Model.RequestId</code>
-    </p>
-}

@@ -10,7 +10,7 @@ public class PdfValidationAttribute : ValidationAttribute
         {
             if (file.ContentType!="application/pdf")
             {
-                return new ValidationResult("El fichero debe ser un .pdf");
+                return new ValidationResult(ErrorMessage ?? "El fichero debe ser un .pdf");
             }
         }
         return ValidationResult.Success;
