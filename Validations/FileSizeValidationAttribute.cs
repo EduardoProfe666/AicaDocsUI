@@ -10,7 +10,7 @@ public class FileSizeValidationAttribute : ValidationAttribute
         {
             if (file.Length > 20 * 1024 * 1024) 
             {
-                return new ValidationResult("El fichero debe tener un tamaño menor o igual que 20 Mb");
+                return new ValidationResult(ErrorMessage ?? "El fichero debe tener un tamaño menor o igual que 20 Mb");
             }
         }
         return ValidationResult.Success;

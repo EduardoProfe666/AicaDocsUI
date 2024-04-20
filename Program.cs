@@ -34,6 +34,7 @@ builder.Services.AddControllersWithViews(options =>
 
 var app = builder.Build();
 
+app.UseStatusCodePagesWithRedirects("/Error?code={0}");
 app.UseExceptionHandler("/Error");
 app.UseHsts();
 

@@ -1,4 +1,6 @@
-﻿namespace AicaDocsUI.Models.Auth;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace AicaDocsUI.Models.Auth;
 
 public class ForgotPasswordDto
 {

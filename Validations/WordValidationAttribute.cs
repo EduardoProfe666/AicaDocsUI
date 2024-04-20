@@ -10,7 +10,7 @@ public class WordValidationAttribute: ValidationAttribute
         {
             if (file.ContentType!="application/vnd.openxmlformats-officedocument.wordprocessingml.document")
             {
-                return new ValidationResult("El fichero debe ser un .docx");
+                return new ValidationResult(ErrorMessage ?? "El fichero debe ser un .docx");
             }
         }
         return ValidationResult.Success;
