@@ -17,7 +17,7 @@ public class Index : PageModel
         this._repository = repository;
     }
 
-    public IEnumerable<Nomenclator> Nomenclators { get; set; } = new List<Nomenclator>();
+    public IEnumerable<NomenclatorDto> Nomenclators { get; set; } = new List<NomenclatorDto>();
 
     public async Task OnGetAsync()
     {

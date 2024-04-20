@@ -1,18 +1,33 @@
+using AicaDocsUI.Models.Auth;
+using AicaDocsUI.Repositories.Auth;
+using AicaDocsUI.Repositories.Documents;
+using AicaDocsUI.Repositories.Reports;
+using AicaDocsUI.Repositories.Users;
+using AicaDocsUI.Utils.RootProviderServices;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace AicaDocsUI.Pages;
 
 public class IndexModel : PageModel
 {
-    private readonly ILogger<IndexModel> _logger;
+    private readonly IAuthRepository _auth;
+    private readonly IReportRepository _docs;
+    private readonly RootProvider _rootProvider;
 
-    public IndexModel(ILogger<IndexModel> logger)
+    public string AicaDocsApi { get; set; }
+
+    public IndexModel(IAuthRepository auth, IReportRepository docs, RootProvider rootProvider)
     {
-        _logger = logger;
+        _auth = auth;
+        _docs = docs;
+        _rootProvider = rootProvider;
+        AicaDocsApi = _rootProvider.RootApi;
     }
 
-    public void OnGet()
+    public async Task OnGet()
     {
-    }
+        var b = await _auth.LoginAdvance(new LoginRequestDto() { Email = "aicadocsadmin@admin.cu", Password = "AicaDocs_Admin1!" });
 
+        Console.WriteLine(b);
+    }
 }

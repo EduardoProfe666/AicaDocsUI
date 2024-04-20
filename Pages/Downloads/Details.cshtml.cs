@@ -11,7 +11,7 @@ public class Details : PageModel
     private readonly IDownloadRepository _downloadRepository;
     private readonly INomenclatorRepository _nomenclatorRepository;
     private readonly IDocumentRepository _documentRepository;
-    public Download Download { get; set; }
+    public DownloadDto DownloadDto { get; set; }
     public string Reason { get; set; }
     public string CodeEdition { get; set; }
 
@@ -25,12 +25,12 @@ public class Details : PageModel
 
     public async Task OnGetAsync(int id)
     {
-        Download = (await _downloadRepository.GetDownloadById(id))!;
+        DownloadDto = (await _downloadRepository.GetDownloadById(id))!;
         var data = await _nomenclatorRepository.GetNomenclatorAsync((int)TypeOfNomenclator.ReasonOfDownload,
-            Download.ReasonId);
+            DownloadDto.ReasonId);
         Reason = data!.Name;
 
-        var data1 = await _documentRepository.GetDocumentById(Download.DocumentId);
+        var data1 = await _documentRepository.GetDocumentById(DownloadDto.DocumentId);
         CodeEdition = $"{data1!.Code}-{data1.Edition}";
     }
 }

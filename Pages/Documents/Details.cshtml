@@ -3,7 +3,7 @@
 
 @{
     ViewData["Title"] = "Detalles de Documento";
-    var date = Model.Document.DateOfValidity.ToString("dd/MM/yyyy hh:mm:ss tt");
+    var date = Model.DocumentDto.DateOfValidity.ToString("dd/MM/yyyy hh:mm:ss tt");
 }
 
 <h1>Detalles de Documento</h1>
@@ -16,25 +16,25 @@
             @Html.Raw("Título")
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Document.Title)
+            @Html.DisplayFor(model => model.DocumentDto.Title)
         </dd>
         <dt class="col-sm-2">
             @Html.Raw("Código")
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Document.Code)
+            @Html.DisplayFor(model => model.DocumentDto.Code)
         </dd>
         <dt class="col-sm-2">
             @Html.Raw("Edición")
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Document.Edition)
+            @Html.DisplayFor(model => model.DocumentDto.Edition)
         </dd>
         <dt class="col-sm-2">
             @Html.Raw("Páginas")
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Document.Pages)
+            @Html.DisplayFor(model => model.DocumentDto.Pages)
         </dd>
         <dt class="col-sm-2">
             @Html.Raw("Fecha de Vigencia")

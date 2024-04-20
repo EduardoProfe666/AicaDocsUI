@@ -1,6 +1,6 @@
 namespace AicaDocsUI.Models;
 
-public class Document
+public class DocumentDto
 {
     public int Id { get; set; }
     public required string Code { get; set; }
@@ -12,4 +12,6 @@ public class Document
     public required int TypeId { get; set; }
     public required int ProcessId { get; set; }
     public required int ScopeId { get; set; }
+    
+    public required string UserEmail { get; set; }
 }

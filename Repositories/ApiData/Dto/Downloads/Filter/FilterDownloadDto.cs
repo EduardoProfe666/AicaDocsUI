@@ -1,5 +1,6 @@
 using AicaDocsApi.Dto.Downloads.Filter;
 using AicaDocsApi.Dto.FilterCommons;
+using AicaDocsUI.DataModels;
 using AicaDocsUI.Models;
 
 namespace AicaDocsUI.Dto.Downloads.Filter;

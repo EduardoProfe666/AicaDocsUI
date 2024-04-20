@@ -5,8 +5,8 @@
 
 @{
     ViewData["Title"] = "Detalles de Descarga";
-    var description = Model.Download.Format.GetDescription();
-    var date = Model.Download.DateOfDownload.ToString("dd/MM/yyyy hh:mm:ss tt");
+    var description = Model.DownloadDto.Format.GetDescription();
+    var date = Model.DownloadDto.DateOfDownload.ToString("dd/MM/yyyy hh:mm:ss tt");
 }
 
 <h1>Detalles de Descarga</h1>
@@ -31,7 +31,7 @@
             @Html.Raw("Usuario")
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Download.Username)
+            @Html.DisplayFor(model => model.DownloadDto.Username)
         </dd>
         <dt class="col-sm-2">
             @Html.Raw("Documento")

@@ -1,5 +1,6 @@
 using AicaDocsApi.Dto.Downloads.Filter;
 using AicaDocsApi.Dto.FilterCommons;
+using AicaDocsUI.DataModels;
 using AicaDocsUI.Dto.Downloads.Filter;
 using AicaDocsUI.Extensions;
 using AicaDocsUI.Models;
@@ -36,7 +37,7 @@ public class Index : PageModel
     public IEnumerable<SelectListItem> ListDateComparator { get; set; } = new List<SelectListItem>();
     public IEnumerable<SelectListItem> ListReasonId { get; set; } = new List<SelectListItem>();
 
-    public IEnumerable<Nomenclator> Reasons { get; set; }
+    public IEnumerable<NomenclatorDto> Reasons { get; set; }
 
     public Index(IDownloadRepository downloadRepository,
         INomenclatorRepository nomenclatorRepository, IDocumentRepository documentRepository)
@@ -46,7 +47,7 @@ public class Index : PageModel
         _documentRepository = documentRepository;
     }
 
-    public List<DownloadDocument> Downloads { get; set; } = new();
+    public List<DownloadDtoDocument> Downloads { get; set; } = new();
 
     public async Task OnGetAsync(Format? format, DateTimeOffset? dateDownload, string? username, int? documentId,
         int? reasonId, SortByDownload? sortBy, SortOrder? sortOrder, DateComparator? dateComparator, int? pageNumber)
@@ -113,7 +114,7 @@ public class Index : PageModel
         foreach (var download in downloads)
         {
             var doc = (await _documentRepository.GetDocumentById(download.DocumentId))!;
-            Downloads.Add(new DownloadDocument
+            Downloads.Add(new DownloadDtoDocument
             {
                 Id= download.Id,
                 CodeEdition = $"{doc.Code}-{doc.Edition}",
@@ -126,7 +127,7 @@ public class Index : PageModel
         }
     }
 
-    public class DownloadDocument: Download
+    public class DownloadDtoDocument: DownloadDto
     {
         public required string CodeEdition { get; set; }
     }

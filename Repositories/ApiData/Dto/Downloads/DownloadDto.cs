@@ -1,6 +1,8 @@
+using AicaDocsUI.DataModels;
+
 namespace AicaDocsUI.Models;
 
-public class Download
+public class DownloadDto
 {
     public int Id { get; set; }
     public DateTimeOffset DateOfDownload { get; set; } = DateTimeOffset.UtcNow;
