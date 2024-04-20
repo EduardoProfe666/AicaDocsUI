@@ -1,6 +1,6 @@
-﻿using AicaDocsUI.Models.IdentityCommons;
+﻿using AicaDocsUI.Repositories.ApiData.Dto.IdentityCommons;
 
-namespace AicaDocsUI.Models.Users;
+namespace AicaDocsUI.Repositories.ApiData.Dto.Users;
 
 public class UserDataDto
 {

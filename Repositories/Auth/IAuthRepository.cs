@@ -1,7 +1,6 @@
-using AicaDocsUI.Models.Auth;
-using AicaDocsUI.Models.IdentityCommons;
-using AicaDocsUI.Models.Users;
-using Microsoft.AspNetCore.Authentication.BearerToken;
+using AicaDocsUI.Repositories.ApiData.Dto.Auth;
+using AicaDocsUI.Repositories.ApiData.Dto.IdentityCommons;
+using AicaDocsUI.Repositories.ApiData.Dto.Users;
 using Microsoft.AspNetCore.Identity.Data;
 
 namespace AicaDocsUI.Repositories.Auth;

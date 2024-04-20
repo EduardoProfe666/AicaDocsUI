@@ -1,7 +1,7 @@
-using AicaDocsApi.Dto.Documents.Filter;
-using AicaDocsApi.Dto.FilterCommons;
-using AicaDocsUI.Dto.Documents;
 using AicaDocsUI.Models;
+using AicaDocsUI.Repositories.ApiData.Dto.Documents;
+using AicaDocsUI.Repositories.ApiData.Dto.Documents.Filter;
+using AicaDocsUI.Repositories.ApiData.Dto.FilterCommons;
 
 namespace AicaDocsUI.Repositories.Documents;
 

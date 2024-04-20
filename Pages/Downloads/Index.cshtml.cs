@@ -1,9 +1,9 @@
-using AicaDocsApi.Dto.Downloads.Filter;
-using AicaDocsApi.Dto.FilterCommons;
-using AicaDocsUI.DataModels;
-using AicaDocsUI.Dto.Downloads.Filter;
 using AicaDocsUI.Extensions;
-using AicaDocsUI.Models;
+using AicaDocsUI.Repositories.ApiData.Dto.Commons;
+using AicaDocsUI.Repositories.ApiData.Dto.Downloads;
+using AicaDocsUI.Repositories.ApiData.Dto.Downloads.Filter;
+using AicaDocsUI.Repositories.ApiData.Dto.FilterCommons;
+using AicaDocsUI.Repositories.ApiData.Dto.Nomenclators;
 using AicaDocsUI.Repositories.Documents;
 using AicaDocsUI.Repositories.Downloads;
 using AicaDocsUI.Repositories.Nomenclators;
@@ -99,7 +99,7 @@ public class Index : PageModel
         Reasons = data!;
 
         var data1 = (await _downloadRepository.GetDownloadsFilter(Filter))!;
-        var downloads = data1!.Data;
+        var downloads = data1!.Response;
         PageTotal = data1.TotalPages;
 
         Format = Filter.Format;

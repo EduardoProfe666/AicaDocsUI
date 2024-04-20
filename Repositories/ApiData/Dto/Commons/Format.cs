@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace AicaDocsUI.DataModels;
+namespace AicaDocsUI.Repositories.ApiData.Dto.Commons;
 
 public enum Format : short
 {

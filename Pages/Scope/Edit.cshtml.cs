@@ -1,11 +1,8 @@
-using AicaDocsApi.Dto.Nomenclators;
-using AicaDocsUI.Dto.Nomenclators;
-using AicaDocsUI.Extensions;
-using AicaDocsUI.Models;
+using AicaDocsUI.Repositories.ApiData.Dto.Commons;
+using AicaDocsUI.Repositories.ApiData.Dto.Nomenclators;
 using AicaDocsUI.Repositories.Nomenclators;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace AicaDocsUI.Pages.Scope;
 

@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using AicaDocsUI.Validations;
 
-namespace AicaDocsUI.Models.Auth;
+namespace AicaDocsUI.Repositories.ApiData.Dto.Auth;
 
 public class ChangePasswordDto
 {

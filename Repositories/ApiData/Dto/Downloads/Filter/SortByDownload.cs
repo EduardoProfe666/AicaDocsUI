@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace AicaDocsApi.Dto.Downloads.Filter;
+namespace AicaDocsUI.Repositories.ApiData.Dto.Downloads.Filter;
 
 public enum SortByDownload : short
 {

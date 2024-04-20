@@ -1,12 +1,9 @@
 using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
-using AicaDocsApi.Dto.Nomenclators;
-using AicaDocsUI.Dto.Nomenclators;
-using AicaDocsUI.Models;
+using AicaDocsUI.Repositories.ApiData.Dto.Nomenclators;
+using AicaDocsUI.Repositories.ApiData.Responses;
 using AicaDocsUI.Repositories.Auth;
-using AicaDocsUI.Responses;
-using AicaDocsUI.Utils;
 using AicaDocsUI.Utils.RootProviderServices;
 using AicaDocsUI.Utils.TokenServices;
 
@@ -83,7 +80,7 @@ public class NomenclatorRepository : INomenclatorRepository
         _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tk);
 
         var content = new StringContent(JsonSerializer.Serialize(name), Encoding.UTF8, "application/json");
-        var response = await _httpClient.PatchAsync($"{_rootProvider.RootApi}/nomenclator/{id}/", content);
+        var response = await _httpClient.PutAsync($"{_rootProvider.RootApi}/nomenclator/{id}/", content);
         
         return response.IsSuccessStatusCode;
     }

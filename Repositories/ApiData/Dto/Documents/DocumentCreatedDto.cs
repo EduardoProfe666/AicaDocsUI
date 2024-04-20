@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using AicaDocsUI.Validations;
 
-namespace AicaDocsUI.Dto.Documents;
+namespace AicaDocsUI.Repositories.ApiData.Dto.Documents;
 
 public class DocumentCreatedDto
 {

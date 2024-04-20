@@ -1,5 +1,5 @@
-using AicaDocsUI.Dto.Documents;
-using AicaDocsUI.Models;
+using AicaDocsUI.Repositories.ApiData.Dto.Commons;
+using AicaDocsUI.Repositories.ApiData.Dto.Documents;
 using AicaDocsUI.Repositories.Documents;
 using AicaDocsUI.Repositories.Nomenclators;
 using Microsoft.AspNetCore.Mvc;

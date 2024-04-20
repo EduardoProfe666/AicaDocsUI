@@ -1,4 +1,4 @@
-namespace AicaDocsApi.Dto.FilterCommons;
+namespace AicaDocsUI.Repositories.ApiData.Dto.FilterCommons;
 
 public class PaginationParams
 {

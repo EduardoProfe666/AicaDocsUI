@@ -1,10 +1,9 @@
 using System.Text;
 using System.Text.Json;
-using AicaDocsUI.Models.Auth;
-using AicaDocsUI.Models.IdentityCommons;
-using AicaDocsUI.Models.Users;
-using AicaDocsUI.Responses;
-using AicaDocsUI.Utils;
+using AicaDocsUI.Repositories.ApiData.Dto.Auth;
+using AicaDocsUI.Repositories.ApiData.Dto.IdentityCommons;
+using AicaDocsUI.Repositories.ApiData.Dto.Users;
+using AicaDocsUI.Repositories.ApiData.Responses;
 using AicaDocsUI.Utils.RootProviderServices;
 using Microsoft.AspNetCore.Authentication.BearerToken;
 using Microsoft.AspNetCore.Identity.Data;

@@ -1,4 +1,4 @@
-﻿namespace AicaDocsUI.Models.IdentityCommons;
+﻿namespace AicaDocsUI.Repositories.ApiData.Dto.IdentityCommons;
 
 public enum UserRole
 {

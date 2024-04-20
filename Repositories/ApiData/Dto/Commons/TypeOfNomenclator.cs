@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace AicaDocsUI.Models;
+namespace AicaDocsUI.Repositories.ApiData.Dto.Commons;
 
 public enum TypeOfNomenclator : short
 {

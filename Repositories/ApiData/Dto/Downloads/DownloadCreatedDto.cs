@@ -1,9 +1,8 @@
 using System.ComponentModel.DataAnnotations;
-using AicaDocsUI.DataModels;
-using AicaDocsUI.Models;
+using AicaDocsUI.Repositories.ApiData.Dto.Commons;
 using Microsoft.Extensions.Options;
 
-namespace AicaDocsUI.Dto.Downloads;
+namespace AicaDocsUI.Repositories.ApiData.Dto.Downloads;
 
 public class DownloadCreatedDto
 {

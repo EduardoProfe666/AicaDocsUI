@@ -1,8 +1,6 @@
-using AicaDocsUI.Models.Auth;
+using AicaDocsUI.Repositories.ApiData.Dto.Auth;
 using AicaDocsUI.Repositories.Auth;
-using AicaDocsUI.Repositories.Documents;
 using AicaDocsUI.Repositories.Reports;
-using AicaDocsUI.Repositories.Users;
 using AicaDocsUI.Utils.RootProviderServices;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 

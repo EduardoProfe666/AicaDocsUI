@@ -1,8 +1,8 @@
 using System.ComponentModel.DataAnnotations;
-using AicaDocsUI.Models;
+using AicaDocsUI.Repositories.ApiData.Dto.Commons;
 using Microsoft.Extensions.Options;
 
-namespace AicaDocsUI.Dto.Nomenclators;
+namespace AicaDocsUI.Repositories.ApiData.Dto.Nomenclators;
 
 public class NomenclatorCreatedDto
 {

@@ -1,4 +1,4 @@
-﻿namespace AicaDocsUI.Models.Users.Filter;
+﻿namespace AicaDocsUI.Repositories.ApiData.Dto.Users.Filter;
 
 public enum SortByUser: short
 {
