@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using AicaDocsUI.Models.IdentityCommons;
+using AicaDocsUI.Repositories.ApiData.Dto.IdentityCommons;
 using Microsoft.Extensions.Options;
 
-namespace AicaDocsUI.Models.Auth;
+namespace AicaDocsUI.Repositories.ApiData.Dto.Auth;
 
 public class RegisterRequestDto
 {

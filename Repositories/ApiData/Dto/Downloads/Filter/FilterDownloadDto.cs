@@ -1,9 +1,7 @@
-using AicaDocsApi.Dto.Downloads.Filter;
-using AicaDocsApi.Dto.FilterCommons;
-using AicaDocsUI.DataModels;
-using AicaDocsUI.Models;
+using AicaDocsUI.Repositories.ApiData.Dto.Commons;
+using AicaDocsUI.Repositories.ApiData.Dto.FilterCommons;
 
-namespace AicaDocsUI.Dto.Downloads.Filter;
+namespace AicaDocsUI.Repositories.ApiData.Dto.Downloads.Filter;
 
 public class FilterDownloadDto
 {

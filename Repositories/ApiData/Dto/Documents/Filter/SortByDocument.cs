@@ -1,4 +1,4 @@
-namespace AicaDocsApi.Dto.Documents.Filter;
+namespace AicaDocsUI.Repositories.ApiData.Dto.Documents.Filter;
 
 public enum SortByDocument : short
 {

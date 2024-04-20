@@ -1,13 +1,11 @@
 using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
-using AicaDocsApi.Dto.FilterCommons;
-using AicaDocsUI.Dto.Downloads;
-using AicaDocsUI.Dto.Downloads.Filter;
-using AicaDocsUI.Models;
+using AicaDocsUI.Repositories.ApiData.Dto.Downloads;
+using AicaDocsUI.Repositories.ApiData.Dto.Downloads.Filter;
+using AicaDocsUI.Repositories.ApiData.Dto.FilterCommons;
+using AicaDocsUI.Repositories.ApiData.Responses;
 using AicaDocsUI.Repositories.Auth;
-using AicaDocsUI.Responses;
-using AicaDocsUI.Utils;
 using AicaDocsUI.Utils.RootProviderServices;
 using AicaDocsUI.Utils.TokenServices;
 

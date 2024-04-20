@@ -1,4 +1,4 @@
-namespace AicaDocsApi.Dto.Nomenclators.Filter;
+namespace AicaDocsUI.Repositories.ApiData.Dto.Nomenclators.Filter;
 
 public enum SortByNomenclator : short
 {

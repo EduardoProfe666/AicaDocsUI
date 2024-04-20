@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace AicaDocsApi.Dto.Nomenclators;
+namespace AicaDocsUI.Repositories.ApiData.Dto.Nomenclators;
 
 public class NomenclatorPutDto
 {

@@ -1,6 +1,6 @@
-using AicaDocsUI.DataModels;
+using AicaDocsUI.Repositories.ApiData.Dto.Commons;
 
-namespace AicaDocsUI.Models;
+namespace AicaDocsUI.Repositories.ApiData.Dto.Downloads;
 
 public class DownloadDto
 {

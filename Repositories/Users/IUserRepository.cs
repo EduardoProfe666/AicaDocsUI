@@ -1,6 +1,6 @@
-using AicaDocsApi.Dto.FilterCommons;
-using AicaDocsUI.Models.Users;
-using AicaDocsUI.Models.Users.Filter;
+using AicaDocsUI.Repositories.ApiData.Dto.FilterCommons;
+using AicaDocsUI.Repositories.ApiData.Dto.Users;
+using AicaDocsUI.Repositories.ApiData.Dto.Users.Filter;
 
 namespace AicaDocsUI.Repositories.Users;
 

@@ -1,7 +1,7 @@
-﻿using AicaDocsApi.Dto.FilterCommons;
-using AicaDocsUI.Models.IdentityCommons;
+﻿using AicaDocsUI.Repositories.ApiData.Dto.FilterCommons;
+using AicaDocsUI.Repositories.ApiData.Dto.IdentityCommons;
 
-namespace AicaDocsUI.Models.Users.Filter;
+namespace AicaDocsUI.Repositories.ApiData.Dto.Users.Filter;
 
 public class FilterUserDto
 {

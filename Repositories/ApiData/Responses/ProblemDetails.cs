@@ -1,4 +1,4 @@
-namespace AicaDocsUI.Responses;
+namespace AicaDocsUI.Repositories.ApiData.Responses;
 
 public class ProblemDetails
 {

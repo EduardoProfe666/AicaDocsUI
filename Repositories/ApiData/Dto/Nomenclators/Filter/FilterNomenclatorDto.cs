@@ -1,8 +1,7 @@
-using AicaDocsApi.Dto.FilterCommons;
-using AicaDocsApi.Dto.Nomenclators.Filter;
-using AicaDocsUI.Models;
+using AicaDocsUI.Repositories.ApiData.Dto.Commons;
+using AicaDocsUI.Repositories.ApiData.Dto.FilterCommons;
 
-namespace AicaDocsUI.Dto.Nomenclators.Filter;
+namespace AicaDocsUI.Repositories.ApiData.Dto.Nomenclators.Filter;
 
 public class FilterNomenclatorDto
 {

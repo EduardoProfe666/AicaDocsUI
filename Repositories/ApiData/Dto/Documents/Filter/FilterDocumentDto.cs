@@ -1,6 +1,6 @@
-using AicaDocsApi.Dto.FilterCommons;
+using AicaDocsUI.Repositories.ApiData.Dto.FilterCommons;
 
-namespace AicaDocsApi.Dto.Documents.Filter;
+namespace AicaDocsUI.Repositories.ApiData.Dto.Documents.Filter;
 
 public class FilterDocumentDto
 {
@@ -12,6 +12,8 @@ public class FilterDocumentDto
     public required int? TypeId { get; set; }
     public required int? ProcessId { get; set; }
     public required int? ScopeId { get; set; }
+    
+    public required string? UserEmail { get; set; }
 
     public PaginationParams PaginationParams { get; set; } = new PaginationParams();
     public SortByDocument SortBy { get; set; } = SortByDocument.Id;

@@ -1,4 +1,6 @@
-namespace AicaDocsUI.Models;
+using AicaDocsUI.Repositories.ApiData.Dto.Commons;
+
+namespace AicaDocsUI.Repositories.ApiData.Dto.Nomenclators;
 
 public class NomenclatorDto
 {

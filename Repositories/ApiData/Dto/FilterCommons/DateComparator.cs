@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace AicaDocsApi.Dto.FilterCommons;
+namespace AicaDocsUI.Repositories.ApiData.Dto.FilterCommons;
 
 public enum DateComparator : short
 {

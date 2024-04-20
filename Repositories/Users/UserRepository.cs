@@ -1,11 +1,11 @@
 using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
-using AicaDocsApi.Dto.FilterCommons;
-using AicaDocsUI.Models.Users;
-using AicaDocsUI.Models.Users.Filter;
+using AicaDocsUI.Repositories.ApiData.Dto.FilterCommons;
+using AicaDocsUI.Repositories.ApiData.Dto.Users;
+using AicaDocsUI.Repositories.ApiData.Dto.Users.Filter;
+using AicaDocsUI.Repositories.ApiData.Responses;
 using AicaDocsUI.Repositories.Auth;
-using AicaDocsUI.Responses;
 using AicaDocsUI.Utils.RootProviderServices;
 using AicaDocsUI.Utils.TokenServices;
 

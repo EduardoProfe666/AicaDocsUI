@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace AicaDocsUI.Models.Auth;
+namespace AicaDocsUI.Repositories.ApiData.Dto.Auth;
 
 public class ConfirmEmailDto
 {

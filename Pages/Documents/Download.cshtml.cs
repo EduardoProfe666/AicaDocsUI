@@ -1,9 +1,6 @@
-using AicaDocsUI.DataModels;
-using AicaDocsUI.Dto.Downloads;
-using AicaDocsUI.Dto.Nomenclators;
 using AicaDocsUI.Extensions;
-using AicaDocsUI.Models;
-using AicaDocsUI.Repositories.Documents;
+using AicaDocsUI.Repositories.ApiData.Dto.Commons;
+using AicaDocsUI.Repositories.ApiData.Dto.Downloads;
 using AicaDocsUI.Repositories.Downloads;
 using AicaDocsUI.Repositories.Nomenclators;
 using Microsoft.AspNetCore.Mvc;

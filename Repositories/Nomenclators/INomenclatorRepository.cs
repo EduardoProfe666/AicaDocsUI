@@ -1,6 +1,4 @@
-using AicaDocsApi.Dto.Nomenclators;
-using AicaDocsUI.Dto.Nomenclators;
-using AicaDocsUI.Models;
+using AicaDocsUI.Repositories.ApiData.Dto.Nomenclators;
 
 namespace AicaDocsUI.Repositories.Nomenclators;
 
