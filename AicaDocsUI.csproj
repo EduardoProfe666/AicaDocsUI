@@ -29,6 +29,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="Pages\Reports\" />
       <Folder Include="Repositories\ApiData\" />
     </ItemGroup>
 
