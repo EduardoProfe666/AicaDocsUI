@@ -39,6 +39,9 @@
                 <a class="btn btn-outline-warning btn-sm" asp-page="./Edit" asp-route-id="@item.Id" asp-route-typeOfNomenclator="@item.Type">
                     <i class="fas fa-edit"></i>
                 </a>
+                <a class="btn btn-outline-danger btn-sm" asp-page="./Edit" asp-route-id="@item.Id" asp-route-typeOfNomenclator="@item.Type">
+                    <i class="fas fa-trash"></i>
+                </a>
             </td>
         </tr>
     }
