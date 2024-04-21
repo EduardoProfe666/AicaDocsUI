@@ -1,4 +1,6 @@
 @page
+@using AicaDocsUI.Extensions
+@using Microsoft.AspNetCore.Mvc.TagHelpers
 @model AicaDocsUI.Pages.Scope.Index
 
 @{
@@ -17,7 +19,9 @@
             <i class="fas fa-plus"></i>
             Agregar Alcance
         </a>
-
+        <a href="@($"/downloadReport/{DownloadReportEndpoint.TypeReport.NomenclatorsByType}/2/1")" class="btn btn-secondary text-start">
+            <i class="fas fa-file-pdf"> Exportar</i>
+        </a>
     </div>
 </div>
 
@@ -69,22 +73,22 @@
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
     </div>
-    
-     <!-- Tercer toast -->
-        <div id="liveToast3" class="toast bg-success" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-header bg-success">
-                <strong class="me-auto text-light">Alcance de documento eliminado con éxito</strong>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
-            </div>
+
+    <!-- Tercer toast -->
+    <div id="liveToast3" class="toast bg-success" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header bg-success">
+            <strong class="me-auto text-light">Alcance de documento eliminado con éxito</strong>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
-    
-        <!-- Cuarto toast -->
-        <div id="liveToast4" class="toast bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-header bg-danger">
-                <strong class="me-auto text-light">Alcance de documento no puede ser eliminado por estar en uso</strong>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
-            </div>
+    </div>
+
+    <!-- Cuarto toast -->
+    <div id="liveToast4" class="toast bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header bg-danger">
+            <strong class="me-auto text-light">Alcance de documento no puede ser eliminado por estar en uso</strong>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
+    </div>
 </div>
 
 <script>

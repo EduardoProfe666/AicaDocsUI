@@ -1,5 +1,6 @@
 @page
 @using Microsoft.AspNetCore.Mvc.TagHelpers
+@using AicaDocsUI.Extensions
 @model Index
 
 @{
@@ -95,6 +96,9 @@
         <div class="col-md text-start">
             <a href="/Documents/Create" class="btn btn-primary text-start">
                 <i class="fas fa-plus"> Agregar Documento</i>
+            </a>
+            <a href="@($"/downloadReport/{DownloadReportEndpoint.TypeReport.Documents}/1/1")" class="btn btn-secondary text-start">
+                <i class="fas fa-file-pdf"> Exportar</i>
             </a>
         </div>
         <div class="col-md text-end">
