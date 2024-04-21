@@ -12,6 +12,9 @@ public class IndexModel : PageModel
 {
     private readonly IAuthRepository _auth;
     private readonly RootProvider _rootProvider;
+    
+    public bool ShowForgotPassword { get; set; }
+    public bool ShowError { get; set; }
 
     public bool IsLogin { get; set; }
     public string? FullName { get; set; }
@@ -40,6 +43,12 @@ public class IndexModel : PageModel
             FullName = data!.FullName;
             UserRole = data.Role;
         }
+        
+        ShowForgotPassword = TempData["Forgot Password"] as bool? ?? false;
+        TempData["Forgot Password"] = false;
+        
+        ShowError = TempData["Index Error"] as bool? ?? false;
+        TempData["Index Error"] = false;
         
     }
 }

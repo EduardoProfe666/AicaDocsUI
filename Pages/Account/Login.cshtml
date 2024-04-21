@@ -5,6 +5,7 @@
 @{
     ViewData["Title"] = "Iniciar Sesión";
     bool showErrorLogin = Model.ShowErrorLogin;
+    bool showResetPassword = Model.ShowResetPassword;
 }
 
 <div class="container">
@@ -32,7 +33,7 @@
                             <button type="submit" class="btn btn-primary">Ingresar</button>
                         </div>
                     </div>
-                    <div>
+                    <div class="text-end">
                         <a class="btn btn-link" asp-page="./ForgotPassword">¿Olvidó su contraseña?</a>
                     </div>
                 </form>
@@ -46,22 +47,35 @@
     <!-- Primer toast -->
     <div id="liveToast1" class="toast bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header bg-danger">
-            <strong class="me-auto text-light">Fallo de autenticación. Revise su correo y contraseña.</strong>
+            <strong class="me-auto text-light">Falló la autenticación. Por favor, revise su correo y contraseña.</strong>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
     </div>
+    <!-- Segundo toast -->
+        <div id="liveToast2" class="toast bg-success" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header bg-success">
+                <strong class="me-auto text-light">Operación completada con éxito. Inicie sesión con su nueva contraseña.</strong>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
 </div>
 
 <script>
     let shouldShowError = @(showErrorLogin.ToString().ToLower());
+    let shouldShowResetPassword = @(showResetPassword.ToString().ToLower());
         
     window.onload = (event) => {
         let liveToast1 = document.getElementById('liveToast1');
+        let liveToast2 = document.getElementById('liveToast2');
 
         let toastInstance1 = new bootstrap.Toast(liveToast1);
+        let toastInstance2 = new bootstrap.Toast(liveToast2);
 
         if (shouldShowError)
             toastInstance1.show();
+        if (shouldShowResetPassword)
+            toastInstance2.show();
+        
     };
 </script>
 

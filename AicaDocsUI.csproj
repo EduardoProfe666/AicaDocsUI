@@ -37,7 +37,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <AdditionalFiles Include="Pages\Reports\Documents\Create.cshtml" />
       <AdditionalFiles Include="Pages\Reports\Documents\Details.cshtml" />
       <AdditionalFiles Include="Pages\Reports\Documents\Download.cshtml" />
       <AdditionalFiles Include="Pages\Reports\Documents\Index.cshtml" />

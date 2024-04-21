@@ -15,7 +15,7 @@ public class ErrorModel : PageModel
         Code = code ?? 500;
         if(Code == 401)
             Response.Redirect("/Account/Login");
-        else if(Request.Headers["Referer"].ToString() == "/" && Code != 403 && Code != 401)
+        else if(Request.Headers["Referer"].ToString() == "/" && Code != 403 && Code != 401 && Code != 400)
             Response.Redirect("/");
     }
 }
