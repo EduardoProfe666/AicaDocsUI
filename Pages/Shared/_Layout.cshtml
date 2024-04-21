@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@using AicaDocsUI.Repositories.Auth
+@using AicaDocsUI.Repositories.ApiData.Dto.IdentityCommons
+
+@inject IAuthRepository AuthRepository
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
@@ -8,7 +13,7 @@
     <meta name="author" content="LilyRosa🐱 | EduardoProfe666🎩"/>
 
     <meta property="og:title" content="AicaDocs UI">
-    <meta property="og:description" content="Prueba visual la Api de AicaDocs en Razor Pages">
+    <meta property="og:description" content="Aplicación Web AicaDocs UI">
     <meta property="og:image" content="https://aicadocsui.onrender.com/Images/test.png">
     <meta property="og:url" content="https://aicadocsui.onrender.com"/>
 
@@ -21,10 +26,13 @@
     <link rel="stylesheet" href="~/AicaDocsUI.styles.css" asp-append-version="true"/>
 </head>
 <body>
+
 <header>
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
         <div class="container">
-            <a class="navbar-brand text-info" asp-area="" asp-page="/Index"><strong>AicaDocs UI</strong></a>
+            <a class="navbar-brand text-info" asp-area="" asp-page="/Index">
+                <strong>AicaDocs UI</strong>
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -34,33 +42,48 @@
                     <li class="nav-item">
                         <a class="nav-link" asp-area="" asp-page="/Index">Inicio</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-page="/Documents/Index">Documentos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-page="/Downloads/Index">Descargas</a>
-                    </li>
-                    <li class="nav-item">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Más
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li>
-                                <a class="dropdown-item" asp-area="" asp-page="/Scope/Index">Alcances de documento</a>
+                    @if (await AuthRepository.IsLoginAdvanceAsync())
+                    {
+                        @if (await AuthRepository.GetUserRoleAsync() == UserRole.Admin)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-page="/Users/Index">Usuarios</a>
                             </li>
-                            <li>
-                                <a class="dropdown-item" asp-area="" asp-page="/Process/Index">Procesos de documento</a>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-page="/Reports/Documents/Index">Documentos</a>
                             </li>
-                            <li>
-                                <a class="dropdown-item" asp-area="" asp-page="/Type/Index">Tipos de documento</a>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-page="Reports/Downloads/Index">Descargas</a>
                             </li>
-                            <li class="dropdown-divider"></li>
-                            <li>
-                                <a class="dropdown-item" asp-area="" asp-page="/Reason/Index">Razones de descarga</a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Más
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li>
+                                        <a class="dropdown-item" asp-area="" asp-page="/Reports/Scope/Index">Alcances de documento</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" asp-area="" asp-page="/Reports/Process/Index">Procesos de documento</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" asp-area="" asp-page="/Reports/Type/Index">Tipos de documento</a>
+                                    </li>
+                                    <li class="dropdown-divider"></li>
+                                    <li>
+                                        <a class="dropdown-item" asp-area="" asp-page="/Reports/Reason/Index">Razones de descarga</a>
+                                    </li>
+                                </ul>
                             </li>
-                        </ul>
-                    </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-page="/Documents/Index">Documentos</a>
+                            </li>   
+                        }
+                    }
+                    
                 </ul>
                 <partial name="_LoginPartial"/>
             </div>

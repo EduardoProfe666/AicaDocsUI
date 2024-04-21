@@ -20,12 +20,38 @@
       <_ContentIncludedByDefault Remove="Pages\Nomenclators\Create.cshtml" />
       <_ContentIncludedByDefault Remove="Pages\Nomenclators\Edit.cshtml" />
       <_ContentIncludedByDefault Remove="Pages\Nomenclators\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Downloads\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Downloads\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Reason\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Reason\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Reason\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Process\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Process\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Process\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Scope\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Scope\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Scope\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Type\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Type\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Type\Index.cshtml" />
     </ItemGroup>
 
     <ItemGroup>
-      <AdditionalFiles Include="Pages\Scope\Create.cshtml" />
-      <AdditionalFiles Include="Pages\Scope\Edit.cshtml" />
-      <AdditionalFiles Include="Pages\Scope\Index.cshtml" />
+      <AdditionalFiles Include="Pages\Reports\Documents\Create.cshtml" />
+      <AdditionalFiles Include="Pages\Reports\Documents\Details.cshtml" />
+      <AdditionalFiles Include="Pages\Reports\Documents\Download.cshtml" />
+      <AdditionalFiles Include="Pages\Reports\Documents\Index.cshtml" />
+      <AdditionalFiles Include="Pages\Reports\Downloads\Details.cshtml" />
+      <AdditionalFiles Include="Pages\Reports\Downloads\Index.cshtml" />
+      <AdditionalFiles Include="Pages\Reports\Process\Create.cshtml" />
+      <AdditionalFiles Include="Pages\Reports\Process\Edit.cshtml" />
+      <AdditionalFiles Include="Pages\Reports\Process\Index.cshtml" />
+      <AdditionalFiles Include="Pages\Reports\Reason\Create.cshtml" />
+      <AdditionalFiles Include="Pages\Reports\Reason\Edit.cshtml" />
+      <AdditionalFiles Include="Pages\Reports\Reason\Index.cshtml" />
+      <AdditionalFiles Include="Pages\Reports\Type\Create.cshtml" />
+      <AdditionalFiles Include="Pages\Reports\Type\Edit.cshtml" />
+      <AdditionalFiles Include="Pages\Reports\Type\Index.cshtml" />
     </ItemGroup>
 
     <ItemGroup>
