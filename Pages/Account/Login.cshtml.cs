@@ -12,6 +12,8 @@ public class Login : PageModel
     
     public bool ShowErrorLogin { get; set; }
     
+    public bool ShowResetPassword { get; set; }
+    
     [BindProperty] public LoginRequestModel LoginRequest { get; set; }
 
     public Login(IAuthRepository authRepository)
@@ -29,6 +31,10 @@ public class Login : PageModel
             ShowErrorLogin = TempData["Error Login"] as bool? ?? false;
             
             TempData["Error Login"] = false;
+            
+            ShowResetPassword = TempData["Reset Password"] as bool? ?? false;
+            
+            TempData["Reset Password"] = false;
         }
         
     }

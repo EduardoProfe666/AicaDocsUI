@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace AicaDocsUI.Pages.Downloads;
+namespace AicaDocsUI.Pages.Reports.Downloads;
 
 public class Index : PageModel
 {

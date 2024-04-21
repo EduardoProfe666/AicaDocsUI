@@ -5,7 +5,7 @@ using AicaDocsUI.Repositories.Downloads;
 using AicaDocsUI.Repositories.Nomenclators;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace AicaDocsUI.Pages.Downloads;
+namespace AicaDocsUI.Pages.Reports.Downloads;
 
 public class Details : PageModel
 {
