@@ -4,7 +4,7 @@ using Microsoft.Extensions.Options;
 
 namespace AicaDocsUI.Repositories.ApiData.Dto.Auth;
 
-public class RegisterRequestDto
+public class RegisterRequestModel
 {
     [Required(ErrorMessage = "El correo es requerido"),
      EmailAddress(ErrorMessage = "El correo debe ser válido")]
@@ -16,7 +16,4 @@ public class RegisterRequestDto
     
     [Required(ErrorMessage = "El rol de usuario es requerido")]
     public required UserRole Role { get; set; }
-    
-    [Required(ErrorMessage = "La url es requerida")]
-    public required string UrlView { get; set; }
 }

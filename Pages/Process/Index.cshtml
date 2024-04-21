@@ -1,4 +1,7 @@
 @page
+@using AicaDocsUI.Extensions
+@using AicaDocsUI.Repositories.ApiData.Dto.Commons
+@using Microsoft.AspNetCore.Mvc.TagHelpers
 @model AicaDocsUI.Pages.Process.Index
 
 @{
@@ -7,7 +10,6 @@
     bool showEdited = Model.ShowEdited;
     bool showDeleted = Model.ShowDeleted;
     bool showErrorDelete = Model.ShowErrorDelete;
-    
 }
 
 <h2 class="card-text md-5">Listado de Procesos de documento</h2>
@@ -17,6 +19,9 @@
         <a class="btn btn-outline-primary " href="/Process/Create">
             <i class="fas fa-plus"></i>
             Agregar Proceso
+        </a>
+        <a href="@($"/downloadReport/{DownloadReportEndpoint.TypeReport.NomenclatorsByType}/0/1")" class="btn btn-secondary text-start">
+            <i class="fas fa-file-pdf"> Exportar</i>
         </a>
 
     </div>
@@ -70,22 +75,22 @@
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
     </div>
-    
-     <!-- Tercer toast -->
+
+    <!-- Tercer toast -->
     <div id="liveToast3" class="toast bg-success" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header bg-success">
             <strong class="me-auto text-light">Proceso de documento eliminado con éxito</strong>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
     </div>
-    
+
     <!-- Cuarto toast -->
-            <div id="liveToast4" class="toast bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
-                <div class="toast-header bg-danger">
-                    <strong class="me-auto text-light">Proceso de documento no puede ser eliminado por estar en uso</strong>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
-                </div>
-            </div>
+    <div id="liveToast4" class="toast bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header bg-danger">
+            <strong class="me-auto text-light">Proceso de documento no puede ser eliminado por estar en uso</strong>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
 </div>
 
 <script>
