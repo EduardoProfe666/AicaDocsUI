@@ -16,7 +16,7 @@
 
 <div class="row mb-4">
     <div class="col">
-        <a class="btn btn-outline-primary " href="/Type/Create">
+        <a class="btn btn-outline-primary " href="/Reports/Type/Create">
             <i class="fas fa-plus"></i>
             Agregar Tipo
         </a>
@@ -43,10 +43,10 @@
             </td>
 
             <td class="white-space:nowrap">
-                <a class="btn btn-outline-warning btn-sm" asp-page="./Edit" asp-route-id="@item.Id" asp-route-typeOfNomenclator="@item.Type">
+                <a class="btn btn-outline-warning btn-sm" asp-page="./Edit" asp-route-id="@item.Id" asp-route-typeOfNomenclator="@item.Type" data-toggle="tooltip" title="Editar">
                     <i class="fas fa-edit"></i>
                 </a>
-                <a class="btn btn-outline-danger btn-sm" asp-page-handler="Delete" asp-route-id="@item.Id">
+                <a class="btn btn-outline-danger btn-sm" asp-page-handler="Delete" asp-route-id="@item.Id" data-toggle="tooltip" title="Eliminar">
                     <i class="fas fa-trash"></i>
                 </a>
             </td>
