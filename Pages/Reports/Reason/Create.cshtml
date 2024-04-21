@@ -21,7 +21,7 @@
 
             <div class="row mb-3">
                 <div class="offset-md-4 col-sm-4 mb-2 d-grid">
-                    <a class="btn btn-outline-primary" href="/Reason/Index" role="button">Atrás </a>
+                    <a class="btn btn-outline-primary" href="/Reports/Reason/Index" role="button">Atrás </a>
                 </div>
                 <div class="col-sm-4 mb-2 d-grid">
                     <button type="submit" class="btn btn-primary">
@@ -33,6 +33,7 @@
     </div>
 </div>
 
-<div>
-
-</div>
+@section Scripts
+{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
