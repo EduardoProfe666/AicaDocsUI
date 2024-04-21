@@ -1,6 +1,7 @@
 @page
 @using Microsoft.AspNetCore.Mvc.TagHelpers
 @using AicaDocsUI.Extensions
+@using AicaDocsUI.Pages.Reports
 @model Index
 
 @{
@@ -144,10 +145,10 @@
 
 
             <td class="white-space:nowrap">
-                <a class="btn btn-outline-info btn-sm" asp-page="./Details" asp-route-id="@item.Id">
+                <a class="btn btn-outline-info btn-sm" asp-page="./Details" asp-route-id="@item.Id" data-toggle="tooltip" title="Detalles">
                     <i class="fas fa-book"></i>
                 </a>
-                <a class="btn btn-outline-success btn-sm" asp-page="./Download" asp-route-id="@item.Id">
+                <a class="btn btn-outline-success btn-sm" asp-page="./Download" asp-route-id="@item.Id" data-toggle="tooltip" title="Descargar">
                     <i class="fas fa-download"></i>
                 </a>
             </td>

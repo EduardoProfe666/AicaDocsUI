@@ -6,7 +6,7 @@ namespace AicaDocsUI.Repositories.Downloads;
 
 public interface IDownloadRepository
 {
-    Task<DownloadDto?> GetDownloadById(int id);
-    Task<FilterResponse<DownloadDto>?> GetDownloadsFilter(FilterDownloadDto filter);
-    Task<string?> DownloadDocument(DownloadCreatedDto downloadCreatedDto);
+    Task<DownloadDto?> GetDownloadByIdAsync(int id);
+    Task<FilterResponse<DownloadDto>?> GetDownloadsFilterAsync(FilterDownloadDto filter);
+    Task<string?> DownloadDocumentAsync(DownloadCreatedDto downloadCreatedDto);
 }

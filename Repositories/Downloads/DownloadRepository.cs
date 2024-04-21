@@ -25,9 +25,9 @@ public class DownloadRepository: IDownloadRepository
         _auth = auth;
         _rootProvider = rootProvider;
     }
-    public async Task<DownloadDto?> GetDownloadById(int id)
+    public async Task<DownloadDto?> GetDownloadByIdAsync(int id)
     {
-        if (!await _auth.IsLoginAdvance()) return null;
+        if (!await _auth.IsLoginAdvanceAsync()) return null;
         var tk = _tm.GetAccessToken();
             
         _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tk);
@@ -42,9 +42,9 @@ public class DownloadRepository: IDownloadRepository
         return null;
     }
 
-    public async Task<FilterResponse<DownloadDto>?> GetDownloadsFilter(FilterDownloadDto filter)
+    public async Task<FilterResponse<DownloadDto>?> GetDownloadsFilterAsync(FilterDownloadDto filter)
     {
-        if (!await _auth.IsLoginAdvance()) return null;
+        if (!await _auth.IsLoginAdvanceAsync()) return null;
         var tk = _tm.GetAccessToken();
             
         _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tk);
@@ -61,9 +61,9 @@ public class DownloadRepository: IDownloadRepository
         return null;
     }
 
-    public async Task<string?> DownloadDocument(DownloadCreatedDto downloadCreatedDto)
+    public async Task<string?> DownloadDocumentAsync(DownloadCreatedDto downloadCreatedDto)
     {
-        if (!await _auth.IsLoginAdvance()) return null;
+        if (!await _auth.IsLoginAdvanceAsync()) return null;
         var tk = _tm.GetAccessToken();
             
         _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tk);

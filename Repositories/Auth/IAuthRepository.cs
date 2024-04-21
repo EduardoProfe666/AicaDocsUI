@@ -7,23 +7,23 @@ namespace AicaDocsUI.Repositories.Auth;
 
 public interface IAuthRepository
 {
-    Task<bool> Login(LoginRequestDto login);
+    Task<bool> LoginAsync(LoginRequestDto login);
     void Logout();
-    Task<bool> Register(string email, string fullName, UserRole role);
-    Task<bool> ValidateToken();
-    Task<bool> RefreshToken();
-    Task<bool> ConfirmEmail(ConfirmEmailDto confirmEmail);
-    Task<bool> ForgotPassword(string email);
-    Task<bool> ResetPassword(ResetPasswordRequest resetRequest);
-    Task<UserDataDto?> GetInfo();
-    Task<bool> ChangePassword(ChangePasswordDto chd);
+    Task<bool> RegisterAsync(string email, string fullName, UserRole role);
+    Task<bool> ValidateTokenAsync();
+    Task<bool> RefreshTokenAsync();
+    Task<bool> ConfirmEmailAsync(ConfirmEmailDto confirmEmail);
+    Task<bool> ForgotPasswordAsync(string email);
+    Task<bool> ResetPasswordAsync(ResetPasswordRequest resetRequest);
+    Task<UserDataDto?> GetInfoAsync();
+    Task<bool> ChangePasswordAsync(ChangePasswordDto chd);
 
-    Task<UserRole?> GetUserRole();
+    Task<UserRole?> GetUserRoleAsync();
 
-    bool IsLogin();
+    Task<bool> IsLoginAsync();
 
-    Task<bool> LoginAdvance(LoginRequestDto login);
+    Task<bool> LoginAdvanceAsync(LoginRequestDto login);
 
-    Task<bool> IsLoginAdvance();
+    Task<bool> IsLoginAdvanceAsync();
 
 }

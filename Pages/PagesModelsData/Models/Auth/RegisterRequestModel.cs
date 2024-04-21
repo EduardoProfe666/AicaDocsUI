@@ -1,13 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using AicaDocsUI.Repositories.ApiData.Dto.IdentityCommons;
-using Microsoft.Extensions.Options;
 
-namespace AicaDocsUI.Repositories.ApiData.Dto.Auth;
+namespace AicaDocsUI.Pages.PagesModelsData.Models.Auth;
 
 public class RegisterRequestModel
 {
     [Required(ErrorMessage = "El correo es requerido"),
-     EmailAddress(ErrorMessage = "El correo debe ser válido")]
+     RegularExpression(@"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$",
+         ErrorMessage = "El correo debe ser válido")]
     public required string Email { get; set; }
     
     [Required(ErrorMessage = "El nombre debe ser requerido"),

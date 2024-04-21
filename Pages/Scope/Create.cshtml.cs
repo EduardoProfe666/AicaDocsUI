@@ -1,3 +1,4 @@
+using AicaDocsUI.Pages.PagesModelsData.Models.Nomenclators;
 using AicaDocsUI.Repositories.ApiData.Dto.Commons;
 using AicaDocsUI.Repositories.ApiData.Dto.Nomenclators;
 using AicaDocsUI.Repositories.Nomenclators;
@@ -10,7 +11,7 @@ public class Create : PageModel
 {
     private readonly INomenclatorRepository _repository;
 
-    [BindProperty] public NomenclatorCreatedDto NomenclatorDto { get; set; }
+    [BindProperty] public NomenclatorCreatedModel NomenclatorModel { get; set; }
 
     public Create(INomenclatorRepository repository)
     {
@@ -19,21 +20,21 @@ public class Create : PageModel
 
     public void OnGet()
     {
-        NomenclatorDto = new() { Name = "", Type = TypeOfNomenclator.ScopeOfDocument };
+        NomenclatorModel = new() { Name = "", Type = TypeOfNomenclator.ScopeOfDocument };
     }
 
     public async Task OnPostAsync()
     {
         if (ModelState.IsValid)
         {
-            NomenclatorDto.Type = TypeOfNomenclator.ScopeOfDocument;
-            await _repository.CreateNomenclatorAsync(NomenclatorDto);
+            NomenclatorModel.Type = TypeOfNomenclator.ScopeOfDocument;
+            await _repository.CreateNomenclatorAsync(new NomenclatorCreatedDto(){Name = NomenclatorModel.Name, Type = NomenclatorModel.Type});
             TempData["Created Scope"] = true;
             Response.Redirect("/Scope/Index");
 
             //clear the Form
-            NomenclatorDto.Name = "";
-            NomenclatorDto.Type = TypeOfNomenclator.ScopeOfDocument;
+            NomenclatorModel.Name = "";
+            NomenclatorModel.Type = TypeOfNomenclator.ScopeOfDocument;
             ModelState.Clear();
         }
     }

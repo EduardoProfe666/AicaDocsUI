@@ -13,23 +13,23 @@
             <div class="row mb-3">
                 <label class="col-sm-4 col-form-label">Nombre de Usuario</label>
                 <div class="col-sm-8">
-                    <input asp-for="DownloadCreatedDto.Username" class="form-control" placeholder="Ingrese el nombre de usuario"/>
-                    <span asp-validation-for="DownloadCreatedDto.Username" class="text-danger"></span>
+                    <input asp-for="DownloadCreatedModel.Username" class="form-control" placeholder="Ingrese el nombre de usuario"/>
+                    <span asp-validation-for="DownloadCreatedModel.Username" class="text-danger"></span>
                 </div>
             </div>
             <div class="row mb-3">
                 <label class="col-sm-4 col-form-label">Formato de Documento</label>
                 <div class="col-sm-8">
-                    <span asp-validation-for="DownloadCreatedDto.Format" class="text-danger"></span>
-                    <select class="form-select" asp-for="DownloadCreatedDto.Format" asp-items="Model.ListFormat">
+                    <span asp-validation-for="DownloadCreatedModel.Format" class="text-danger"></span>
+                    <select class="form-select" asp-for="DownloadCreatedModel.Format" asp-items="Model.ListFormat">
                     </select>
                 </div>
             </div>
             <div class="row mb-3">
                 <label class="col-sm-4 col-form-label">Razón de Descarga</label>
                 <div class="col-sm-8">
-                    <span asp-validation-for="DownloadCreatedDto.ReasonId" class="text-danger"></span>
-                    <select class="form-select" asp-for="DownloadCreatedDto.ReasonId" asp-items="Model.ListReason">
+                    <span asp-validation-for="DownloadCreatedModel.ReasonId" class="text-danger"></span>
+                    <select class="form-select" asp-for="DownloadCreatedModel.ReasonId" asp-items="Model.ListReason">
                     </select>
                 </div>
             </div>

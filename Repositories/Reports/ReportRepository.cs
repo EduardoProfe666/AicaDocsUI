@@ -21,9 +21,9 @@ public class ReportRepository: IReportRepository
     }
 
 
-    public async Task<Stream?> GetReportUsers()
+    public async Task<Stream?> GetReportUsersAsync()
     {
-        if (!await _auth.IsLoginAdvance()) return null;
+        if (!await _auth.IsLoginAdvanceAsync()) return null;
         var tk = _tm.GetAccessToken();
             
         _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tk);
@@ -40,9 +40,9 @@ public class ReportRepository: IReportRepository
         return null;
     }
 
-    public async Task<Stream?> GetReportUserByRole(int role)
+    public async Task<Stream?> GetReportUserByRoleAsync(int role)
     {
-        if (!await _auth.IsLoginAdvance()) return null;
+        if (!await _auth.IsLoginAdvanceAsync()) return null;
         var tk = _tm.GetAccessToken();
             
         _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tk);
@@ -59,9 +59,9 @@ public class ReportRepository: IReportRepository
         return null;
     }
 
-    public async Task<Stream?> GetDocuments()
+    public async Task<Stream?> GetDocumentsAsync()
     {
-        if (!await _auth.IsLoginAdvance()) return null;
+        if (!await _auth.IsLoginAdvanceAsync()) return null;
         var tk = _tm.GetAccessToken();
             
         _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tk);
@@ -78,9 +78,9 @@ public class ReportRepository: IReportRepository
         return null;
     }
 
-    public async Task<Stream?> GetDocumentsByUser(string user)
+    public async Task<Stream?> GetDocumentsByUserAsync(string user)
     {
-        if (!await _auth.IsLoginAdvance()) return null;
+        if (!await _auth.IsLoginAdvanceAsync()) return null;
         var tk = _tm.GetAccessToken();
             
         _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tk);
@@ -97,9 +97,9 @@ public class ReportRepository: IReportRepository
         return null;
     }
 
-    public async Task<Stream?> GetDownloads()
+    public async Task<Stream?> GetDownloadsAsync()
     {
-        if (!await _auth.IsLoginAdvance()) return null;
+        if (!await _auth.IsLoginAdvanceAsync()) return null;
         var tk = _tm.GetAccessToken();
             
         _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tk);
@@ -116,9 +116,9 @@ public class ReportRepository: IReportRepository
         return null;
     }
 
-    public async Task<Stream?> GetDownloadByUser(string user)
+    public async Task<Stream?> GetDownloadByUserAsync(string user)
     {
-        if (!await _auth.IsLoginAdvance()) return null;
+        if (!await _auth.IsLoginAdvanceAsync()) return null;
         var tk = _tm.GetAccessToken();
             
         _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tk);
@@ -135,9 +135,9 @@ public class ReportRepository: IReportRepository
         return null;
     }
 
-    public async Task<Stream?> GetNomenclatorByType(int type)
+    public async Task<Stream?> GetNomenclatorByTypeAsync(int type)
     {
-        if (!await _auth.IsLoginAdvance()) return null;
+        if (!await _auth.IsLoginAdvanceAsync()) return null;
         var tk = _tm.GetAccessToken();
             
         _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tk);

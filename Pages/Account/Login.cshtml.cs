@@ -1,3 +1,4 @@
+using AicaDocsUI.Pages.PagesModelsData.Models.Auth;
 using AicaDocsUI.Repositories.ApiData.Dto.Auth;
 using AicaDocsUI.Repositories.Auth;
 using Microsoft.AspNetCore.Mvc;
@@ -11,7 +12,7 @@ public class Login : PageModel
     
     public bool ShowErrorLogin { get; set; }
     
-    [BindProperty] public LoginRequestDto LoginRequest { get; set; }
+    [BindProperty] public LoginRequestModel LoginRequest { get; set; }
 
     public Login(IAuthRepository authRepository)
     {
@@ -20,11 +21,11 @@ public class Login : PageModel
 
     public async Task OnGet()
     {
-        if (await _authRepository.IsLoginAdvance())
+        if (await _authRepository.IsLoginAdvanceAsync())
             Response.Redirect("/");
         else
         {
-            LoginRequest = new LoginRequestDto() { Email = "", Password = "" };
+            LoginRequest = new LoginRequestModel() { Email = "", Password = "" };
             ShowErrorLogin = TempData["Error Login"] as bool? ?? false;
             
             TempData["Error Login"] = false;
@@ -36,7 +37,7 @@ public class Login : PageModel
     {
         if (ModelState.IsValid)
         {
-            var b = await _authRepository.LoginAdvance(LoginRequest);
+            var b = await _authRepository.LoginAdvanceAsync(new LoginRequestDto(){Email = LoginRequest.Email, Password = LoginRequest.Password});
             
             if (b)
             {

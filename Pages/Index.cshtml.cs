@@ -32,11 +32,11 @@ public class IndexModel : PageModel
         //_auth.Logout();
         //var b = await _auth.LoginAdvance(new LoginRequestDto() { Email = "aicadocsworker@worker.cu", Password = "AicaDocs_Worker1!" });
 
-        IsLogin = await _auth.IsLoginAdvance();
+        IsLogin = await _auth.IsLoginAdvanceAsync();
 
         if (IsLogin)
         {
-            var data = await _auth.GetInfo();
+            var data = await _auth.GetInfoAsync();
             FullName = data!.FullName;
             UserRole = data.Role;
         }

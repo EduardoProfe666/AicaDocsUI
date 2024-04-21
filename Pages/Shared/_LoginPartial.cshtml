@@ -3,27 +3,40 @@
 @inject IAuthRepository AuthRepository
 
 <ul class="navbar-nav">
-@if (await AuthRepository.IsLoginAdvance())
-{
     <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Mi Cuenta
+        <a class="nav-link dropdown-toggle" href="#" id="navBarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            @Thread.CurrentThread.CurrentUICulture.Name
         </a>
         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li>
-                <a class="dropdown-item" asp-area="" asp-page="/Account/Manage/Index">Perfil</a>
+                <a class="dropdown-item" href="/Lang?culture=es">Es</a>
             </li>
-            <li class="dropdown-divider"></li>
             <li>
-                <a class="dropdown-item" asp-area="" asp-page="/Account/Logout">Cerrar Sesión</a>
+                <a class="dropdown-item" href="/Lang?culture=en">En</a>
             </li>
         </ul>
     </li>
-}
-else
-{
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-page="/Account/Login">Iniciar Sesión</a>
-    </li>
-}
+    @if (await AuthRepository.IsLoginAdvanceAsync())
+    {
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                @Localizer["account"]
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li>
+                    <a class="dropdown-item" asp-area="" asp-page="/Account/Manage/Index">@Localizer["Profile"]</a>
+                </li>
+                <li class="dropdown-divider"></li>
+                <li>
+                    <a class="dropdown-item" asp-area="" asp-page="/Account/Logout">@Localizer["Logout"]</a>
+                </li>
+            </ul>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link" asp-page="/Account/Login">@Localizer["Login"]</a>
+        </li>
+    }
 </ul>

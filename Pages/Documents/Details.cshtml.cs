@@ -1,5 +1,5 @@
-using AicaDocsUI.Models;
 using AicaDocsUI.Repositories.ApiData.Dto.Commons;
+using AicaDocsUI.Repositories.ApiData.Dto.Documents;
 using AicaDocsUI.Repositories.Documents;
 using AicaDocsUI.Repositories.Nomenclators;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -23,7 +23,7 @@ public class Details : PageModel
 
     public async Task OnGetAsync(int id)
     {
-        DocumentDto = (await _documentRepository.GetDocumentById(id))!;
+        DocumentDto = (await _documentRepository.GetDocumentByIdAsync(id))!;
         
         var data = await _nomenclatorRepository.GetNomenclatorAsync((int)TypeOfNomenclator.TypeOfDocument, DocumentDto.TypeId);
         Type=data!.Name;

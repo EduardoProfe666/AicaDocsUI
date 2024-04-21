@@ -1,3 +1,4 @@
+using AicaDocsUI.Pages.PagesModelsData.Models.Nomenclators;
 using AicaDocsUI.Repositories.ApiData.Dto.Commons;
 using AicaDocsUI.Repositories.ApiData.Dto.Nomenclators;
 using AicaDocsUI.Repositories.Nomenclators;
@@ -10,7 +11,7 @@ public class Create : PageModel
 {
     private readonly INomenclatorRepository _repository;
 
-    [BindProperty] public NomenclatorCreatedDto NomenclatorDto { get; set; }
+    [BindProperty] public NomenclatorCreatedModel NomenclatorModel { get; set; }
 
     public Create(INomenclatorRepository repository)
     {
@@ -19,21 +20,21 @@ public class Create : PageModel
 
     public void OnGet()
     {
-        NomenclatorDto = new() { Name = "", Type = TypeOfNomenclator.ProcessOfDocument };
+        NomenclatorModel = new() { Name = "", Type = TypeOfNomenclator.ProcessOfDocument };
     }
 
     public async Task OnPostAsync()
     {
         if (ModelState.IsValid)
         {
-            NomenclatorDto.Type = TypeOfNomenclator.ProcessOfDocument;
-            await _repository.CreateNomenclatorAsync(NomenclatorDto);
+            NomenclatorModel.Type = TypeOfNomenclator.ProcessOfDocument;
+            await _repository.CreateNomenclatorAsync(new NomenclatorCreatedDto(){Name = NomenclatorModel.Name,Type = NomenclatorModel.Type});
             TempData["Created Process"] = true;
             Response.Redirect("/Process/Index");
 
             //clear the Form
-            NomenclatorDto.Name = "";
-            NomenclatorDto.Type = TypeOfNomenclator.ProcessOfDocument;
+            NomenclatorModel.Name = "";
+            NomenclatorModel.Type = TypeOfNomenclator.ProcessOfDocument;
             ModelState.Clear();
         }
     }

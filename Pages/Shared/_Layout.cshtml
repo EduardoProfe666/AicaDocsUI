@@ -15,6 +15,7 @@
     <link rel="icon" href="/favicon.png"/>
     <title>@ViewData["Title"] - AicaDocs UI</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="~/lib/sweetalert/sweetalert2.min.css"/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
     <link rel="stylesheet" href="~/AicaDocsUI.styles.css" asp-append-version="true"/>
@@ -67,6 +68,7 @@
     </nav>
 </header>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/sweetalert/sweetalert2.all.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -83,6 +85,12 @@
         &copy; 2024 - AicaDocs UI - <a target="_blank" href="https://aicadocsapi.onrender.com">API</a>
     </div>
 </footer>
+
+<script>
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
+</script>
 
 @await RenderSectionAsync("Scripts", required: false)
 </body>

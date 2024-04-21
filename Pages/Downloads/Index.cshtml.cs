@@ -98,7 +98,7 @@ public class Index : PageModel
             });
         Reasons = data!;
 
-        var data1 = (await _downloadRepository.GetDownloadsFilter(Filter))!;
+        var data1 = (await _downloadRepository.GetDownloadsFilterAsync(Filter))!;
         var downloads = data1!.Response;
         PageTotal = data1.TotalPages;
 
@@ -113,7 +113,7 @@ public class Index : PageModel
         PageNumber = Filter.PaginationParams.PageNumber;
         foreach (var download in downloads)
         {
-            var doc = (await _documentRepository.GetDocumentById(download.DocumentId))!;
+            var doc = (await _documentRepository.GetDocumentByIdAsync(download.DocumentId))!;
             Downloads.Add(new DownloadDtoDocument
             {
                 Id= download.Id,

@@ -26,12 +26,12 @@ public class Details : PageModel
 
     public async Task OnGetAsync(int id)
     {
-        DownloadDto = (await _downloadRepository.GetDownloadById(id))!;
+        DownloadDto = (await _downloadRepository.GetDownloadByIdAsync(id))!;
         var data = await _nomenclatorRepository.GetNomenclatorAsync((int)TypeOfNomenclator.ReasonOfDownload,
             DownloadDto.ReasonId);
         Reason = data!.Name;
 
-        var data1 = await _documentRepository.GetDocumentById(DownloadDto.DocumentId);
+        var data1 = await _documentRepository.GetDocumentByIdAsync(DownloadDto.DocumentId);
         CodeEdition = $"{data1!.Code}-{data1.Edition}";
     }
 }

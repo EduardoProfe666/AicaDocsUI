@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace AicaDocsUI.Validations;
+namespace AicaDocsUI.Pages.PagesModelsData.Validations;
 
 public class WordValidationAttribute: ValidationAttribute
 {
