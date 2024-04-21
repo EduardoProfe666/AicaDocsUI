@@ -3,6 +3,7 @@ using AicaDocsUI.Repositories.Auth;
 using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace AicaDocsUI.Pages.Account;
 
@@ -12,31 +13,26 @@ public class ResetPassword : PageModel
 
     [BindProperty] public ResetPasswordRequestModel ResetPasswordRequestModel { get; set; }
 
-    private string Email { get; set; }
-    public string FullName { get; set; }
-    private string ChangePasswordToken { get; set; }
+    [BindProperty] public WrapperInfoResetPassword WrapperInfo { get; set; }
 
     public ResetPassword(IAuthRepository authRepository)
     {
         _authRepository = authRepository;
     }
 
-    public void OnGet(string? email, string? fullName, string? changePasswordToken)
+    public IActionResult OnGet(string? email, string? fullName, string? changePasswordToken)
     {
-        if (email is null || fullName is null || changePasswordToken is null)
-            Response.Redirect("/Error?code=400");
-        else
-        {
-            Email = email;
-            FullName = fullName;
-            ChangePasswordToken = changePasswordToken;
+        if (email == null || fullName == null || changePasswordToken == null)
+            return RedirectToPage("/Error", new { code = 400 });
+        
+        WrapperInfo = new WrapperInfoResetPassword() { Email = email, FullName = fullName, ChangePasswordToken = changePasswordToken};
             
-            ResetPasswordRequestModel = new ResetPasswordRequestModel()
-            {
-                NewPassword = "",
-                RepeatNewPassword = ""
-            };
-        }
+        ResetPasswordRequestModel = new ResetPasswordRequestModel()
+        {
+            NewPassword = "",
+            RepeatNewPassword = ""
+        };
+        return Page();
     }
 
     public async Task OnPostAsync()
@@ -45,9 +41,9 @@ public class ResetPassword : PageModel
         {
             var b = await _authRepository.ResetPasswordAsync(new ResetPasswordRequest
             {
-                Email = Email,
+                Email = WrapperInfo.Email,
                 NewPassword = ResetPasswordRequestModel.NewPassword,
-                ResetCode = ChangePasswordToken
+                ResetCode = WrapperInfo.ChangePasswordToken
             });
 
             if (b)
@@ -59,7 +55,7 @@ public class ResetPassword : PageModel
                 ResetPasswordRequestModel.NewPassword = "";
                 ResetPasswordRequestModel.RepeatNewPassword = "";
                 ModelState.Clear();
-                TempData["Reset Password"] = true;
+                TempData["New Password"] = true;
             }
             else
             {
@@ -67,5 +63,12 @@ public class ResetPassword : PageModel
                 Response.Redirect("/");
             }
         }
+    }
+
+    public class WrapperInfoResetPassword()
+    {
+        public string Email { get; set; }
+        public string FullName { get; set; }
+        public string ChangePasswordToken { get; set; }
     }
 }

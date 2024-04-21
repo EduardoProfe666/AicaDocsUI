@@ -6,9 +6,9 @@
     bool showForgotPassword = Model.ShowForgotPassword;
     bool showError = Model.ShowError;
     var btn1Txt = !Model.IsLogin ? "Iniciar Sesión" : Model.UserRole == UserRole.Admin ? "Usuarios" : "Documentos";
-    var btn2Txt = !Model.IsLogin ? "" : Model.UserRole == UserRole.Admin ? "Descargas" : "Mi Cuenta";
+    var btn2Txt = !Model.IsLogin ? "" : Model.UserRole == UserRole.Admin ? "Descargas" : "";
     var href1 = !Model.IsLogin ? @"/Account/Login" : Model.UserRole == UserRole.Admin ? @"/Users" : @"/Documents";
-    var href2 = !Model.IsLogin ? @"" : Model.UserRole == UserRole.Admin ? @"/Reports/Downloads" : @"/Account/Manage";
+    var href2 = !Model.IsLogin ? @"" : Model.UserRole == UserRole.Admin ? @"/Reports/Downloads" : @"";
 }
 
 <div class="container my-5">
@@ -42,7 +42,7 @@
 
             <div class="lc-block d-grid gap-2 d-md-flex justify-content-md-start">
                 <a class="btn btn-primary px-4 me-md-2" href="@href1" role="button">@btn1Txt</a>
-                @if (Model.IsLogin)
+                @if (Model.UserRole == UserRole.Admin)
                 {
                     <a class="btn btn-outline-primary px-4 me-md-2" href="@href2" role="button">@btn2Txt</a>
                 }

@@ -2,18 +2,44 @@
 @model AicaDocsUI.Pages.Account.ConfirmEmail
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Confirmación de Correo";
 }
 
-<!DOCTYPE html>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-11 col-md-8 col-lg-4 mx-auto rounded border p-3">
+            <section>
+                <h2 class="text-center mb-3">Confirmación de Correo</h2>
 
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-<div>
-    
+                <form method="post">
+                    <h5 class="text-center mb-3">@Model.WrapperInfo.FullName</h5>
+                    <hr/>
+                    <div class="mb-3">
+                        <label class="form-label">Nueva Contraseña</label>
+                        <input type="password" asp-for="ConfirmEmailModel.Password" class="form-control" placeholder="Ingrese su nueva contraseña"/>
+                        <span asp-validation-for="ConfirmEmailModel.Password" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Repetir Contraseña</label>
+                        <input type="password" asp-for="ConfirmEmailModel.RepeatNewPassword" class="form-control" placeholder="Repita su nueva contraseña"/>
+                        <span asp-validation-for="ConfirmEmailModel.RepeatNewPassword" class="text-danger"></span>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col d-grid">
+                            <a class="btn btn-outline-primary" href="/" role="button">Cancelar</a>
+                        </div>
+                        <div class="col d-grid">
+                            <button type="submit" class="btn btn-primary">Aceptar</button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
 </div>
-</body>
-</html>
+
+
+@section Scripts
+{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

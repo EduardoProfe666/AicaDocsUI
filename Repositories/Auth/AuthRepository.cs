@@ -127,7 +127,9 @@ public class AuthRepository: IAuthRepository
     public async Task<bool> ResetPasswordAsync(ResetPasswordRequest resetRequest)
     {
         var content = new StringContent(JsonSerializer.Serialize(resetRequest), Encoding.UTF8, "application/json");
-        var response = await _httpClient.PostAsync($"{_rootProvider.RootApi}/auth/forgotPassword", content);
+        var response = await _httpClient.PostAsync($"{_rootProvider.RootApi}/auth/resetPassword", content);
+        string responseContent = await response.Content.ReadAsStringAsync();
+        Console.WriteLine(responseContent);
         return response.IsSuccessStatusCode;
     }
 

@@ -32,9 +32,9 @@ public class Login : PageModel
             
             TempData["Error Login"] = false;
             
-            ShowResetPassword = TempData["Reset Password"] as bool? ?? false;
+            ShowResetPassword = TempData["New Password"] as bool? ?? false;
             
-            TempData["Reset Password"] = false;
+            TempData["New Password"] = false;
         }
         
     }

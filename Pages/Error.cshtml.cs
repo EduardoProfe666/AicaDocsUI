@@ -13,6 +13,8 @@ public class ErrorModel : PageModel
     public void OnGet(int? code)
     {
         Code = code ?? 500;
+        HttpContext.Response.StatusCode = Code; 
+        
         if(Code == 401)
             Response.Redirect("/Account/Login");
         else if(Request.Headers["Referer"].ToString() == "/" && Code != 403 && Code != 401 && Code != 400)
