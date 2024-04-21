@@ -1,0 +1,29 @@
+@using AicaDocsUI.Repositories.Auth
+
+@inject IAuthRepository AuthRepository
+
+<ul class="navbar-nav">
+@if (await AuthRepository.IsLoginAdvance())
+{
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Mi Cuenta
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li>
+                <a class="dropdown-item" asp-area="" asp-page="/Account/Manage/Index">Perfil</a>
+            </li>
+            <li class="dropdown-divider"></li>
+            <li>
+                <a class="dropdown-item" asp-area="" asp-page="/Account/Logout">Cerrar Sesión</a>
+            </li>
+        </ul>
+    </li>
+}
+else
+{
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-page="/Account/Login">Iniciar Sesión</a>
+    </li>
+}
+</ul>

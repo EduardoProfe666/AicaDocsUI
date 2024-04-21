@@ -1,12 +1,17 @@
 ﻿@page
+@using AicaDocsUI.Repositories.ApiData.Dto.IdentityCommons
 @model IndexModel
 @{
     ViewData["Title"] = "Inicio";
+    var btn1Txt = !Model.IsLogin ? "Iniciar Sesión" : Model.UserRole == UserRole.Admin ? "Usuarios" : "Documentos";
+    var btn2Txt = !Model.IsLogin ? "" : Model.UserRole == UserRole.Admin ? "Descargas" : "Mi Cuenta";
+    var href1 = !Model.IsLogin ? @"/Account/Login" : Model.UserRole == UserRole.Admin ? @"/Users" : @"/Documents";
+    var href2 = !Model.IsLogin ? @"" : Model.UserRole == UserRole.Admin ? @"/Reports/Documents" : @"/Account/Manage";
 }
 
 <div class="container my-5">
     <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
-        <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+        <div class="col-12 col-md-8 col-lg-7 p-3 p-lg-5 pt-lg-3">
             <div class="lc-block mb-3">
                 <div editable="rich">
                     <h2 class="fw-bold display-4">
@@ -20,19 +25,30 @@
             <div class="lc-block mb-3">
                 <div editable="rich">
                     <p class="lead">
-                        Prueba visual para ilustrar como consumir la <em>API de AicaDocs</em> en <strong>Razor Pages</strong> en el entorno de Aica+
+                        @if (Model.IsLogin && Model.FullName is not null)
+                        {
+                            @:Bienvenido/a de nuevo <strong>@Model.FullName</strong>
+                        }
+                        else
+                        {
+                            @:Aplicación Web de gestión de documentación <em>AicaDocs</em> en el entorno de <strong>Aica+</strong>
+                        }
+                        
                     </p>
                 </div>
             </div>
 
             <div class="lc-block d-grid gap-2 d-md-flex justify-content-md-start">
-                <a target="_blank" class="btn btn-primary px-4 me-md-2" href="@Model.AicaDocsApi" role="button">Ir a la API</a>
-                <a target="_blank" class="btn btn-outline-primary px-4 me-md-2" href="https://github.com/EduardoProfe666/AicaDocsApi" role="button">Repo de la API</a>
+                <a class="btn btn-primary px-4 me-md-2" href="@href1" role="button">@btn1Txt</a>
+                @if (Model.IsLogin)
+                {
+                    <a class="btn btn-outline-primary px-4 me-md-2" href="@href2" role="button">@btn2Txt</a>
+                }
             </div>
         </div>
-        <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
+        <div class="col-12 col-md-4 offset-md-0 col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
             <div class="lc-block">
-                <img class="rounded-3 w-100 " src="/Images/1.jpg" alt="Photo by Diego PH" width="700">
+                <img class="rounded-3 w-100 " src="/Images/1.jpg" alt="Aica+" width="700">
             </div>
         </div>
     </div>

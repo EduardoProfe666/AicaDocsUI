@@ -15,7 +15,7 @@ public class CookieStorageTokenManager: ITokenManager
             accessToken,
             new CookieOptions
             {
-                Expires = DateTimeOffset.Now.AddDays(7),
+                Expires = DateTimeOffset.Now.AddDays(30),
                 HttpOnly = true,
                 IsEssential = true,
                 SameSite = SameSiteMode.Strict
@@ -27,7 +27,7 @@ public class CookieStorageTokenManager: ITokenManager
             refreshToken,
             new CookieOptions
             {
-                Expires = DateTimeOffset.Now.AddDays(7),
+                Expires = DateTimeOffset.Now.AddDays(30),
                 HttpOnly = true,
                 IsEssential = true,
                 SameSite = SameSiteMode.Strict

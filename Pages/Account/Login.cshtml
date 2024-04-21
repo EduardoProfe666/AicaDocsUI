@@ -1,19 +1,66 @@
 @page
+@using Microsoft.AspNetCore.Mvc.TagHelpers
 @model AicaDocsUI.Pages.Account.Login
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Iniciar Sesión";
+    bool showErrorLogin = Model.ShowErrorLogin;
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-<div>
-    
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-11 col-md-8 col-lg-4 mx-auto rounded border p-3">
+            <section>
+                <h2 class="text-center mb-3">Iniciar Sesión</h2>
+                <hr/>
+                <form method="post">
+                    <div class="mb-3">
+                        <label class="form-label">Correo</label>
+                        <input asp-for="LoginRequest.Email" class="form-control"/>
+                        <span asp-validation-for="LoginRequest.Email" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Contraseña</label>
+                        <input type="password" asp-for="LoginRequest.Password" class="form-control glyp"/>
+                        <span asp-validation-for="LoginRequest.Password" class="text-danger"></span>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col d-grid">
+                            <a class="btn btn-outline-primary" href="/" role="button">Cancelar</a>
+                        </div>
+                        <div class="col d-grid">
+                            <button type="submit" class="btn btn-primary">Ingresar</button>
+                        </div>
+                    </div>
+                    <div>
+                        <a class="btn btn-link" asp-page="./ForgotPassword">¿Olvidó su contraseña?</a>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
 </div>
-</body>
-</html>
+
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index:  9999;">
+    <!-- Primer toast -->
+    <div id="liveToast1" class="toast bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header bg-danger">
+            <strong class="me-auto text-light">Fallo de autenticación. Revise su correo y contraseña.</strong>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
+</div>
+
+<script>
+    let shouldShowError = @(showErrorLogin.ToString().ToLower());
+        
+    window.onload = (event) => {
+        let liveToast1 = document.getElementById('liveToast1');
+
+        let toastInstance1 = new bootstrap.Toast(liveToast1);
+
+        if (shouldShowError)
+            toastInstance1.show();
+    };
+</script>
