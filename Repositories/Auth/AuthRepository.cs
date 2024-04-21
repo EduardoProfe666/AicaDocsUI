@@ -1,3 +1,4 @@
+using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
 using AicaDocsUI.Repositories.ApiData.Dto.Auth;
@@ -48,6 +49,11 @@ public class AuthRepository: IAuthRepository
 
     public async Task<bool> Register(string email, string fullName, UserRole role)
     {
+        if (!await IsLoginAdvance()) return false;
+        var tk = _tm.GetAccessToken();
+            
+        _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tk);
+        
         RegisterRequestDto registration = new RegisterRequestDto
         {
             Email = email,

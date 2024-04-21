@@ -1,0 +1,49 @@
+@page
+@model AicaDocsUI.Pages.Users.Register
+
+@{
+    ViewData["Title"] = "Registrar Usuario";
+}
+
+<div class="row">
+    <div class="col-md-8 mx-auto rounded p-3">
+        <h1 class="text-center mb-5">Registrar Usuario</h1>
+        <form method="post">
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Nombre</label>
+                <div class="col-sm-8">
+                    <input asp-for="RegisterRequestModel.FullName" class="form-control" placeholder="Ingrese el nombre"/>
+                    <span asp-validation-for="RegisterRequestModel.FullName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Correo</label>
+                <div class="col-sm-8">
+                    <input asp-for="RegisterRequestModel.Email" class="form-control" placeholder="Ingrese el correo"/>
+                    <span asp-validation-for="RegisterRequestModel.Email" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Rol</label>
+                <div class="col-sm-8">
+                    <span asp-validation-for="RegisterRequestModel.Role" class="text-danger"></span>
+                    <select class="form-select" asp-for="RegisterRequestModel.Role" asp-items="Model.ListRoles">
+                    </select>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="offset-md-4 col-sm-4 mb-2 d-grid">
+                    <a class="btn btn-outline-primary" href="/Users/Index" role="button">Atrás </a>
+                </div>
+                <div class="col-sm-4 mb-2 d-grid">
+                    <button type="submit" class="btn btn-primary">
+                        Registrar
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
