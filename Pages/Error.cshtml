@@ -6,7 +6,7 @@
     ViewData["Title"] = statusCode switch
     {
         404 => "Página no encontrada",
-        401 => "Acceso Denegado",
+        403 => "Acceso Denegado",
         _ => "Error"
     };
 }
@@ -15,7 +15,7 @@
     @(statusCode switch
     {
         404 => "Página no encontrada",
-        401 => "Acceso Denegado",
+        403 => "Acceso Denegado",
         _ => "Error Desconocido"
     })
 </h1>
@@ -23,7 +23,7 @@
     @(statusCode switch
     {
         404 => "Lo sentimos, la página que estás buscando no existe.",
-        401 => "Lo sentimos, no tienes permiso para acceder a esta página.",
+        403 => "Lo sentimos, no tienes permiso para acceder a la página solicitada.",
         _ => "Lo sentimos, ha ocurrido un error desconocido."
     })
 </h3>

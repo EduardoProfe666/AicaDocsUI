@@ -73,7 +73,7 @@ public class Index : PageModel
             });
 
 
-        var data1 = (await _userRepository.GetUserDataFilter(Filter))!;
+        var data1 = (await _userRepository.GetUserDataFilterAsync(Filter))!;
         Users = data1!.Response;
         PageTotal = data1.TotalPages;
 
@@ -95,7 +95,7 @@ public class Index : PageModel
     
     public async Task<IActionResult> OnGetDeleteAsync(string email)
     {
-        var result = await _userRepository.DeleteUser(email);
+        var result = await _userRepository.DeleteUserAsync(email);
         if (result)
         {
             TempData["Deleted User"] = true;

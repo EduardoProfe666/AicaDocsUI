@@ -1,6 +1,6 @@
 using AicaDocsUI.Extensions;
-using AicaDocsUI.Models;
 using AicaDocsUI.Repositories.ApiData.Dto.Commons;
+using AicaDocsUI.Repositories.ApiData.Dto.Documents;
 using AicaDocsUI.Repositories.ApiData.Dto.Documents.Filter;
 using AicaDocsUI.Repositories.ApiData.Dto.FilterCommons;
 using AicaDocsUI.Repositories.ApiData.Dto.Nomenclators;
@@ -121,7 +121,7 @@ public class Index : PageModel
 
         Filter.DateOfValidity = Filter.DateOfValidity?.UtcDateTime;
 
-        var data1 = (await _documentRepository.FilterDocuments(Filter))!;
+        var data1 = (await _documentRepository.FilterDocumentsAsync(Filter))!;
         Documents = data1!.Response;
         PageTotal = data1.TotalPages;
 

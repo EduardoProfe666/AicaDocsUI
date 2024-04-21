@@ -2,11 +2,11 @@ namespace AicaDocsUI.Repositories.Reports;
 
 public interface IReportRepository
 {
-    Task<Stream?> GetReportUsers();
-    Task<Stream?> GetReportUserByRole(int role);
-    Task<Stream?> GetDocuments();
-    Task<Stream?> GetDocumentsByUser(string user);
-    Task<Stream?> GetDownloads();
-    Task<Stream?> GetDownloadByUser(string user);
-    Task<Stream?> GetNomenclatorByType(int type);
+    Task<Stream?> GetReportUsersAsync();
+    Task<Stream?> GetReportUserByRoleAsync(int role);
+    Task<Stream?> GetDocumentsAsync();
+    Task<Stream?> GetDocumentsByUserAsync(string user);
+    Task<Stream?> GetDownloadsAsync();
+    Task<Stream?> GetDownloadByUserAsync(string user);
+    Task<Stream?> GetNomenclatorByTypeAsync(int type);
 }

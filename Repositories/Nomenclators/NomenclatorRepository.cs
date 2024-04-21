@@ -27,7 +27,7 @@ public class NomenclatorRepository : INomenclatorRepository
 
     public async Task<IEnumerable<NomenclatorDto>?> GetNomenclatorsByTypeAsync(int type)
     {
-        if (!await _auth.IsLoginAdvance()) return null;
+        if (!await _auth.IsLoginAdvanceAsync()) return null;
         var tk = _tm.GetAccessToken();
 
         _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tk);
@@ -44,7 +44,7 @@ public class NomenclatorRepository : INomenclatorRepository
 
     public async Task<NomenclatorDto?> GetNomenclatorAsync(int type, int id)
     {
-        if (!await _auth.IsLoginAdvance()) return null;
+        if (!await _auth.IsLoginAdvanceAsync()) return null;
         var tk = _tm.GetAccessToken();
 
         _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tk);
@@ -61,7 +61,7 @@ public class NomenclatorRepository : INomenclatorRepository
 
     public async Task<bool> CreateNomenclatorAsync(NomenclatorCreatedDto nomenclator)
     {
-        if (!await _auth.IsLoginAdvance()) return false;
+        if (!await _auth.IsLoginAdvanceAsync()) return false;
         var tk = _tm.GetAccessToken();
 
         _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tk);
@@ -74,7 +74,7 @@ public class NomenclatorRepository : INomenclatorRepository
 
     public async Task<bool> PutNomenclatorAsync(int id, NomenclatorPutDto name)
     {
-        if (!await _auth.IsLoginAdvance()) return false;
+        if (!await _auth.IsLoginAdvanceAsync()) return false;
         var tk = _tm.GetAccessToken();
 
         _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tk);
@@ -87,7 +87,7 @@ public class NomenclatorRepository : INomenclatorRepository
 
     public async Task<bool> DeleteNomenclatorAsync(int type, int id)
     {
-        if (!await _auth.IsLoginAdvance()) return false;
+        if (!await _auth.IsLoginAdvanceAsync()) return false;
         var tk = _tm.GetAccessToken();
 
         _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tk);

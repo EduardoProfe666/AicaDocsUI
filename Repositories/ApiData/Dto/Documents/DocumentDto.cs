@@ -1,4 +1,4 @@
-namespace AicaDocsUI.Models;
+namespace AicaDocsUI.Repositories.ApiData.Dto.Documents;
 
 public class DocumentDto
 {

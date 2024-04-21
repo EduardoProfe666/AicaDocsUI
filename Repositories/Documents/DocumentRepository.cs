@@ -1,7 +1,6 @@
 using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
-using AicaDocsUI.Models;
 using AicaDocsUI.Repositories.ApiData.Dto.Documents;
 using AicaDocsUI.Repositories.ApiData.Dto.Documents.Filter;
 using AicaDocsUI.Repositories.ApiData.Dto.FilterCommons;
@@ -26,9 +25,9 @@ public class DocumentRepository : IDocumentRepository
         _tm = tm;
         _auth = auth;
     }
-    public async Task<DocumentDto?> GetDocumentById(int id)
+    public async Task<DocumentDto?> GetDocumentByIdAsync(int id)
     {
-        if (!await _auth.IsLoginAdvance()) return null;
+        if (!await _auth.IsLoginAdvanceAsync()) return null;
         var tk = _tm.GetAccessToken();
             
         _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tk);
@@ -43,9 +42,9 @@ public class DocumentRepository : IDocumentRepository
 
     }
 
-    public async Task<FilterResponse<DocumentDto>?> FilterDocuments(FilterDocumentDto filter)
+    public async Task<FilterResponse<DocumentDto>?> FilterDocumentsAsync(FilterDocumentDto filter)
     {
-        if (!await _auth.IsLoginAdvance()) return null;
+        if (!await _auth.IsLoginAdvanceAsync()) return null;
         var tk = _tm.GetAccessToken();
             
         _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tk);
@@ -60,9 +59,9 @@ public class DocumentRepository : IDocumentRepository
         return null;
     }
 
-    public async Task<bool> CreateDocument(DocumentCreatedDto documentCreatedDto)
+    public async Task<bool> CreateDocumentAsync(DocumentCreatedDto documentCreatedDto)
     {
-        if (!await _auth.IsLoginAdvance()) return false;
+        if (!await _auth.IsLoginAdvanceAsync()) return false;
         var tk = _tm.GetAccessToken();
             
         _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tk);

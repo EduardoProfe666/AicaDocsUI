@@ -1,4 +1,5 @@
 using AicaDocsUI.Extensions;
+using AicaDocsUI.Pages.PagesModelsData.Models.Downloads;
 using AicaDocsUI.Repositories.ApiData.Dto.Commons;
 using AicaDocsUI.Repositories.ApiData.Dto.Downloads;
 using AicaDocsUI.Repositories.Downloads;
@@ -16,7 +17,7 @@ public class Download : PageModel
     public IEnumerable<SelectListItem> ListFormat { get; set; }
     public IEnumerable<SelectListItem> ListReason { get; set; }
 
-    [BindProperty] public DownloadCreatedDto DownloadCreatedDto { get; set; }
+    [BindProperty] public DownloadCreatedModel DownloadCreatedModel { get; set; }
     [BindProperty] public IntegerWrapperValue Id11 { get; set; }
 
     public Download(INomenclatorRepository repository, IDownloadRepository downloadRepository)
@@ -28,7 +29,7 @@ public class Download : PageModel
     public async Task OnGetAsync(int id)
     {
         Id11 = new IntegerWrapperValue(){Id = id};
-        DownloadCreatedDto = new DownloadCreatedDto
+        DownloadCreatedModel = new DownloadCreatedModel
             { Format = Format.Pdf, Username = "", DocumentId = id, ReasonId = 2 };
 
         ListFormat = Enum.GetValues(typeof(Format))
@@ -53,8 +54,12 @@ public class Download : PageModel
     {
         if (ModelState.IsValid)
         {
-            DownloadCreatedDto.DocumentId = Id11.Id;
-            var download = await _downloadRepository.DownloadDocument(DownloadCreatedDto);
+            DownloadCreatedModel.DocumentId = Id11.Id;
+            var download = await _downloadRepository.DownloadDocumentAsync(new DownloadCreatedDto
+            {
+                Format = DownloadCreatedModel.Format, Username = DownloadCreatedModel.Username, DocumentId = DownloadCreatedModel.DocumentId,
+                ReasonId = DownloadCreatedModel.ReasonId
+            });
             Response.Redirect(download!);
 
             //clear the Form

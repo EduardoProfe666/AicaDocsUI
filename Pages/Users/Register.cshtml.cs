@@ -1,4 +1,5 @@
 using AicaDocsUI.Extensions;
+using AicaDocsUI.Pages.PagesModelsData.Models.Auth;
 using AicaDocsUI.Repositories.ApiData.Dto.Auth;
 using AicaDocsUI.Repositories.ApiData.Dto.Commons;
 using AicaDocsUI.Repositories.ApiData.Dto.Documents;
@@ -49,7 +50,7 @@ public class Register : PageModel
         
         if (ModelState.IsValid)
         {
-            var register = await _authRepository.Register(RegisterRequestModel.Email, RegisterRequestModel.FullName,
+            var register = await _authRepository.RegisterAsync(RegisterRequestModel.Email, RegisterRequestModel.FullName,
                 RegisterRequestModel.Role);
 
             TempData["Created User"] = register;

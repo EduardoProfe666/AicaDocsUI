@@ -25,7 +25,7 @@ public class AuthRepository: IAuthRepository
         _tm = tm;
     }
     
-    public async Task<bool> Login(LoginRequestDto login)
+    public async Task<bool> LoginAsync(LoginRequestDto login)
     {
         var content = new StringContent(JsonSerializer.Serialize(login), Encoding.UTF8, "application/json");
         var response = await _httpClient.PostAsync($"{_rootProvider.RootApi}/auth/login", content);
@@ -47,9 +47,9 @@ public class AuthRepository: IAuthRepository
         _tm.DeleteTokens();
     }
 
-    public async Task<bool> Register(string email, string fullName, UserRole role)
+    public async Task<bool> RegisterAsync(string email, string fullName, UserRole role)
     {
-        if (!await IsLoginAdvance()) return false;
+        if (!await IsLoginAdvanceAsync()) return false;
         var tk = _tm.GetAccessToken();
             
         _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tk);
@@ -66,7 +66,7 @@ public class AuthRepository: IAuthRepository
         return response.IsSuccessStatusCode;
     }
 
-    public async Task<bool> ValidateToken()
+    public async Task<bool> ValidateTokenAsync()
     {
         var accessToken = _tm.GetAccessToken();
         if (accessToken is null)
@@ -83,7 +83,7 @@ public class AuthRepository: IAuthRepository
         return response.IsSuccessStatusCode;
     }
 
-    public async Task<bool> RefreshToken()
+    public async Task<bool> RefreshTokenAsync()
     {
         var refreshToken = _tm.GetRefreshToken();
         if (refreshToken is null)
@@ -100,7 +100,8 @@ public class AuthRepository: IAuthRepository
         {
             var tok = await response.Content.ReadFromJsonAsync<AccessTokenResponse>();
             
-            _tm.SaveTokens(tok!.AccessToken, tok!.RefreshToken);
+            _tm.DeleteTokens();
+            _tm.SaveTokens(tok!.AccessToken, tok.RefreshToken);
             
             return true;
         }
@@ -108,14 +109,14 @@ public class AuthRepository: IAuthRepository
         return false;
     }
 
-    public async Task<bool> ConfirmEmail(ConfirmEmailDto confirmEmail)
+    public async Task<bool> ConfirmEmailAsync(ConfirmEmailDto confirmEmail)
     {
         var content = new StringContent(JsonSerializer.Serialize(confirmEmail), Encoding.UTF8, "application/json");
         var response = await _httpClient.PostAsync($"{_rootProvider.RootApi}/auth/confirmEmail", content);
         return response.IsSuccessStatusCode;
     }
 
-    public async Task<bool> ForgotPassword(string email)
+    public async Task<bool> ForgotPasswordAsync(string email)
     {
         var fp = new ForgotPasswordDto(){Email = email, UrlView = $"{_rootProvider.RootUI}/Account/ResetPassword"};
         var content = new StringContent(JsonSerializer.Serialize(fp), Encoding.UTF8, "application/json");
@@ -123,14 +124,14 @@ public class AuthRepository: IAuthRepository
         return response.IsSuccessStatusCode;
     }
 
-    public async Task<bool> ResetPassword(ResetPasswordRequest resetRequest)
+    public async Task<bool> ResetPasswordAsync(ResetPasswordRequest resetRequest)
     {
         var content = new StringContent(JsonSerializer.Serialize(resetRequest), Encoding.UTF8, "application/json");
         var response = await _httpClient.PostAsync($"{_rootProvider.RootApi}/auth/forgotPassword", content);
         return response.IsSuccessStatusCode;
     }
 
-    public async Task<UserDataDto?> GetInfo()
+    public async Task<UserDataDto?> GetInfoAsync()
     {
         var accessToken = _tm.GetAccessToken();
         if (accessToken is null)
@@ -153,7 +154,7 @@ public class AuthRepository: IAuthRepository
         return null;
     }
 
-    public async Task<bool> ChangePassword(ChangePasswordDto chd)
+    public async Task<bool> ChangePasswordAsync(ChangePasswordDto chd)
     {
         var accessToken = _tm.GetAccessToken();
         if (accessToken is null)
@@ -172,33 +173,35 @@ public class AuthRepository: IAuthRepository
         return response.IsSuccessStatusCode;
     }
 
-    public async Task<UserRole?> GetUserRole()
+    public async Task<UserRole?> GetUserRoleAsync()
     {
-        var info = await GetInfo();
+        var info = await GetInfoAsync();
         return info?.Role;
     }
 
-    public bool IsLogin()
+    public async Task<bool> IsLoginAsync()
     {
         var refreshToken = _tm.GetRefreshToken();
-        return refreshToken is not null;
+        if (refreshToken is null)
+            return false;
+        return await ValidateTokenAsync();
     }
 
-    public async Task<bool> LoginAdvance(LoginRequestDto login)
+    public async Task<bool> LoginAdvanceAsync(LoginRequestDto login)
     {
-        var b = await Login(login);
+        var b = await LoginAsync(login);
         if (!b)
-            b = await RefreshToken();
+            b = await RefreshTokenAsync();
         if(!b)
             _tm.DeleteTokens();
         return b;
     }
 
-    public async Task<bool> IsLoginAdvance()
+    public async Task<bool> IsLoginAdvanceAsync()
     {
-        var b = IsLogin();
+        var b = await IsLoginAsync();
         if (!b)
-            b = await RefreshToken();
+            b = await RefreshTokenAsync();
         return b;
     }
 }

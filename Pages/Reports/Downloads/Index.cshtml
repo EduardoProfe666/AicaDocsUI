@@ -1,0 +1,174 @@
+@page
+@using AicaDocsUI.Extensions
+@using AicaDocsUI.Pages.Reports
+@using AicaDocsUI.Repositories.ApiData.Dto.FilterCommons
+@model AicaDocsUI.Pages.Downloads.Index
+
+@{
+    ViewData["Title"] = "Descargas";
+    var currentUrl = HttpContext.Request.Path;
+    var previousPag = Model.PageNumber - 1;
+    var nextPag = Model.PageNumber + 1;
+    if (previousPag == 0)
+        previousPag = Model.PageNumber;
+    if (nextPag > Model.PageTotal)
+        nextPag = Model.PageNumber;
+}
+
+<h2 class="card-text md-5">Listado de Descargas</h2>
+
+<h4 class="card-text md-3">Criterios de Búsqueda</h4>
+
+<form>
+    <div class="row mb-4">
+        <div class="col-md mb-1">
+            <div class="form-floating">
+                <select id="floatingSelectFormat" class=" form-select me-2" asp-for="Format" asp-items="Model.ListFormat">
+                    <option selected>Seleccione un formato</option>
+                </select>
+                <label for="floatingSelectFormat">Formato</label>
+            </div>
+        </div>
+        <div class="col-md mb-1">
+            <div class="form-floating">
+                <input max="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" id="floatingSelectDDownload" type="datetime-local" class=" form-control me-2" asp-for="DateDownload"/>
+                <label for="floatingSelectDDownload">Fecha de Descarga</label>
+            </div>
+        </div>
+        <div class="col-md mb-1">
+            <div class="form-floating">
+                <select id="floatingSelectDComp" class=" form-select me-2" asp-for="DateComparator" asp-items="Model.ListDateComparator">
+                    <option selected>Seleccione un comparador de fecha</option>
+                </select>
+                <label for="floatingSelectDComp">Comparador de Fecha</label>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-md mb-1">
+            <div class="form-floating">
+                <select id="floatingSelectReason" class="form-select me-2" asp-for="ReasonId" asp-items="Model.ListReasonId">
+                    <option selected>Seleccione una razón de descarga</option>
+                </select>
+                <label for="floatingSelectReason">Razón de Descarga</label>
+            </div>
+        </div>
+        <div class="col-md mb-1">
+            <div class="form-floating">
+                <input id="floatingSelectUsername" type="text" class="form-control me-2" asp-for="Username"/>
+                <label for="floatingSelectUsername">Usuario</label>
+            </div>
+        </div>
+        <div class="col-md mb-1">
+            <div class="form-floating">
+                <input id="floatingSelectDocument" type="number" class="form-control me-2" asp-for="DocumentId"/>
+                <label for="floatingSelectDocument">Documento</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+         <div class="col-md text-start">
+                    <a href="@($"/downloadReport/{DownloadReportEndpoint.TypeReport.Downloads}/1/1")" class="btn btn-secondary text-start">
+                        <i class="fas fa-file-pdf"> Exportar</i>
+                    </a>
+                </div>
+        <div class="col-md text-end">
+            <button type="reset" class="btn btn-outline-warning text-end">
+                <i class="fas fa-recycle"> Resetear</i>
+            </button>
+            <button type="submit" class="btn btn-outline-primary">
+                <i class="fas fa-search"> Buscar</i>
+            </button>
+        </div>
+    </div>
+</form>
+
+
+<script>
+    function sortTable(column) {
+        let currentColumn = "@Model.SortBy";
+        let currentorderBy = "@Model.SortOrder";
+
+        if (column === currentColumn) {
+            if (currentorderBy === @SortOrder.Desc) { currentorderBy = @SortOrder.Asc; }
+            else { currentorderBy = @SortOrder.Desc; }
+
+        }
+        window.location.href = "@(currentUrl)?PageNumber=@(Model.PageNumber)&Format=@Model.Format&DateDownload=@Model.DateDownload?.ToString("O")&Username=@Model.Username&DocumentId=@Model.DocumentId&ReasonId=@Model.ReasonId&SortBy="+currentColumn+"&SortOrder="+currentorderBy+"&DateComparator=@Model.DateComparator";
+    }
+
+</script>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Fecha de Descarga</th>
+        <th>Documento</th>
+        <th>Formato</th>
+        <th>Usuario</th>
+        <th>Razón de Descarga</th>
+        <th>Acción</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.Downloads)
+    {
+        var reasonName = Model.Reasons.First(x => x.Id == item.ReasonId).Name;
+        var description = item.Format.GetDescription();
+        var date = item.DateOfDownload.ToString("dd/MM/yyyy hh:mm:ss tt");
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodeEdition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => reasonName)
+            </td>
+
+
+            <td class="white-space:nowrap">
+                <a class="btn btn-outline-info btn-sm" asp-page="./Details" asp-route-id="@item.Id">
+                    <i class="fas fa-book"></i>
+                </a>
+            </td>
+        </tr>
+    }
+
+    </tbody>
+
+
+</table>
+<nav>
+    <ul class="pagination">
+        <li class="page-item">
+            <a class="page-link" href="@(currentUrl)?PageNumber=@(previousPag)&Format=@Model.Format&DateDownload=@Model.DateDownload?.ToString("O")&Username=@Model.Username&DocumentId=@Model.DocumentId&ReasonId=@Model.ReasonId&SortBy=@Model.SortBy&SortOrder=@Model.SortOrder&DateComparator=@Model.DateComparator" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        @for (int i = 1; i <= Model.PageTotal; i++)
+        {
+            string activeClass = "";
+            if (i == Model.PageNumber) activeClass = "active";
+            <li class="page-item @activeClass" aria-current="@(i == Model.PageNumber ? "page" : "false")">
+                <a class="page-link" href="@(currentUrl)?PageNumber=@(i)&Format=@Model.Format&DateDownload=@Model.DateDownload?.ToString("O")&Username=@Model.Username&DocumentId=@Model.DocumentId&ReasonId=@Model.ReasonId&SortBy=@Model.SortBy&SortOrder=@Model.SortOrder&DateComparator=@Model.DateComparator">@i</a>
+            </li>
+        }
+        <li class="page-item">
+            <a class="page-link" href="@(currentUrl)?PageNumber=@(nextPag)&Format=@Model.Format&DateDownload=@Model.DateDownload?.ToString("O")&Username=@Model.Username&DocumentId=@Model.DocumentId&ReasonId=@Model.ReasonId&SortBy=@Model.SortBy&SortOrder=@Model.SortOrder&DateComparator=@Model.DateComparator" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+
+</nav>

@@ -1,3 +1,4 @@
+using AicaDocsUI.Pages.PagesModelsData.Models.Documents;
 using AicaDocsUI.Repositories.ApiData.Dto.Commons;
 using AicaDocsUI.Repositories.ApiData.Dto.Documents;
 using AicaDocsUI.Repositories.Documents;
@@ -18,7 +19,7 @@ public class Create : PageModel
     public IEnumerable<SelectListItem> ListScopeId { get; set; } = new List<SelectListItem>();
     
 
-    [BindProperty] public DocumentCreatedDto DocumentCreatedDto { get; set; }
+    [BindProperty] public DocumentCreatedModel DocumentCreatedModel { get; set; }
 
     public Create(INomenclatorRepository repository, IDocumentRepository downloadRepository)
     {
@@ -28,7 +29,7 @@ public class Create : PageModel
 
     public async Task OnGetAsync(int id)
     {
-        DocumentCreatedDto = new DocumentCreatedDto
+        DocumentCreatedModel = new DocumentCreatedModel
         {
             Code = "", Edition = 1, Pdf = null, Word = null, Title = "", ProcessId = 2, ScopeId = 2, TypeId = 2,
             DateOfValidity = DateTimeOffset.Now
@@ -65,7 +66,12 @@ public class Create : PageModel
     {
         if (ModelState.IsValid)
         {
-            var download = await _documentRepository.CreateDocument(DocumentCreatedDto);
+            var download = await _documentRepository.CreateDocumentAsync(new DocumentCreatedDto()
+            {
+                Code = DocumentCreatedModel.Code, Edition = DocumentCreatedModel.Edition, Pdf = DocumentCreatedModel.Pdf,
+                Word = DocumentCreatedModel.Word, Title = DocumentCreatedModel.Title, ProcessId = DocumentCreatedModel.ProcessId,
+                ScopeId = DocumentCreatedModel.ScopeId, TypeId = DocumentCreatedModel.TypeId, DateOfValidity = DocumentCreatedModel.DateOfValidity
+            });
             TempData["Created Document"] = download;
             Response.Redirect("/Documents/Index");
 

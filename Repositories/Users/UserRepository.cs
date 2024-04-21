@@ -26,9 +26,9 @@ public class UserRepository: IUserRepository
         _auth = auth;
     }
 
-    public async Task<UserDataDto?> GetUserData(string email)
+    public async Task<UserDataDto?> GetUserDataAsync(string email)
     {
-        if (!await _auth.IsLoginAdvance()) return null;
+        if (!await _auth.IsLoginAdvanceAsync()) return null;
         var tk = _tm.GetAccessToken();
             
         _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tk);
@@ -44,9 +44,9 @@ public class UserRepository: IUserRepository
         
     }
 
-    public async Task<FilterResponse<UserDataDto>?> GetUserDataFilter(FilterUserDto filter)
+    public async Task<FilterResponse<UserDataDto>?> GetUserDataFilterAsync(FilterUserDto filter)
     {
-        if (!await _auth.IsLoginAdvance()) return null;
+        if (!await _auth.IsLoginAdvanceAsync()) return null;
         var tk = _tm.GetAccessToken();
             
         _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tk);
@@ -63,9 +63,9 @@ public class UserRepository: IUserRepository
         return null;
     }
 
-    public async Task<bool> DeleteUser(string email)
+    public async Task<bool> DeleteUserAsync(string email)
     {
-        if (!await _auth.IsLoginAdvance()) return false;
+        if (!await _auth.IsLoginAdvanceAsync()) return false;
         var tk = _tm.GetAccessToken();
             
         _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tk);
