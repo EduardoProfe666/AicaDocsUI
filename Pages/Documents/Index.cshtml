@@ -218,3 +218,13 @@
             toastInstance2.show();
     };
 </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var urlParams = new URLSearchParams(window.location.search);
+        var downloadUrl = urlParams.get('downloadUrl');
+        if (downloadUrl) {
+            window.location.href = downloadUrl;
+        }
+    });
+</script>

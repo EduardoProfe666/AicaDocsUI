@@ -6,68 +6,58 @@
     var date = Model.DocumentDto.DateOfValidity.ToString("dd/MM/yyyy hh:mm:ss tt");
 }
 
-<h1>Detalles de Documento</h1>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-11 col-md-8 col-lg-5 mx-auto rounded border p-3">
+            <h2 class="text-center">Detalles de Documento</h2>
+            <hr/>
 
-<div>
-    <h4>Info de Documento</h4>
-    <hr/>
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.Raw("Título")
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.DocumentDto.Title)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.Raw("Código")
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.DocumentDto.Code)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.Raw("Edición")
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.DocumentDto.Edition)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.Raw("Páginas")
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.DocumentDto.Pages)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.Raw("Fecha de Vigencia")
-        </dt>
-        <dd class="col-sm-10">
-            @Html.Raw(date)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.Raw("Correo")
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.DocumentDto.UserEmail)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.Raw("Tipo de Documento")
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Type)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.Raw("Proceso de Documento")
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Process)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.Raw("Alcance de Documento")
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Scope)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a class="btn btn-outline-primary" asp-page="./Index">Atrás</a>
+            <div class="table-responsive">
+                <table class="table table-borderless table-hover">
+                    <tbody>
+                        <tr>
+                            <th scope="row">@Html.Raw("Título")</th>
+                            <td>@Html.DisplayFor(model => model.DocumentDto.Title)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">@Html.Raw("Código")</th>
+                            <td>@Html.DisplayFor(model => model.DocumentDto.Code)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">@Html.Raw("Edición")</th>
+                            <td>@Html.DisplayFor(model => model.DocumentDto.Edition)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">@Html.Raw("Páginas")</th>
+                            <td>@Html.DisplayFor(model => model.DocumentDto.Pages)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">@Html.Raw("Fecha de Vigencia")</th>
+                            <td>@Html.Raw(date)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">@Html.Raw("Correo")</th>
+                            <td>@Html.DisplayFor(model => model.DocumentDto.UserEmail)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">@Html.Raw("Tipo de Documento")</th>
+                            <td>@Html.DisplayFor(model => model.Type)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">@Html.Raw("Proceso de Documento")</th>
+                            <td>@Html.DisplayFor(model => model.Process)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">@Html.Raw("Alcance de Documento")</th>
+                            <td>@Html.DisplayFor(model => model.Scope)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="text-start col">
+                <a class="btn btn-outline-primary ms-auto w-25 w-sm-50" asp-page="./Index">Atrás</a>
+            </div>
+        </div>
+    </div>
 </div>

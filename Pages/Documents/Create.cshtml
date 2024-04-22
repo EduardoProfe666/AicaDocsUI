@@ -5,92 +5,77 @@
     ViewData["Title"] = "Crear Documento";
 }
 
-
-<div class="row">
-    <div class="col-md-8 mx-auto rounded p-3">
-        <h1 class="text-center mb-5">Crear Documento</h1>
-        <form method="post" enctype="multipart/form-data">
-            <div class="row mb-3">
-                <label class="col-sm-4 col-form-label">Título</label>
-                <div class="col-sm-8">
-                    <input asp-for="DocumentCreatedModel.Title" class="form-control" placeholder="Ingrese el título"/>
-                    <span asp-validation-for="DocumentCreatedModel.Title" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <label class="col-sm-4 col-form-label">Código</label>
-                <div class="col-sm-8">
-                    <input asp-for="DocumentCreatedModel.Code" class="form-control" placeholder="Ingrese el código"/>
-                    <span asp-validation-for="DocumentCreatedModel.Code" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <label class="col-sm-4 col-form-label">Edición</label>
-                <div class="col-sm-8">
-                    <input type="number" min="1" asp-for="DocumentCreatedModel.Edition" class="form-control" placeholder="Ingrese la edición"/>
-                    <span asp-validation-for="DocumentCreatedModel.Edition" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <label class="col-sm-4 col-form-label">Fecha de Vigencia</label>
-                <div class="col-sm-8">
-                    <input placeholder="Ingrese la fecha de vigencia" type="datetime-local" class=" form-control me-2" asp-for="DocumentCreatedModel.DateOfValidity"/>
-                    <span asp-validation-for="DocumentCreatedModel.DateOfValidity" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <label class="col-sm-4 col-form-label">Tipo de documento</label>
-                <div class="col-sm-8">
-                    <span asp-validation-for="DocumentCreatedModel.TypeId" class="text-danger"></span>
-                    <select class="form-select" asp-for="DocumentCreatedModel.TypeId" asp-items="Model.ListTypeId">
-                    </select>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <label class="col-sm-4 col-form-label">Proceso de documento</label>
-                <div class="col-sm-8">
-                    <span asp-validation-for="DocumentCreatedModel.ProcessId" class="text-danger"></span>
-                    <select class="form-select" asp-for="DocumentCreatedModel.ProcessId" asp-items="Model.ListProcessId">
-                    </select>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <label class="col-sm-4 col-form-label">Alcance de documento</label>
-                <div class="col-sm-8">
-                    <span asp-validation-for="DocumentCreatedModel.ScopeId" class="text-danger"></span>
-                    <select class="form-select" asp-for="DocumentCreatedModel.ScopeId" asp-items="Model.ListScopeId">
-                    </select>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <label class="col-sm-4 col-form-label">Fichero Pdf</label>
-                <div class="col-sm-8">
-                    <input type="file" asp-for="DocumentCreatedModel.Pdf" class="form-control"/>
-                    <span asp-validation-for="DocumentCreatedModel.Pdf" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <label class="col-sm-4 col-form-label">Fichero Word</label>
-                <div class="col-sm-8">
-                    <input type="file" asp-for="DocumentCreatedModel.Word" class="form-control"/>
-                    <span asp-validation-for="DocumentCreatedModel.Word" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <div class="offset-md-4 col-sm-4 mb-2 d-grid">
-                    <a class="btn btn-outline-primary" href="/Documents/Index" role="button">Atrás </a>
-                </div>
-                <div class="col-sm-4 mb-2 d-grid">
-                    <button type="submit" class="btn btn-primary">
-                        Crear
-                    </button>
-                </div>
-            </div>
-        </form>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-11 col-md-8 col-lg-4 mx-auto rounded border p-3">
+            <section>
+                <h2 class="text-center mb-3">Crear Documento</h2>
+                <hr/>
+                <form method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Título</label>
+                        <input asp-for="DocumentCreatedModel.Title" class="form-control" placeholder="Ingrese el título"/>
+                        <span asp-validation-for="DocumentCreatedModel.Title" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Código</label>
+                        <input asp-for="DocumentCreatedModel.Code" class="form-control" placeholder="Ingrese el código"/>
+                        <span asp-validation-for="DocumentCreatedModel.Code" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Edición</label>
+                        <input type="number" min="1" asp-for="DocumentCreatedModel.Edition" class="form-control" placeholder="Ingrese la edición"/>
+                        <span asp-validation-for="DocumentCreatedModel.Edition" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Fecha de Vigencia</label>
+                        <input placeholder="Ingrese la fecha de vigencia" type="datetime-local" class=" form-control me-2" asp-for="DocumentCreatedModel.DateOfValidity"/>
+                        <span asp-validation-for="DocumentCreatedModel.DateOfValidity" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Tipo de documento</label>
+                        <span asp-validation-for="DocumentCreatedModel.TypeId" class="text-danger"></span>
+                        <select class="form-select" asp-for="DocumentCreatedModel.TypeId" asp-items="Model.ListTypeId">
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Proceso de documento</label>
+                        <span asp-validation-for="DocumentCreatedModel.ProcessId" class="text-danger"></span>
+                        <select class="form-select" asp-for="DocumentCreatedModel.ProcessId" asp-items="Model.ListProcessId">
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Alcance de documento</label>
+                        <span asp-validation-for="DocumentCreatedModel.ScopeId" class="text-danger"></span>
+                        <select class="form-select" asp-for="DocumentCreatedModel.ScopeId" asp-items="Model.ListScopeId">
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Fichero Pdf</label>
+                        <input type="file" asp-for="DocumentCreatedModel.Pdf" class="form-control"/>
+                        <span asp-validation-for="DocumentCreatedModel.Pdf" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Fichero Word</label>
+                        <input type="file" asp-for="DocumentCreatedModel.Word" class="form-control"/>
+                        <span asp-validation-for="DocumentCreatedModel.Word" class="text-danger"></span>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col d-grid">
+                            <a class="btn btn-outline-primary" href="/Documents/Index" role="button">Atrás </a>
+                        </div>
+                        <div class="col d-grid">
+                            <button type="submit" class="btn btn-primary">Crear</button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </div>
     </div>
 </div>
 
+
 @section Scripts
 {
-    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
 }

@@ -16,12 +16,12 @@
                 <hr/>
                 <form method="post">
                     <div class="mb-3">
-                        <label class="form-label">Correo</label>
+                        <label class="form-label fw-bold">Correo</label>
                         <input asp-for="LoginRequest.Email" class="form-control" placeholder="Ingrese su Correo"/>
                         <span asp-validation-for="LoginRequest.Email" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Contraseña</label>
+                        <label class="form-label fw-bold">Contraseña</label>
                         <input type="password" asp-for="LoginRequest.Password" class="form-control" placeholder="Ingrese su contraseña"/>
                         <span asp-validation-for="LoginRequest.Password" class="text-danger"></span>
                     </div>
