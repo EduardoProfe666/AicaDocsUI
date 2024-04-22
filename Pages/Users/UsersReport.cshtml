@@ -1,0 +1,35 @@
+@page
+@model AicaDocsUI.Pages.Users.UsersReport
+
+@{
+    ViewData["Title"] = "Reporte de Usuarios";
+}
+
+<form method="post">
+    <div>
+        <input type="radio" id="parametrized" name="IsParam" value="true" asp-for="IsParam"/>
+        <label for="parametrized">Parametrizado</label>
+    </div>
+    <div>
+        <input type="radio" id="notParametrized" name="IsParam" value="false" asp-for="IsParam"/>
+        <label for="notParametrized">No Parametrizado</label>
+    </div>
+
+    <div>
+        <label for="roles">Roles:</label>
+        <select id="roles" class="form-select" asp-for="@Model.Role" asp-items="Model.ListRoles" disabled="@(!Model.IsParam)">
+        </select>
+    </div>
+
+    <input type="submit" value="Submit"/>
+</form>
+
+<script>
+    document.getElementById('parametrized').addEventListener('change', function() {
+        document.getElementById('roles').disabled = false; 
+    });
+    
+    document.getElementById('notParametrized').addEventListener('change', function() {
+        document.getElementById('roles').disabled = true; 
+    });
+</script>
