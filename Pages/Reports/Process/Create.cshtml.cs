@@ -28,9 +28,11 @@ public class Create : PageModel
         if (ModelState.IsValid)
         {
             NomenclatorModel.Type = TypeOfNomenclator.ProcessOfDocument;
-            await _repository.CreateNomenclatorAsync(new NomenclatorCreatedDto(){Name = NomenclatorModel.Name,Type = NomenclatorModel.Type});
-            TempData["Created Process"] = true;
-            Response.Redirect("/Process/Index");
+            var b = await _repository.CreateNomenclatorAsync(new NomenclatorCreatedDto(){Name = NomenclatorModel.Name,Type = NomenclatorModel.Type});
+            
+            TempData["Created Process"] = b;
+            TempData["Error Unique"] = !b;
+            Response.Redirect("/Reports/Process/Index");
 
             //clear the Form
             NomenclatorModel.Name = "";

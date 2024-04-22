@@ -1,4 +1,6 @@
+using AicaDocsUI.Repositories.ApiData.Dto.Commons;
 using AicaDocsUI.Repositories.ApiData.Dto.IdentityCommons;
+using AicaDocsUI.Repositories.ApiData.Responses;
 using AicaDocsUI.Repositories.Auth;
 using AicaDocsUI.Repositories.Reports;
 
@@ -12,11 +14,14 @@ public static class DownloadReportEndpoint
         {
             if (!await auth.IsLoginAdvanceAsync()) return Results.Unauthorized();
             UserRole? ur = await auth.GetUserRoleAsync();
-
+            
             if (ur is null or UserRole.Worker && type is TypeReport.Downloads or TypeReport.Users
                     or TypeReport.NomenclatorsByType or TypeReport.UsersRoles or TypeReport.DocumentsByUser
                     or TypeReport.DownloadsByUser)
                 return Results.Forbid();
+
+            if (!Enum.IsDefined(typeof(TypeOfNomenclator), type))
+                return Results.BadRequest();
             
             Stream? stream;
             string namePdf;
@@ -47,7 +52,7 @@ public static class DownloadReportEndpoint
                     stream = await rp.GetDownloadByUserAsync(user);
                     break;
                 case TypeReport.NomenclatorsByType:
-                    namePdf = "Reporte de un tipo adicional";
+                    namePdf = "Reporte de tipo";
                     stream = await rp.GetNomenclatorByTypeAsync(number);
                     break;
                 default:

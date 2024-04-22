@@ -9,11 +9,13 @@ namespace AicaDocsUI.Pages.Account;
 public class Login : PageModel
 {
     private readonly IAuthRepository _authRepository;
-    
+
     public bool ShowErrorLogin { get; set; }
-    
+
     public bool ShowResetPassword { get; set; }
-    
+
+    public bool ShowUnauthorized { get; set; }
+
     [BindProperty] public LoginRequestModel LoginRequest { get; set; }
 
     public Login(IAuthRepository authRepository)
@@ -29,22 +31,24 @@ public class Login : PageModel
         {
             LoginRequest = new LoginRequestModel() { Email = "", Password = "" };
             ShowErrorLogin = TempData["Error Login"] as bool? ?? false;
-            
+
             TempData["Error Login"] = false;
-            
+
             ShowResetPassword = TempData["New Password"] as bool? ?? false;
-            
+            ShowUnauthorized = TempData["Unauthorized"] as bool? ?? false;
+
             TempData["New Password"] = false;
+            TempData["Unauthorized"] = false;
         }
-        
     }
-    
+
     public async Task OnPostAsync()
     {
         if (ModelState.IsValid)
         {
-            var b = await _authRepository.LoginAdvanceAsync(new LoginRequestDto(){Email = LoginRequest.Email, Password = LoginRequest.Password});
-            
+            var b = await _authRepository.LoginAdvanceAsync(new LoginRequestDto()
+                { Email = LoginRequest.Email, Password = LoginRequest.Password });
+
             if (b)
             {
                 Response.Redirect("/");
@@ -58,7 +62,6 @@ public class Login : PageModel
                 TempData["Error Login"] = true;
                 Response.Redirect("/Account/Login");
             }
-            
         }
     }
 }

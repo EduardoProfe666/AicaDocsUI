@@ -29,9 +29,11 @@ public class Create : PageModel
         if (ModelState.IsValid)
         {
             NomenclatorModel.Type = TypeOfNomenclator.ReasonOfDownload;
-            await _repository.CreateNomenclatorAsync(new NomenclatorCreatedDto(){Name = NomenclatorModel.Name, Type = NomenclatorModel.Type});
-            TempData["Created Reason"] = true;
-            Response.Redirect("/Reason/Index");
+            var b = await _repository.CreateNomenclatorAsync(new NomenclatorCreatedDto(){Name = NomenclatorModel.Name,Type = NomenclatorModel.Type});
+            
+            TempData["Created Reason"] = b;
+            TempData["Error Unique"] = !b;
+            Response.Redirect("/Reports/Reason/Index");
 
             //clear the Form
             NomenclatorModel.Name = "";

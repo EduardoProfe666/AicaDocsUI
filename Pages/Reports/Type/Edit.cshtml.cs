@@ -31,9 +31,11 @@ public class Edit : PageModel
     {
         if (ModelState.IsValid)
         {
-            await _repository.PutNomenclatorAsync(Id11.Id,new NomenclatorPutDto(){ Name = NomenclatorModel.Name});
-            TempData["Edited Type"] = true;
-            Response.Redirect("/Type/Index");
+            var b = await _repository.PutNomenclatorAsync(Id11.Id, new NomenclatorPutDto(){Name = NomenclatorModel.Name});
+            
+            TempData["Edited Type"] = b;
+            TempData["Error Unique"] = !b;
+            Response.Redirect("/Reports/Type/Index");
             //clear the Form
             NomenclatorModel.Name = "";
             ModelState.Clear();

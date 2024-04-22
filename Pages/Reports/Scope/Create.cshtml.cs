@@ -28,9 +28,11 @@ public class Create : PageModel
         if (ModelState.IsValid)
         {
             NomenclatorModel.Type = TypeOfNomenclator.ScopeOfDocument;
-            await _repository.CreateNomenclatorAsync(new NomenclatorCreatedDto(){Name = NomenclatorModel.Name, Type = NomenclatorModel.Type});
-            TempData["Created Scope"] = true;
-            Response.Redirect("/Scope/Index");
+            var b = await _repository.CreateNomenclatorAsync(new NomenclatorCreatedDto(){Name = NomenclatorModel.Name,Type = NomenclatorModel.Type});
+            
+            TempData["Created Scope"] = b;
+            TempData["Error Unique"] = !b;
+            Response.Redirect("/Reports/Scope/Index");
 
             //clear the Form
             NomenclatorModel.Name = "";
