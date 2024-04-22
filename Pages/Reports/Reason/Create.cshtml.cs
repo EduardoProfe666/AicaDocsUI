@@ -31,7 +31,7 @@ public class Create : PageModel
             NomenclatorModel.Type = TypeOfNomenclator.ReasonOfDownload;
             await _repository.CreateNomenclatorAsync(new NomenclatorCreatedDto(){Name = NomenclatorModel.Name, Type = NomenclatorModel.Type});
             TempData["Created Reason"] = true;
-            Response.Redirect("/Reason/Index");
+            Response.Redirect("/Reports/Reason/Index");
 
             //clear the Form
             NomenclatorModel.Name = "";

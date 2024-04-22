@@ -30,7 +30,7 @@ public class Create : PageModel
             NomenclatorModel.Type = TypeOfNomenclator.ProcessOfDocument;
             await _repository.CreateNomenclatorAsync(new NomenclatorCreatedDto(){Name = NomenclatorModel.Name,Type = NomenclatorModel.Type});
             TempData["Created Process"] = true;
-            Response.Redirect("/Process/Index");
+            Response.Redirect("/Reports/Process/Index");
 
             //clear the Form
             NomenclatorModel.Name = "";
