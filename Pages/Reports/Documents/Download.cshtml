@@ -5,49 +5,42 @@
     ViewData["Title"] = "Descargar Documento";
 }
 
-
-<div class="row">
-    <div class="col-md-8 mx-auto rounded p-3">
-        <h1 class="text-center mb-5">Descargar Documento</h1>
-        <form method="post">
-            <div class="row mb-3">
-                <label class="col-sm-4 col-form-label">Nombre de Usuario</label>
-                <div class="col-sm-8">
-                    <input asp-for="DownloadCreatedModel.Username" class="form-control" placeholder="Ingrese el nombre de usuario"/>
-                    <span asp-validation-for="DownloadCreatedModel.Username" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <label class="col-sm-4 col-form-label">Formato de Documento</label>
-                <div class="col-sm-8">
-                    <span asp-validation-for="DownloadCreatedModel.Format" class="text-danger"></span>
-                    <select class="form-select" asp-for="DownloadCreatedModel.Format" asp-items="Model.ListFormat">
-                    </select>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <label class="col-sm-4 col-form-label">Razón de Descarga</label>
-                <div class="col-sm-8">
-                    <span asp-validation-for="DownloadCreatedModel.ReasonId" class="text-danger"></span>
-                    <select class="form-select" asp-for="DownloadCreatedModel.ReasonId" asp-items="Model.ListReason">
-                    </select>
-                </div>
-            </div>
-
-            <div class="row mb-3">
-                <div class="offset-md-4 col-sm-4 mb-2 d-grid">
-                    <a class="btn btn-outline-primary" href="/Documents/Index" role="button">Atrás </a>
-                </div>
-                <div class="col-sm-4 mb-2 d-grid">
-                    <button type="submit" class="btn btn-primary">
-                        Descargar
-                    </button>
-                </div>
-            </div>
-        </form>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-11 col-md-8 col-lg-4 mx-auto rounded border p-3">
+            <section>
+                <h2 class="text-center mb-3">Descargar Documento</h2>
+                <hr/>
+                <form method="post">
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Formato de Documento</label>
+                        <span asp-validation-for="DownloadCreatedModel.Format" class="text-danger"></span>
+                        <select class="form-select" asp-for="DownloadCreatedModel.Format" asp-items="Model.ListFormat">
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Razón de Descarga</label>
+                        <span asp-validation-for="DownloadCreatedModel.ReasonId" class="text-danger"></span>
+                        <select class="form-select" asp-for="DownloadCreatedModel.ReasonId" asp-items="Model.ListReason">
+                        </select>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col d-grid">
+                            <a class="btn btn-outline-primary" href="/Reports/Documents/Index" role="button">Cancelar</a>
+                        </div>
+                        <div class="col d-grid">
+                            <button type="submit" class="btn btn-primary">Descargar</button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </div>
     </div>
 </div>
 
-<div>
 
-</div>
+@section Scripts
+{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}
+

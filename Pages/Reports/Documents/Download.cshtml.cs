@@ -28,9 +28,9 @@ public class Download : PageModel
 
     public async Task OnGetAsync(int id)
     {
-        Id11 = new IntegerWrapperValue(){Id = id};
+        Id11 = new IntegerWrapperValue() { Id = id };
         DownloadCreatedModel = new DownloadCreatedModel
-            { Format = Format.Pdf, Username = "", DocumentId = id, ReasonId = 2 };
+            { Format = Format.Pdf, DocumentId = id, ReasonId = 2 };
 
         ListFormat = Enum.GetValues(typeof(Format))
             .Cast<Format>()
@@ -41,7 +41,7 @@ public class Download : PageModel
             });
 
         var data = await _nomenclatorRepository.GetNomenclatorsByTypeAsync((int)TypeOfNomenclator.ReasonOfDownload);
-        
+
         ListReason = data!
             .Select(v => new SelectListItem
             {
@@ -57,10 +57,11 @@ public class Download : PageModel
             DownloadCreatedModel.DocumentId = Id11.Id;
             var download = await _downloadRepository.DownloadDocumentAsync(new DownloadCreatedDto
             {
-                Format = DownloadCreatedModel.Format, Username = DownloadCreatedModel.Username, DocumentId = DownloadCreatedModel.DocumentId,
+                Format = DownloadCreatedModel.Format, DocumentId = DownloadCreatedModel.DocumentId,
                 ReasonId = DownloadCreatedModel.ReasonId
             });
-            Response.Redirect(download!);
+            var indexUrl = Url.Page("./Index", new { downloadUrl = download });
+            Response.Redirect(indexUrl!);
 
             //clear the Form
             ModelState.Clear();
@@ -76,7 +77,7 @@ public class Download : PageModel
                 });
 
             var data = await _nomenclatorRepository.GetNomenclatorsByTypeAsync((int)TypeOfNomenclator.ReasonOfDownload);
-        
+
             ListReason = data!
                 .Select(v => new SelectListItem
                 {
@@ -84,8 +85,8 @@ public class Download : PageModel
                     Value = v.Id.ToString()
                 });
         }
-        
     }
+
     public class IntegerWrapperValue
     {
         public int Id { get; set; }

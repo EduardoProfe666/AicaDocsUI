@@ -30,7 +30,7 @@ public class Download : PageModel
     {
         Id11 = new IntegerWrapperValue(){Id = id};
         DownloadCreatedModel = new DownloadCreatedModel
-            { Format = Format.Pdf, Username = "", DocumentId = id, ReasonId = 2 };
+            { Format = Format.Pdf, DocumentId = id, ReasonId = 2 };
 
         ListFormat = Enum.GetValues(typeof(Format))
             .Cast<Format>()
@@ -57,10 +57,11 @@ public class Download : PageModel
             DownloadCreatedModel.DocumentId = Id11.Id;
             var download = await _downloadRepository.DownloadDocumentAsync(new DownloadCreatedDto
             {
-                Format = DownloadCreatedModel.Format, Username = DownloadCreatedModel.Username, DocumentId = DownloadCreatedModel.DocumentId,
+                Format = DownloadCreatedModel.Format, DocumentId = DownloadCreatedModel.DocumentId,
                 ReasonId = DownloadCreatedModel.ReasonId
             });
-            Response.Redirect(download!);
+            var indexUrl = Url.Page("./Index", new { downloadUrl = download });
+            Response.Redirect(indexUrl!);
 
             //clear the Form
             ModelState.Clear();
