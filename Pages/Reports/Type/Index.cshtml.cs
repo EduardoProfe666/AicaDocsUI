@@ -13,6 +13,8 @@ public class Index : PageModel
     public bool ShowEdited { get; set; }
     public bool ShowDeleted { get; set; }
     
+    public bool ShowErrorUnique { get; set; }
+
     public bool ShowErrorDelete { get; set; }
 
     public Index(INomenclatorRepository repository)
@@ -33,11 +35,13 @@ public class Index : PageModel
         ShowEdited = TempData["Edited Type"] as bool? ?? false;
         ShowDeleted = TempData["Deleted Process"] as bool? ?? false;
         ShowErrorDelete = TempData["Error to delete"] as bool? ?? false;
+        ShowErrorUnique = TempData["Error Unique"] as bool? ?? false;
         
         TempData["Created Type"] = false;
         TempData["Edited Type"] = false;
         TempData["Deleted Process"] = false;
         TempData["Error to delete"] = false;
+        TempData["Error Unique"] = false;
 
     }
     

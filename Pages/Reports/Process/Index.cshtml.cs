@@ -14,6 +14,8 @@ public class Index : PageModel
 
     public bool ShowDeleted { get; set; }
     
+    public bool ShowErrorUnique { get; set; }
+    
     public bool ShowErrorDelete { get; set; }
 
 
@@ -34,11 +36,13 @@ public class Index : PageModel
         ShowEdited = TempData["Edited Process"] as bool? ?? false;
         ShowDeleted = TempData["Deleted Process"] as bool? ?? false;
         ShowErrorDelete = TempData["Error to delete"] as bool? ?? false;
+        ShowErrorUnique = TempData["Error Unique"] as bool? ?? false;
 
         TempData["Created Process"] = false;
         TempData["Edited Process"] = false;
         TempData["Deleted Process"] = false;
         TempData["Error to delete"] = false;
+        TempData["Error Unique"] = false;
     }
 
     public async Task<IActionResult> OnGetDeleteAsync(int id)

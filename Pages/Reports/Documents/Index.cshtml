@@ -217,11 +217,26 @@
 </script>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var urlParams = new URLSearchParams(window.location.search);
-        var downloadUrl = urlParams.get('downloadUrl');
-        if (downloadUrl) {
-            window.location.href = downloadUrl;
-        }
-    });
+document.addEventListener('DOMContentLoaded', function() {
+    var urlParams = new URLSearchParams(window.location.search);
+    var downloadUrl = urlParams.get('downloadUrl');
+    var fileName = urlParams.get('fileName'); 
+    if (downloadUrl) {
+        fetch(downloadUrl)
+            .then(response => response.blob())
+            .then(blob => {
+                var url = window.URL.createObjectURL(blob);
+                var a = document.createElement('a');
+                a.href = url;
+                a.download = fileName || 'descarga.pdf';
+                document.body.appendChild(a);
+                a.click();
+                window.URL.revokeObjectURL(url);
+                document.body.removeChild(a);
+            })
+            .catch(error => {
+                console.error("Error al descargar el archivo PDF: ", error);
+            });
+    }
+});
 </script>

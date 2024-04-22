@@ -9,44 +9,47 @@
     var date = Model.DownloadDto.DateOfDownload.ToString("dd/MM/yyyy hh:mm:ss tt");
 }
 
-<h1>Detalles de Descarga</h1>
 
-<div>
-    <h4>Info de Descarga</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.Raw("Formato")
-        </dt>
-        <dd class="col-sm-10">
-            @Html.Raw(description)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.Raw("Fecha de Descarga")
-        </dt>
-        <dd class="col-sm-10">
-            @Html.Raw(date)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.Raw("Usuario")
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.DownloadDto.UserEmail)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.Raw("Documento")
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.CodeEdition)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.Raw("Razón de Descarga")
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Reason)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a class="btn btn-outline-primary" asp-page="./Index">Atrás</a>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-11 col-md-8 col-lg-5 mx-auto rounded border p-3">
+            <h2 class="text-center">Detalles de Descarga</h2>
+            <hr/>
+
+            <div class="table-responsive">
+                <table class="table table-borderless table-hover">
+                    <tbody>
+                        <tr>
+                            <th scope="row">@Html.Raw("Formato")</th>
+                            <td>@Html.Raw(description)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">@Html.Raw("Fecha de Descarga")</th>
+                            <td>@Html.Raw(date)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">@Html.Raw("Usuario")</th>
+                            <td>@Html.DisplayFor(model => model.DownloadDto.UserEmail)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">@Html.Raw("Documento")</th>
+                            <td>@Html.DisplayFor(model => model.CodeEdition)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">@Html.Raw("Fecha de Vigencia")</th>
+                            <td>@Html.Raw(date)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">@Html.Raw("Razón de descarga")</th>
+                            <td>@Html.DisplayFor(model => model.Reason)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="text-start col">
+                <a class="btn btn-outline-primary ms-auto w-25 w-sm-50" asp-page="./Index">Atrás</a>
+            </div>
+        </div>
+    </div>
 </div>

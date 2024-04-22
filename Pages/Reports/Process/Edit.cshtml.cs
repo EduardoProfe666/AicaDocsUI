@@ -33,9 +33,11 @@ public class Edit : PageModel
         {
             Console.WriteLine(Id11.Id);
             Console.WriteLine(NomenclatorModel.Name);
-            await _repository.PutNomenclatorAsync(Id11.Id, new NomenclatorPutDto(){Name = NomenclatorModel.Name});
-            TempData["Edited Process"] = true;
-            Response.Redirect("/Process/Index");
+            var b = await _repository.PutNomenclatorAsync(Id11.Id, new NomenclatorPutDto(){Name = NomenclatorModel.Name});
+            
+            TempData["Edited Process"] = b;
+            TempData["Error Unique"] = !b;
+            Response.Redirect("/Reports/Process/Index");
             //clear the Form
             NomenclatorModel.Name = "";
             ModelState.Clear();

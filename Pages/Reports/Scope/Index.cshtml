@@ -10,6 +10,7 @@
     bool showEdited = Model.ShowEdited;
     bool showDeleted = Model.ShowDeleted;
     bool showErrorDelete = Model.ShowErrorDelete;
+    bool showErrorUnique = Model.ShowErrorUnique;
 }
 
 <script>
@@ -109,6 +110,14 @@
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
     </div>
+
+    <!-- Quinto toast -->
+    <div id="liveToast5" class="toast bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header bg-danger">
+            <strong class="me-auto text-light">El nombre del alcance de documento se encuentra en uso</strong>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
 </div>
 
 <script>
@@ -116,17 +125,20 @@
     let shouldShowEdited = @(showEdited.ToString().ToLower());
     let shouldShowDeleted = @(showDeleted.ToString().ToLower());
     let shouldShowErrorDelete = @(showErrorDelete.ToString().ToLower());
+    let shouldShowErrorUnique =@(showErrorUnique.ToString().ToLower());
         
     window.onload = (event) => {
         let liveToast1 = document.getElementById('liveToast1');
         let liveToast2 = document.getElementById('liveToast2');
         let liveToast3 = document.getElementById('liveToast3');
         let liveToast4 = document.getElementById('liveToast4');
+        let liveToast5 = document.getElementById('liveToast5');
 
         let toastInstance1 = new bootstrap.Toast(liveToast1);
         let toastInstance2 = new bootstrap.Toast(liveToast2);
         let toastInstance3 = new bootstrap.Toast(liveToast3);
         let toastInstance4 = new bootstrap.Toast(liveToast4);
+        let toastInstance5 = new bootstrap.Toast(liveToast5);
 
         if (shouldShowCreated)
             toastInstance1.show();
@@ -136,5 +148,7 @@
             toastInstance3.show();
         if (shouldShowErrorDelete)
             toastInstance4.show();
+        if (shouldShowErrorUnique)
+            toastInstance5.show();
     };
 </script>

@@ -60,7 +60,7 @@ public class Download : PageModel
                 Format = DownloadCreatedModel.Format, DocumentId = DownloadCreatedModel.DocumentId,
                 ReasonId = DownloadCreatedModel.ReasonId
             });
-            var indexUrl = Url.Page("./Index", new { downloadUrl = download });
+            var indexUrl = Url.Page("./Index", new { downloadUrl = download, fileName = DownloadCreatedModel.Format==Format.Pdf ? "descarga.pdf" : "descarga.docx" });
             Response.Redirect(indexUrl!);
 
             //clear the Form
