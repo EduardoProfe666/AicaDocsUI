@@ -13,6 +13,25 @@
     bool showErrorDelete = Model.ShowErrorDelete;
 }
 
+<script>
+    function confirmDelete(id){
+        Swal.fire({
+            title: "¿Está seguro que desea eliminar?",
+            text: "Una vez eliminado, no podrás recuperar este usuario",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            cancelButtonText: "Cancelar",
+            confirmButtonText: "Sí, estoy seguro"
+        }).then((result) => {
+                if (result.isConfirmed){
+                  window.location.href = `/Reports/Process?handler=Delete&id=${id}`;
+                 }
+            });
+    }
+</script>
+
 <h2 class="card-text md-5">Listado de Procesos de documento</h2>
 
 <div class="row mb-4">
@@ -48,7 +67,7 @@
                 <a class="btn btn-outline-warning btn-sm" asp-page="./Edit" asp-route-id="@item.Id" asp-route-typeOfNomenclator="@item.Type"data-toggle="tooltip" title="Editar">
                     <i class="fas fa-edit"></i>
                 </a>
-                <a class="btn btn-outline-danger btn-sm" asp-page-handler="Delete" asp-route-id="@item.Id" data-toggle="tooltip" title="Eliminar">
+                <a class="btn btn-outline-danger btn-sm" onclick="confirmDelete('@item.Id')" data-toggle="tooltip" title="Eliminar">
                     <i class="fas fa-trash"></i>
                 </a>
             </td>

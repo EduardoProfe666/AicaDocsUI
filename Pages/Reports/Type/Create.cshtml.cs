@@ -30,7 +30,7 @@ public class Create : PageModel
             NomenclatorModel.Type = TypeOfNomenclator.TypeOfDocument;
             await _repository.CreateNomenclatorAsync(new NomenclatorCreatedDto(){Name = NomenclatorModel.Name, Type = NomenclatorModel.Type});
             TempData["Created Type"] = true;
-            Response.Redirect("/Type/Index");
+            Response.Redirect("/Reports/Type/Index");
 
             //clear the Form
             NomenclatorModel.Name = "";
