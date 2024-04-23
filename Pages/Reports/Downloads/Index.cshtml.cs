@@ -19,6 +19,7 @@ public class Index : PageModel
     private readonly INomenclatorRepository _nomenclatorRepository;
     private readonly IDocumentRepository _documentRepository;
 
+    public string DownloadUrl { get; set; }
     public int PageTotal { get; set; }
 
     public FilterDownloadDto Filter { get; set; }
@@ -125,6 +126,8 @@ public class Index : PageModel
                 DateOfDownload = download.DateOfDownload
             });
         }
+        DownloadUrl = TempData["DownloadUrl"] as string ?? "";
+        TempData["DownloadUrl"] = "";
     }
 
     public class DownloadDtoDocument: DownloadDto

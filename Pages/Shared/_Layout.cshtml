@@ -40,38 +40,38 @@
             <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
                     <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-page="/Index">Inicio</a>
+                        <a class="nav-link" asp-area="" asp-page="/Index">@Localizer["home"]</a>
                     </li>
                     @if (await AuthRepository.IsLoginAdvanceAsync())
                     {
                         @if (await AuthRepository.GetUserRoleAsync() == UserRole.Admin)
                         {
                             <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-page="/Users/Index">Usuarios</a>
+                                <a class="nav-link" asp-area="" asp-page="/Users/Index">@Localizer["users"]</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-page="/Reports/Documents/Index">Documentos</a>
+                                <a class="nav-link" asp-area="" asp-page="/Reports/Documents/Index">@Localizer["documents"]</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-page="/Reports/Downloads/Index">Descargas</a>
+                                <a class="nav-link" asp-area="" asp-page="/Reports/Downloads/Index">@Localizer["downloads"]</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Más
+                                    @Localizer["more"]
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li>
-                                        <a class="dropdown-item" asp-area="" asp-page="/Reports/Scope/Index">Alcances de documento</a>
+                                        <a class="dropdown-item" asp-area="" asp-page="/Reports/Scope/Index">@Localizer["scope"]</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" asp-area="" asp-page="/Reports/Process/Index">Procesos de documento</a>
+                                        <a class="dropdown-item" asp-area="" asp-page="/Reports/Process/Index">@Localizer["process"]</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" asp-area="" asp-page="/Reports/Type/Index">Tipos de documento</a>
+                                        <a class="dropdown-item" asp-area="" asp-page="/Reports/Type/Index">@Localizer["type"]</a>
                                     </li>
                                     <li class="dropdown-divider"></li>
                                     <li>
-                                        <a class="dropdown-item" asp-area="" asp-page="/Reports/Reason/Index">Razones de descarga</a>
+                                        <a class="dropdown-item" asp-area="" asp-page="/Reports/Reason/Index">@Localizer["reason"]</a>
                                     </li>
                                 </ul>
                             </li>
@@ -79,7 +79,7 @@
                         else
                         {
                             <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-page="/Documents/Index">Documentos</a>
+                                <a class="nav-link" asp-area="" asp-page="/Documents/Index">@Localizer["documents"]</a>
                             </li>   
                         }
                     }

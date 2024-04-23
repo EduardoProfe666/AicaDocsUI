@@ -19,9 +19,6 @@ public static class DownloadReportEndpoint
                     or TypeReport.NomenclatorsByType or TypeReport.UsersRoles or TypeReport.DocumentsByUser
                     or TypeReport.DownloadsByUser)
                 return Results.Forbid();
-
-            if (!Enum.IsDefined(typeof(TypeOfNomenclator), type))
-                return Results.BadRequest();
             
             Stream? stream;
             string namePdf;

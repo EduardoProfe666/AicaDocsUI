@@ -16,6 +16,7 @@
     bool showCreated = Model.ShowCreated;
     bool showDeleted = Model.ShowDeleted;
     bool showUserExists = Model.ShowUserExists;
+    string downloadUrl = Model.DownloadUrl;
 }
 
 <script>
@@ -72,7 +73,7 @@
             <a href="/Users/Register" class="btn btn-primary text-start">
                 <i class="fas fa-plus"> Registrar Usuario</i>
             </a>
-            <a href="@($"/downloadReport/{DownloadReportEndpoint.TypeReport.Users}/1/1")" class="btn btn-secondary text-start">
+            <a href="/Users/UsersReport" class="btn btn-secondary text-start">
                 <i class="fas fa-file-pdf"> Exportar</i>
             </a>
         </div>
@@ -187,6 +188,16 @@
         </div>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var downloadUrl = '@downloadUrl';
+        console.log(downloadUrl);
+        if (downloadUrl.length !== 0) {
+            window.location.href = downloadUrl;
+        }
+    });
+</script>
 
 <script>
     let shouldShowCreated = @(showCreated.ToString().ToLower());
