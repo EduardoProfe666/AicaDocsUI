@@ -29,8 +29,25 @@ public class Register : PageModel
         _authRepository = repository;
     }
 
-    public void OnGet(int id)
+    public async Task<IActionResult> OnGet(int id)
     {
+        bool b = await _authRepository.IsLoginAdvanceAsync();
+
+        if (!b)
+        {
+            TempData["Unauthorized"] = true;
+            return RedirectToPage("/Account/Login");
+        }
+
+        var c = await _authRepository.GetUserRoleAsync();
+        if (c == null)
+            return RedirectToPage();
+        
+        if (c != UserRole.Admin)
+        {
+            return RedirectToPage("/Error", new { code = 403 });
+        }
+        
         RegisterRequestModel = new RegisterRequestModel()
         {
             FullName = "", Email = "", Role = 0
@@ -43,6 +60,8 @@ public class Register : PageModel
                 Text = v.GetDescription(),
                 Value = v.ToString()
             });
+
+        return Page();
     }
 
     public async Task OnPostAsync()

@@ -33,9 +33,6 @@ public class IndexModel : PageModel
 
     public async Task<IActionResult> OnGet()
     { 
-        //_auth.Logout();
-        //var b = await _auth.LoginAdvance(new LoginRequestDto() { Email = "aicadocsworker@worker.cu", Password = "AicaDocs_Worker1!" });
-
         IsLogin = await _auth.IsLoginAdvanceAsync();
 
         if (IsLogin)
