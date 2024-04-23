@@ -346,6 +346,7 @@
       <EmbeddedResource Update="Resources\SharedResource.es.resx">
         <Generator>ResXFileCodeGenerator</Generator>
         <LastGenOutput>SharedResource.es.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
       <EmbeddedResource Update="Resources\Pages\Account\Manage\ChangePassword.en.resx">
         <Generator>ResXFileCodeGenerator</Generator>
         <LastGenOutput>ChangePassword.en.Designer.cs</LastGenOutput>
@@ -716,6 +717,7 @@
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
         <DependentUpon>SharedResource.es.resx</DependentUpon>
+      </Compile>
       <Compile Update="Resources\Pages\Account\Manage\ChangePassword.en.Designer.cs">
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
