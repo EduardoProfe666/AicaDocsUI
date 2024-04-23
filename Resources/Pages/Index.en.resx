@@ -18,4 +18,34 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
+    <data name="inicio" xml:space="preserve">
+        <value>Home</value>
+    </data>
+    <data name="bienvenido" xml:space="preserve">
+        <value>Welcome back</value>
+    </data>
+    <data name="app" xml:space="preserve">
+        <value>Web Application to manage documentation</value>
+    </data>
+    <data name="entorno" xml:space="preserve">
+        <value>in the environment of</value>
+    </data>
+    <data name="logExito" xml:space="preserve">
+        <value>Operation completed successfully. Check your email to change your current password</value>
+    </data>
+    <data name="logFallo" xml:space="preserve">
+        <value />
+    </data>
+    <data name="iniciarSesion" xml:space="preserve">
+        <value>Sign In</value>
+    </data>
+    <data name="usuarios" xml:space="preserve">
+        <value>Users</value>
+    </data>
+    <data name="documentos" xml:space="preserve">
+        <value>Documents</value>
+    </data>
+    <data name="descargas" xml:space="preserve">
+        <value>Downloads</value>
+    </data>
 </root>

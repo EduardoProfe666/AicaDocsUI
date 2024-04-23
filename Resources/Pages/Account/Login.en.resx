@@ -18,4 +18,28 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
+    <data name="iniciarSesion" xml:space="preserve">
+        <value>Sign In</value>
+    </data>
+    <data name="correo" xml:space="preserve">
+        <value>Email</value>
+    </data>
+    <data name="ingreseCorreo" xml:space="preserve">
+        <value>Enter your email</value>
+    </data>
+    <data name="contrasenna" xml:space="preserve">
+        <value>Password</value>
+    </data>
+    <data name="ingreseCont" xml:space="preserve">
+        <value>Enter your password</value>
+    </data>
+    <data name="cancelar" xml:space="preserve">
+        <value>Cancel</value>
+    </data>
+    <data name="ingresar" xml:space="preserve">
+        <value>Sign In</value>
+    </data>
+    <data name="olvidoCont" xml:space="preserve">
+        <value>Did you forget your password?</value>
+    </data>
 </root>

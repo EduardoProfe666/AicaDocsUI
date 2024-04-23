@@ -58,5 +58,50 @@ namespace AicaDocsUI.Resources.Pages.Account {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Aceptar.
+        /// </summary>
+        internal static string aceptar {
+            get {
+                return ResourceManager.GetString("aceptar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancelar.
+        /// </summary>
+        internal static string cancelar {
+            get {
+                return ResourceManager.GetString("cancelar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Correo.
+        /// </summary>
+        internal static string correo {
+            get {
+                return ResourceManager.GetString("correo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ingrese su Correo.
+        /// </summary>
+        internal static string ingreseCorreo {
+            get {
+                return ResourceManager.GetString("ingreseCorreo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Olvido de Contraseña.
+        /// </summary>
+        internal static string olvidoCont {
+            get {
+                return ResourceManager.GetString("olvidoCont", resourceCulture);
+            }
+        }
     }
 }
