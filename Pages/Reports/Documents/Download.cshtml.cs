@@ -2,6 +2,8 @@ using AicaDocsUI.Extensions;
 using AicaDocsUI.Pages.PagesModelsData.Models.Downloads;
 using AicaDocsUI.Repositories.ApiData.Dto.Commons;
 using AicaDocsUI.Repositories.ApiData.Dto.Downloads;
+using AicaDocsUI.Repositories.ApiData.Dto.IdentityCommons;
+using AicaDocsUI.Repositories.Auth;
 using AicaDocsUI.Repositories.Downloads;
 using AicaDocsUI.Repositories.Nomenclators;
 using Microsoft.AspNetCore.Mvc;
@@ -14,20 +16,39 @@ public class Download : PageModel
 {
     private readonly INomenclatorRepository _nomenclatorRepository;
     private readonly IDownloadRepository _downloadRepository;
+    private readonly IAuthRepository _authRepository;
     public IEnumerable<SelectListItem> ListFormat { get; set; }
     public IEnumerable<SelectListItem> ListReason { get; set; }
 
     [BindProperty] public DownloadCreatedModel DownloadCreatedModel { get; set; }
     [BindProperty] public IntegerWrapperValue Id11 { get; set; }
 
-    public Download(INomenclatorRepository repository, IDownloadRepository downloadRepository)
+    public Download(INomenclatorRepository repository, IDownloadRepository downloadRepository, IAuthRepository authRepository)
     {
         _nomenclatorRepository = repository;
         _downloadRepository = downloadRepository;
+        _authRepository = authRepository;
     }
 
-    public async Task OnGetAsync(int id)
+    public async Task<IActionResult> OnGetAsync(int id)
     {
+        bool b = await _authRepository.IsLoginAdvanceAsync();
+
+        if (!b)
+        {
+            TempData["Unauthorized"] = true;
+            return RedirectToPage("/Account/Login");
+        }
+
+        var c = await _authRepository.GetUserRoleAsync();
+        if (c == null)
+            return RedirectToPage();
+        
+        if (c != UserRole.Admin)
+        {
+            return RedirectToPage("/Error", new { code = 403 });
+        }
+        
         Id11 = new IntegerWrapperValue() { Id = id };
         DownloadCreatedModel = new DownloadCreatedModel
             { Format = Format.Pdf, DocumentId = id, ReasonId = 2 };
@@ -48,6 +69,7 @@ public class Download : PageModel
                 Text = v.Name,
                 Value = v.Id.ToString()
             });
+        return Page();
     }
 
     public async Task OnPostAsync()

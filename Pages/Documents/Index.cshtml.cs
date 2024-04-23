@@ -3,7 +3,9 @@ using AicaDocsUI.Repositories.ApiData.Dto.Commons;
 using AicaDocsUI.Repositories.ApiData.Dto.Documents;
 using AicaDocsUI.Repositories.ApiData.Dto.Documents.Filter;
 using AicaDocsUI.Repositories.ApiData.Dto.FilterCommons;
+using AicaDocsUI.Repositories.ApiData.Dto.IdentityCommons;
 using AicaDocsUI.Repositories.ApiData.Dto.Nomenclators;
+using AicaDocsUI.Repositories.Auth;
 using AicaDocsUI.Repositories.Documents;
 using AicaDocsUI.Repositories.Nomenclators;
 using Microsoft.AspNetCore.Mvc;
@@ -16,6 +18,7 @@ public class Index : PageModel
 {
     private readonly INomenclatorRepository _nomenclatorRepository;
     private readonly IDocumentRepository _documentRepository;
+    private readonly IAuthRepository _authRepository;
     
     public bool ShowCreated { get; set; }
     public bool ShowDownload { get; set; }
@@ -49,20 +52,38 @@ public class Index : PageModel
     public IEnumerable<NomenclatorDto> ScopeDoc { get; set; }
 
     public Index(INomenclatorRepository nomenclatorRepository,
-        IDocumentRepository documentRepository)
+        IDocumentRepository documentRepository, IAuthRepository authRepository)
     {
         _nomenclatorRepository = nomenclatorRepository;
         _documentRepository = documentRepository;
+        _authRepository = authRepository;
     }
 
     public IEnumerable<DocumentDto> Documents { get; set; } = new List<DocumentDto>();
 
-    public async Task OnGetAsync(string? code, DateTimeOffset? dateOfValidity, string? title, int? edition, int? pages,
+    public async Task<IActionResult> OnGetAsync(string? code, DateTimeOffset? dateOfValidity, string? title, int? edition, int? pages,
         int? typeId,
         int? processId, int? scopeId, SortByDocument? sortBy, SortOrder? sortOrder, DateComparator? dateComparator,
         int? pageNumber, string? UserEmail)
 
     {
+        bool b = await _authRepository.IsLoginAdvanceAsync();
+
+        if (!b)
+        {
+            TempData["Unauthorized"] = true;
+            return RedirectToPage("/Account/Login");
+        }
+
+        var c = await _authRepository.GetUserRoleAsync();
+        if (c == null)
+            return RedirectToPage();
+        
+        if (c != UserRole.Worker)
+        {
+            return RedirectToPage("/Error", new { code = 403 });
+        }
+        
         Filter = new()
         {
             Code = code, Edition = edition, DateOfValidity = dateOfValidity,
@@ -141,5 +162,6 @@ public class Index : PageModel
         ShowCreated = TempData["Created Document"] as bool? ?? false;
         
         TempData["Created Document"] = false;
+        return Page();
     }
 }
