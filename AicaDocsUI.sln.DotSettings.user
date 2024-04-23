@@ -37,6 +37,11 @@
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FShared_002F_005FLayout/@EntryIndexedValue">False</s:Boolean>
 	
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FShared_002F_005FLoginPartial/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FUsers_002FIndex/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FUsers_002FRegister/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FUsers_002FUsersReport/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FSharedResource/@EntryIndexedValue">False</s:Boolean>
 	<s:String x:Key="/Default/ResxEditorPersonal/DisabledLanguages/@EntryValue">default-language</s:String>
 	
-	<s:Boolean x:Key="/Default/ResxEditorPersonal/Initialized/@EntryValue">True</s:Boolean></wpf:ResourceDictionary>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/Initialized/@EntryValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/ShowOnlyErrors/@EntryValue">False</s:Boolean></wpf:ResourceDictionary>

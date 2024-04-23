@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AicaDocsUI.Resources.Pages.Shared {
+namespace AicaDocsUI.Resources.Pages.Users {
     using System;
     
     
@@ -21,14 +21,14 @@ namespace AicaDocsUI.Resources.Pages.Shared {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class _LoginPartial_en {
+    internal class UsersReport_es {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal _LoginPartial_en() {
+        internal UsersReport_es() {
         }
         
         /// <summary>
@@ -38,7 +38,7 @@ namespace AicaDocsUI.Resources.Pages.Shared {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AicaDocsUI.Resources.Pages.Shared._LoginPartial.en", typeof(_LoginPartial_en).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AicaDocsUI.Resources.Pages.Users.UsersReport.es", typeof(UsersReport_es).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -60,38 +60,65 @@ namespace AicaDocsUI.Resources.Pages.Shared {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to My Account.
+        ///   Looks up a localized string similar to Atrás.
         /// </summary>
-        internal static string account {
+        internal static string back {
             get {
-                return ResourceManager.GetString("account", resourceCulture);
+                return ResourceManager.GetString("back", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sign in.
+        ///   Looks up a localized string similar to Completo.
         /// </summary>
-        internal static string Login {
+        internal static string c {
             get {
-                return ResourceManager.GetString("Login", resourceCulture);
+                return ResourceManager.GetString("c", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sign out.
+        ///   Looks up a localized string similar to Exportar.
         /// </summary>
-        internal static string Logout {
+        internal static string export {
             get {
-                return ResourceManager.GetString("Logout", resourceCulture);
+                return ResourceManager.GetString("export", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Profile.
+        ///   Looks up a localized string similar to Por Rol.
         /// </summary>
-        internal static string Profile {
+        internal static string pr {
             get {
-                return ResourceManager.GetString("Profile", resourceCulture);
+                return ResourceManager.GetString("pr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tipo de Reporte.
+        /// </summary>
+        internal static string rt {
+            get {
+                return ResourceManager.GetString("rt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rol de Usuario.
+        /// </summary>
+        internal static string ru {
+            get {
+                return ResourceManager.GetString("ru", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reporte de Usuarios.
+        /// </summary>
+        internal static string uR {
+            get {
+                return ResourceManager.GetString("uR", resourceCulture);
             }
         }
     }

@@ -18,16 +18,28 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-    <data name="Profile" xml:space="preserve">
-        <value>Profile</value>
+    <data name="ru" xml:space="preserve">
+        <value>Register User</value>
     </data>
-    <data name="Logout" xml:space="preserve">
-        <value>Sign out</value>
+    <data name="n" xml:space="preserve">
+        <value>Name</value>
     </data>
-    <data name="Login" xml:space="preserve">
-        <value>Sign in</value>
+    <data name="en" xml:space="preserve">
+        <value>Enter a name</value>
     </data>
-    <data name="account" xml:space="preserve">
-        <value>My Account</value>
+    <data name="email" xml:space="preserve">
+        <value>Email</value>
+    </data>
+    <data name="ee" xml:space="preserve">
+        <value>Enter an email</value>
+    </data>
+    <data name="r" xml:space="preserve">
+        <value>Role</value>
+    </data>
+    <data name="cancel" xml:space="preserve">
+        <value>Cancel</value>
+    </data>
+    <data name="register" xml:space="preserve">
+        <value>Register</value>
     </data>
 </root>

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AicaDocsUI.Resources.Pages.Shared {
+namespace AicaDocsUI.Resources {
     using System;
     
     
@@ -21,14 +21,14 @@ namespace AicaDocsUI.Resources.Pages.Shared {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class _LoginPartial_en {
+    internal class SharedResource_es {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal _LoginPartial_en() {
+        internal SharedResource_es() {
         }
         
         /// <summary>
@@ -38,7 +38,7 @@ namespace AicaDocsUI.Resources.Pages.Shared {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AicaDocsUI.Resources.Pages.Shared._LoginPartial.en", typeof(_LoginPartial_en).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AicaDocsUI.Resources.SharedResource.es", typeof(SharedResource_es).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -60,38 +60,11 @@ namespace AicaDocsUI.Resources.Pages.Shared {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to My Account.
+        ///   Looks up a localized string similar to El correo es requerido.
         /// </summary>
-        internal static string account {
+        internal static string EmailRequired {
             get {
-                return ResourceManager.GetString("account", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Sign in.
-        /// </summary>
-        internal static string Login {
-            get {
-                return ResourceManager.GetString("Login", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Sign out.
-        /// </summary>
-        internal static string Logout {
-            get {
-                return ResourceManager.GetString("Logout", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Profile.
-        /// </summary>
-        internal static string Profile {
-            get {
-                return ResourceManager.GetString("Profile", resourceCulture);
+                return ResourceManager.GetString("EmailRequired", resourceCulture);
             }
         }
     }

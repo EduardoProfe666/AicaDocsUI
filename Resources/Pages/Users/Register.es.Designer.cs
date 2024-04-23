@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AicaDocsUI.Resources.Pages.Shared {
+namespace AicaDocsUI.Resources.Pages.Users {
     using System;
     
     
@@ -21,14 +21,14 @@ namespace AicaDocsUI.Resources.Pages.Shared {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class _LoginPartial_en {
+    internal class Register_es {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal _LoginPartial_en() {
+        internal Register_es() {
         }
         
         /// <summary>
@@ -38,7 +38,7 @@ namespace AicaDocsUI.Resources.Pages.Shared {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AicaDocsUI.Resources.Pages.Shared._LoginPartial.en", typeof(_LoginPartial_en).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AicaDocsUI.Resources.Pages.Users.Register.es", typeof(Register_es).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -60,38 +60,74 @@ namespace AicaDocsUI.Resources.Pages.Shared {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to My Account.
+        ///   Looks up a localized string similar to Cancelar.
         /// </summary>
-        internal static string account {
+        internal static string cancel {
             get {
-                return ResourceManager.GetString("account", resourceCulture);
+                return ResourceManager.GetString("cancel", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sign in.
+        ///   Looks up a localized string similar to Ingrese el correo.
         /// </summary>
-        internal static string Login {
+        internal static string ee {
             get {
-                return ResourceManager.GetString("Login", resourceCulture);
+                return ResourceManager.GetString("ee", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sign out.
+        ///   Looks up a localized string similar to Correo.
         /// </summary>
-        internal static string Logout {
+        internal static string email {
             get {
-                return ResourceManager.GetString("Logout", resourceCulture);
+                return ResourceManager.GetString("email", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Profile.
+        ///   Looks up a localized string similar to Ingrese el nombre.
         /// </summary>
-        internal static string Profile {
+        internal static string en {
             get {
-                return ResourceManager.GetString("Profile", resourceCulture);
+                return ResourceManager.GetString("en", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nombre.
+        /// </summary>
+        internal static string n {
+            get {
+                return ResourceManager.GetString("n", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rol.
+        /// </summary>
+        internal static string r {
+            get {
+                return ResourceManager.GetString("r", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Registrar.
+        /// </summary>
+        internal static string register {
+            get {
+                return ResourceManager.GetString("register", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Registrar Usuario.
+        /// </summary>
+        internal static string ru {
+            get {
+                return ResourceManager.GetString("ru", resourceCulture);
             }
         }
     }

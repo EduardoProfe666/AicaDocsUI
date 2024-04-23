@@ -5,7 +5,7 @@
 @model Index
 
 @{
-    ViewData["Title"] = "Usuarios";
+    ViewData["Title"] = @Localizer["usuarios"];
     var currentUrl = HttpContext.Request.Path;
     var previousPag = Model.PageNumber - 1;
     var nextPag = Model.PageNumber + 1;
@@ -22,14 +22,14 @@
 <script>
     function confirmDelete(email){
         Swal.fire({
-            title: "¿Está seguro que desea eliminar?",
-            text: "Una vez eliminado, no podrás recuperar este usuario",
+            title: @Localizer["deleteQ"],
+            text: @Localizer["deleteE"],
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
-            cancelButtonText: "Cancelar",
-            confirmButtonText: "Sí, estoy seguro"
+            cancelButtonText: @Localizer["cancel"],
+            confirmButtonText: @Localizer["deleteSeg"]
         }).then((result) => {
                 if (result.isConfirmed){
                   window.location.href = `/Users?handler=Delete&email=${email}`;
@@ -38,30 +38,30 @@
     }
 </script>
 
-<h2 class="card-text md-5">Listado de Usuarios</h2>
+<h2 class="card-text md-5">@Localizer["user"]</h2>
 
-<h4 class="card-text md-3">Criterios de Búsqueda</h4>
+<h4 class="card-text md-3">@Localizer["cb"]</h4>
 
 <form>
     <div class="row mb-4">
         <div class="col-md mb-1">
             <div class="form-floating">
                 <select id="floatingSelectFormat" class=" form-select me-2" asp-for="Role" asp-items="Model.ListRoles">
-                    <option selected>Seleccione un rol</option>
+                    <option selected>@Localizer["rol"]</option>
                 </select>
-                <label for="floatingSelectFormat">Roles</label>
+                <label for="floatingSelectFormat">@Localizer["roles"]</label>
             </div>
         </div>
         <div class="col-md mb-1">
             <div class="form-floating">
                 <input id="floatingSelectDocument" type="text" class="form-control me-2" asp-for="FullName"/>
-                <label for="floatingSelectDocument">Nombre</label>
+                <label for="floatingSelectDocument">@Localizer["name"]</label>
             </div>
         </div>
         <div class="col-md mb-1">
             <div class="form-floating">
                 <input id="floatingSelectUsername2" type="text" class="form-control me-2" asp-for="Email"/>
-                <label for="floatingSelectUsername2">Correo</label>
+                <label for="floatingSelectUsername2">@Localizer["mail"]</label>
             </div>
         </div>
 
@@ -71,18 +71,18 @@
     <div class="row mb-4">
         <div class="col-md text-start">
             <a href="/Users/Register" class="btn btn-primary text-start">
-                <i class="fas fa-plus"> Registrar Usuario</i>
+                <i class="fas fa-plus"> @Localizer["register"]</i>
             </a>
             <a href="/Users/UsersReport" class="btn btn-secondary text-start">
-                <i class="fas fa-file-pdf"> Exportar</i>
+                <i class="fas fa-file-pdf"> @Localizer["export"]</i>
             </a>
         </div>
         <div class="col-md text-end">
             <button type="reset" class="btn btn-outline-warning text-end">
-                <i class="fas fa-recycle"> Resetear</i>
+                <i class="fas fa-recycle"> @Localizer["reset"]</i>
             </button>
             <button type="submit" class="btn btn-outline-primary">
-                <i class="fas fa-search"> Buscar</i>
+                <i class="fas fa-search"> @Localizer["find"]</i>
             </button>
         </div>
     </div>
@@ -92,11 +92,11 @@
 <table class="table table-hover">
     <thead>
     <tr>
-        <th>Nombre</th>
-        <th>Email</th>
-        <th>Confirmado</th>
-        <th>Rol</th>
-        <th>Acciones</th>
+        <th>@Localizer["name"]</th>
+        <th>@Localizer["mail"]</th>
+        <th>@Localizer["confirmed"]</th>
+        <th>@Localizer["1rol"]</th>
+        <th>@Localizer["actions"]</th>
 
     </tr>
     </thead>
@@ -128,7 +128,7 @@
 
 
             <td class="white-space:nowrap">
-                <a class="btn btn-outline-danger btn-sm" onclick="confirmDelete('@item.Email')" data-toggle="tooltip" title="Eliminar">
+                <a class="btn btn-outline-danger btn-sm" onclick="confirmDelete('@item.Email')" data-toggle="tooltip" title="@Localizer["Delete"]">
                     <i class="fas fa-trash"></i>
                 </a>
             </td>
@@ -167,7 +167,7 @@
     <!-- Primer toast -->
     <div id="liveToast1" class="toast bg-success" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header bg-success">
-            <strong class="me-auto text-light">Usuario creado con éxito</strong>
+            <strong class="me-auto text-light">@Localizer["cu"]</strong>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
     </div>
@@ -175,7 +175,7 @@
     <!-- Segundo toast -->
     <div id="liveToast2" class="toast bg-success" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header bg-success">
-            <strong class="me-auto text-light">Eliminado con éxito</strong>
+            <strong class="me-auto text-light">@Localizer["eE"]</strong>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
     </div>
@@ -183,7 +183,7 @@
     <!-- Tercer toast -->
     <div id="liveToast3" class="toast bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header bg-danger">
-            <strong class="me-auto text-light">El usuario ya existe</strong>
+            <strong class="me-auto text-light">@Localizer["eUs"]</strong>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
     </div>
