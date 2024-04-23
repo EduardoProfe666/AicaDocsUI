@@ -15,6 +15,7 @@
         nextPag = Model.PageNumber;
     bool showCreated = Model.ShowCreated;
     bool showEdited = Model.ShowDownload;
+    string downloadUrl = Model.DownloadUrl;
 }
 
 <h2 class="card-text md-5">Listado de Documentos</h2>
@@ -95,7 +96,7 @@
 
     <div class="row mb-4">
         <div class="col-md text-start">
-            <a href="@($"/downloadReport/{DownloadReportEndpoint.TypeReport.Documents}/1/1")" class="btn btn-secondary text-start">
+            <a href="/Reports/Documents/DocumentsReport" class="btn btn-secondary text-start">
                 <i class="fas fa-file-pdf"> Exportar</i>
             </a>
         </div>
@@ -217,6 +218,16 @@
 </script>
 
 <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var downloadUrl = '@downloadUrl';
+        console.log(downloadUrl);
+        if (downloadUrl.length !== 0) {
+            window.location.href = downloadUrl;
+        }
+    });
+</script>
+
+<script>
 document.addEventListener('DOMContentLoaded', function() {
     var urlParams = new URLSearchParams(window.location.search);
     var downloadUrl = urlParams.get('downloadUrl');
@@ -240,3 +251,4 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
+

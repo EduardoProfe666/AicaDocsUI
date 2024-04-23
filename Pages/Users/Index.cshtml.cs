@@ -18,6 +18,8 @@ public class Index : PageModel
     public bool ShowDeleted { get; set; }
     public bool ShowUserExists { get; set; }
     
+    public string DownloadUrl { get; set; }
+    
     public int PageTotal { get; set; }
 
     public FilterUserDto Filter { get; set; }
@@ -87,10 +89,12 @@ public class Index : PageModel
         ShowCreated = TempData["Created User"] as bool? ?? false;
         ShowDeleted = TempData["Deleted User"] as bool? ?? false;
         ShowUserExists = TempData["User Exists"] as bool? ?? false;
+        DownloadUrl = TempData["DownloadUrl"] as string ?? "";
         
         TempData["Created User"] = false;
         TempData["Deleted User"] = false;
         TempData["User Exists"] = false;
+        TempData["DownloadUrl"] = "";
     }
     
     public async Task<IActionResult> OnGetDeleteAsync(string email)
