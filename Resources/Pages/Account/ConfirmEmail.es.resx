@@ -18,4 +18,25 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
+    <data name="correoConf" xml:space="preserve">
+        <value>Confirmación de Correo</value>
+    </data>
+    <data name="nuevaContrasenna" xml:space="preserve">
+        <value>Nueva Contraseña</value>
+    </data>
+    <data name="repContrasenna" xml:space="preserve">
+        <value>Repetir Contraseña</value>
+    </data>
+    <data name="cancelar" xml:space="preserve">
+        <value>Cancelar</value>
+    </data>
+    <data name="aceptar" xml:space="preserve">
+        <value>Aceptar</value>
+    </data>
+    <data name="ingreseNC" xml:space="preserve">
+        <value>Ingrese su nueva contraseña</value>
+    </data>
+    <data name="repNC" xml:space="preserve">
+        <value>Repita su nueva contraseña</value>
+    </data>
 </root>

@@ -58,5 +58,68 @@ namespace AicaDocsUI.Resources.Pages.Account {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Accept.
+        /// </summary>
+        internal static string aceptar {
+            get {
+                return ResourceManager.GetString("aceptar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        internal static string cancelar {
+            get {
+                return ResourceManager.GetString("cancelar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter your new password.
+        /// </summary>
+        internal static string ingreseNC {
+            get {
+                return ResourceManager.GetString("ingreseNC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New Password.
+        /// </summary>
+        internal static string nuevaCont {
+            get {
+                return ResourceManager.GetString("nuevaCont", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset Password.
+        /// </summary>
+        internal static string reinicioCont {
+            get {
+                return ResourceManager.GetString("reinicioCont", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Repeat your new password.
+        /// </summary>
+        internal static string repitaNC {
+            get {
+                return ResourceManager.GetString("repitaNC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Repeat Password.
+        /// </summary>
+        internal static string repNC {
+            get {
+                return ResourceManager.GetString("repNC", resourceCulture);
+            }
+        }
     }
 }

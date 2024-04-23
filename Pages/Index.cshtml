@@ -2,11 +2,15 @@
 @using AicaDocsUI.Repositories.ApiData.Dto.IdentityCommons
 @model IndexModel
 @{
-    ViewData["Title"] = "Inicio";
+    ViewData["Title"] = @Localizer["inicio"];
     bool showForgotPassword = Model.ShowForgotPassword;
     bool showError = Model.ShowError;
-    var btn1Txt = !Model.IsLogin ? "Iniciar Sesión" : Model.UserRole == UserRole.Admin ? "Usuarios" : "Documentos";
-    var btn2Txt = !Model.IsLogin ? "" : Model.UserRole == UserRole.Admin ? "Descargas" : "";
+    var b1 = @Localizer["iniciarSesion"];
+    var b2 = @Localizer["usuarios"];
+    var b3 = @Localizer["documentos"];
+    var b4 = @Localizer["descargas"];
+    var btn1Txt = !Model.IsLogin ? b1.Value : Model.UserRole == UserRole.Admin ? b2.Value : b3.Value;
+    var btn2Txt = !Model.IsLogin ? "" : Model.UserRole == UserRole.Admin ? b4.Value : "";
     var href1 = !Model.IsLogin ? @"/Account/Login" : Model.UserRole == UserRole.Admin ? @"/Users" : @"/Documents";
     var href2 = !Model.IsLogin ? @"" : Model.UserRole == UserRole.Admin ? @"/Reports/Downloads" : @"";
 }
@@ -29,11 +33,11 @@
                     <p class="lead">
                         @if (Model.IsLogin && Model.FullName is not null)
                         {
-                            @:Bienvenido/a de nuevo, <strong>@Model.FullName</strong>
+                            @:@Localizer["bienvenido"], <strong>@Model.FullName</strong>
                         }
                         else
                         {
-                            @:Aplicación Web de gestión de documentación <em>AicaDocs</em> en el entorno de <strong>Aica+</strong>
+                            @:@Localizer["app"] <em>AicaDocs</em> @Localizer["entorno"] <strong>Aica+</strong>
                         }
                         
                     </p>
@@ -60,14 +64,14 @@
     <!-- Primer toast -->
     <div id="liveToast1" class="toast bg-success" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header bg-success">
-            <strong class="me-auto text-light">Operación completada con éxito. Revise su correo para cambiar su contraseña actual.</strong>
+            <strong class="me-auto text-light">@Localizer["logExito"]</strong>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
     </div>
     <!-- Segundo toast -->
         <div id="liveToast2" class="toast bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header bg-danger">
-                <strong class="me-auto text-light">Falló la operación. Por favor, inténtelo de nuevo más tarde.</strong>
+                <strong class="me-auto text-light">@Localizer["logFallo"]</strong>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>
         </div>

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AicaDocsUI.Resources.Pages.Account {
+namespace AicaDocsUI.Resources.Pages.Account.Manage {
     using System;
     
     
@@ -21,14 +21,14 @@ namespace AicaDocsUI.Resources.Pages.Account {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class ConfirmEmail_es {
+    internal class ChangePassword_es {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal ConfirmEmail_es() {
+        internal ChangePassword_es() {
         }
         
         /// <summary>
@@ -38,7 +38,7 @@ namespace AicaDocsUI.Resources.Pages.Account {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AicaDocsUI.Resources.Pages.Account.ConfirmEmail.es", typeof(ConfirmEmail_es).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AicaDocsUI.Resources.Pages.Account.Manage.ChangePassword.es", typeof(ChangePassword_es).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -56,69 +56,6 @@ namespace AicaDocsUI.Resources.Pages.Account {
             }
             set {
                 resourceCulture = value;
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Aceptar.
-        /// </summary>
-        internal static string aceptar {
-            get {
-                return ResourceManager.GetString("aceptar", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Cancelar.
-        /// </summary>
-        internal static string cancelar {
-            get {
-                return ResourceManager.GetString("cancelar", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Confirmación de Correo.
-        /// </summary>
-        internal static string correoConf {
-            get {
-                return ResourceManager.GetString("correoConf", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Ingrese su nueva contraseña.
-        /// </summary>
-        internal static string ingreseNC {
-            get {
-                return ResourceManager.GetString("ingreseNC", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Nueva Contraseña.
-        /// </summary>
-        internal static string nuevaContrasenna {
-            get {
-                return ResourceManager.GetString("nuevaContrasenna", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Repetir Contraseña.
-        /// </summary>
-        internal static string repContrasenna {
-            get {
-                return ResourceManager.GetString("repContrasenna", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Repita su nueva contraseña.
-        /// </summary>
-        internal static string repNC {
-            get {
-                return ResourceManager.GetString("repNC", resourceCulture);
             }
         }
     }

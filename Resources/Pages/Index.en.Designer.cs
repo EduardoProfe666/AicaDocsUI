@@ -58,5 +58,95 @@ namespace AicaDocsUI.Resources.Pages {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Web Application to manage documentation.
+        /// </summary>
+        internal static string app {
+            get {
+                return ResourceManager.GetString("app", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Welcome back.
+        /// </summary>
+        internal static string bienvenido {
+            get {
+                return ResourceManager.GetString("bienvenido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Downloads.
+        /// </summary>
+        internal static string descargas {
+            get {
+                return ResourceManager.GetString("descargas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Documents.
+        /// </summary>
+        internal static string documentos {
+            get {
+                return ResourceManager.GetString("documentos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to in the environment of.
+        /// </summary>
+        internal static string entorno {
+            get {
+                return ResourceManager.GetString("entorno", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sign In.
+        /// </summary>
+        internal static string iniciarSesion {
+            get {
+                return ResourceManager.GetString("iniciarSesion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Home.
+        /// </summary>
+        internal static string inicio {
+            get {
+                return ResourceManager.GetString("inicio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Operation completed successfully. Check your email to change your current password.
+        /// </summary>
+        internal static string logExito {
+            get {
+                return ResourceManager.GetString("logExito", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string logFallo {
+            get {
+                return ResourceManager.GetString("logFallo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Users.
+        /// </summary>
+        internal static string usuarios {
+            get {
+                return ResourceManager.GetString("usuarios", resourceCulture);
+            }
+        }
     }
 }

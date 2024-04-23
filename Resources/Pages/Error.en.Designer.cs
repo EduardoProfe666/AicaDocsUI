@@ -58,5 +58,68 @@ namespace AicaDocsUI.Resources.Pages {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bad Request.
+        /// </summary>
+        internal static string _400 {
+            get {
+                return ResourceManager.GetString("400", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Forbidden.
+        /// </summary>
+        internal static string _403 {
+            get {
+                return ResourceManager.GetString("403", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Page Not Found.
+        /// </summary>
+        internal static string _404 {
+            get {
+                return ResourceManager.GetString("404", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Go back to home page.
+        /// </summary>
+        internal static string irInicio {
+            get {
+                return ResourceManager.GetString("irInicio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string m400 {
+            get {
+                return ResourceManager.GetString("m400", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string m403 {
+            get {
+                return ResourceManager.GetString("m403", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string mError {
+            get {
+                return ResourceManager.GetString("mError", resourceCulture);
+            }
+        }
     }
 }

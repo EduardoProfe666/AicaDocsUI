@@ -58,5 +58,104 @@ namespace AicaDocsUI.Resources.Pages.Account {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Operación completada con éxito. Inicie sesión con su nueva contraseña..
+        /// </summary>
+        internal static string autExito {
+            get {
+                return ResourceManager.GetString("autExito", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Falló la autenticación. Por favor, revise su correo y contraseña..
+        /// </summary>
+        internal static string autFallo {
+            get {
+                return ResourceManager.GetString("autFallo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Debe iniciar sesión para poder acceder al recurso solicitado..
+        /// </summary>
+        internal static string autInicioSesion {
+            get {
+                return ResourceManager.GetString("autInicioSesion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancelar.
+        /// </summary>
+        internal static string cancelar {
+            get {
+                return ResourceManager.GetString("cancelar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contraseña.
+        /// </summary>
+        internal static string contrasenna {
+            get {
+                return ResourceManager.GetString("contrasenna", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Correo.
+        /// </summary>
+        internal static string correo {
+            get {
+                return ResourceManager.GetString("correo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ingresar.
+        /// </summary>
+        internal static string ingresar {
+            get {
+                return ResourceManager.GetString("ingresar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ingrese su contraseña.
+        /// </summary>
+        internal static string ingreseCont {
+            get {
+                return ResourceManager.GetString("ingreseCont", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ingrese su correo.
+        /// </summary>
+        internal static string ingreseCorreo {
+            get {
+                return ResourceManager.GetString("ingreseCorreo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Iniciar Sesión.
+        /// </summary>
+        internal static string iniciarSesion {
+            get {
+                return ResourceManager.GetString("iniciarSesion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ¿Olvidó su contraseña?.
+        /// </summary>
+        internal static string olvidoCont {
+            get {
+                return ResourceManager.GetString("olvidoCont", resourceCulture);
+            }
+        }
     }
 }

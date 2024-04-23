@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AicaDocsUI.Resources.Pages.Account {
+namespace AicaDocsUI.Resources.Pages.Account.Manage {
     using System;
     
     
@@ -21,14 +21,14 @@ namespace AicaDocsUI.Resources.Pages.Account {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Login_en {
+    internal class ChangePassword_en {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Login_en() {
+        internal ChangePassword_en() {
         }
         
         /// <summary>
@@ -38,7 +38,7 @@ namespace AicaDocsUI.Resources.Pages.Account {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AicaDocsUI.Resources.Pages.Account.Login.en", typeof(Login_en).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AicaDocsUI.Resources.Pages.Account.Manage.ChangePassword.en", typeof(ChangePassword_en).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -60,74 +60,11 @@ namespace AicaDocsUI.Resources.Pages.Account {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cancel.
+        ///   Looks up a localized string similar to .
         /// </summary>
-        internal static string cancelar {
+        internal static string _404 {
             get {
-                return ResourceManager.GetString("cancelar", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Password.
-        /// </summary>
-        internal static string contrasenna {
-            get {
-                return ResourceManager.GetString("contrasenna", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Email.
-        /// </summary>
-        internal static string correo {
-            get {
-                return ResourceManager.GetString("correo", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Sign In.
-        /// </summary>
-        internal static string ingresar {
-            get {
-                return ResourceManager.GetString("ingresar", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Enter your password.
-        /// </summary>
-        internal static string ingreseCont {
-            get {
-                return ResourceManager.GetString("ingreseCont", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Enter your email.
-        /// </summary>
-        internal static string ingreseCorreo {
-            get {
-                return ResourceManager.GetString("ingreseCorreo", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Sign In.
-        /// </summary>
-        internal static string iniciarSesion {
-            get {
-                return ResourceManager.GetString("iniciarSesion", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Did you forget your password?.
-        /// </summary>
-        internal static string olvidoCont {
-            get {
-                return ResourceManager.GetString("olvidoCont", resourceCulture);
+                return ResourceManager.GetString("404", resourceCulture);
             }
         }
     }
