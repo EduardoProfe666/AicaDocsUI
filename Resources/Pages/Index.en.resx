@@ -34,7 +34,7 @@
         <value>Operation completed successfully. Check your email to change your current password</value>
     </data>
     <data name="logFallo" xml:space="preserve">
-        <value />
+        <value>Operation Failed. Please sign in later.</value>
     </data>
     <data name="iniciarSesion" xml:space="preserve">
         <value>Sign In</value>

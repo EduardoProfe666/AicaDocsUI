@@ -28,15 +28,18 @@
         <value>Bad Request</value>
     </data>
     <data name="m403" xml:space="preserve">
-        <value />
+        <value>Sorry, you don't have access to the requested page</value>
     </data>
     <data name="m400" xml:space="preserve">
-        <value />
+        <value>Sorry, the request is incorrect</value>
     </data>
     <data name="mError" xml:space="preserve">
-        <value />
+        <value>Sorry, It has ocurred an error during your request management. Please try again later</value>
     </data>
     <data name="irInicio" xml:space="preserve">
         <value>Go back to home page</value>
+    </data>
+    <data name="m404" xml:space="preserve">
+        <value>Sorry, the requested page is not found</value>
     </data>
 </root>

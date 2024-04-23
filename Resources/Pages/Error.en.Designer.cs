@@ -96,7 +96,7 @@ namespace AicaDocsUI.Resources.Pages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Sorry, the request is incorrect.
         /// </summary>
         internal static string m400 {
             get {
@@ -105,7 +105,7 @@ namespace AicaDocsUI.Resources.Pages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Sorry, you don&apos;t have access to the requested page.
         /// </summary>
         internal static string m403 {
             get {
@@ -114,7 +114,16 @@ namespace AicaDocsUI.Resources.Pages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Sorry, the requested page is not found.
+        /// </summary>
+        internal static string m404 {
+            get {
+                return ResourceManager.GetString("m404", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sorry, It has ocurred an error during your request management. Please try again later.
         /// </summary>
         internal static string mError {
             get {

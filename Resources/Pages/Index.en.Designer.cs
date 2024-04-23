@@ -132,7 +132,7 @@ namespace AicaDocsUI.Resources.Pages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Operation Failed. Please sign in later..
         /// </summary>
         internal static string logFallo {
             get {
