@@ -8,19 +8,21 @@ namespace AicaDocsUI.Pages;
 [IgnoreAntiforgeryToken]
 public class ErrorModel : PageModel
 {
-    public string? RequestId { get; set; }
+    public int Code {get; set;}
 
-    public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
-
-    private readonly ILogger<ErrorModel> _logger;
-
-    public ErrorModel(ILogger<ErrorModel> logger)
+    public IActionResult OnGet(int? code)
     {
-        _logger = logger;
-    }
+        Code = code ?? 500;
+        HttpContext.Response.StatusCode = Code;
 
-    public void OnGet()
-    {
-        RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
+        if (Code == 401)
+        {
+            TempData["Unauthorized"] = true;
+            return RedirectToPage("/Account/Login");
+        }
+            
+        else if(Request.Headers["Referer"].ToString() == "/" && Code != 403 && Code != 401 && Code != 400)
+            return RedirectToPage("/");
+        return Page();
     }
 }

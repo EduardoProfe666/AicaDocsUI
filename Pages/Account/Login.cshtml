@@ -1,0 +1,98 @@
+@page
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model AicaDocsUI.Pages.Account.Login
+
+@{
+    ViewData["Title"] = "Iniciar Sesión";
+    bool showErrorLogin = Model.ShowErrorLogin;
+    bool showResetPassword = Model.ShowResetPassword;
+    bool showUnauthorized = Model.ShowUnauthorized;
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-11 col-md-8 col-lg-4 mx-auto rounded border p-3">
+            <section>
+                <h2 class="text-center mb-3">Iniciar Sesión</h2>
+                <hr/>
+                <form method="post">
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Correo</label>
+                        <input asp-for="LoginRequest.Email" class="form-control" placeholder="Ingrese su Correo"/>
+                        <span asp-validation-for="LoginRequest.Email" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Contraseña</label>
+                        <input type="password" asp-for="LoginRequest.Password" class="form-control" placeholder="Ingrese su contraseña"/>
+                        <span asp-validation-for="LoginRequest.Password" class="text-danger"></span>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col d-grid">
+                            <a class="btn btn-outline-primary" href="/" role="button">Cancelar</a>
+                        </div>
+                        <div class="col d-grid">
+                            <button type="submit" class="btn btn-primary">Ingresar</button>
+                        </div>
+                    </div>
+                    <div class="text-end">
+                        <a class="btn btn-link" asp-page="./ForgotPassword">¿Olvidó su contraseña?</a>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+</div>
+
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index:  9999;">
+    <!-- Primer toast -->
+    <div id="liveToast1" class="toast bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header bg-danger">
+            <strong class="me-auto text-light">Falló la autenticación. Por favor, revise su correo y contraseña.</strong>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
+    <!-- Segundo toast -->
+    <div id="liveToast2" class="toast bg-success" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header bg-success">
+            <strong class="me-auto text-light">Operación completada con éxito. Inicie sesión con su nueva contraseña.</strong>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
+    <!-- Segundo toast -->
+    <div id="liveToast3" class="toast bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header bg-danger">
+            <strong class="me-auto text-light">Debe iniciar sesión para poder acceder al recurso solicitado.</strong>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
+</div>
+
+<script>
+    let shouldShowError = @(showErrorLogin.ToString().ToLower());
+    let shouldShowResetPassword = @(showResetPassword.ToString().ToLower());
+    let shouldShowUnauthorized = @(showUnauthorized.ToString().ToLower());
+        
+    window.onload = (event) => {
+        let liveToast1 = document.getElementById('liveToast1');
+        let liveToast2 = document.getElementById('liveToast2');
+        let liveToast3 = document.getElementById('liveToast3');
+
+        let toastInstance1 = new bootstrap.Toast(liveToast1);
+        let toastInstance2 = new bootstrap.Toast(liveToast2);
+        let toastInstance3 = new bootstrap.Toast(liveToast3);
+
+        if (shouldShowError)
+            toastInstance1.show();
+        if (shouldShowResetPassword)
+            toastInstance2.show();
+        if (shouldShowUnauthorized)
+            toastInstance3.show();
+        
+    };
+</script>
+
+@section Scripts
+{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

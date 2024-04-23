@@ -1,7 +1,9 @@
-using AicaDocsApi.Dto.Documents.Filter;
-using AicaDocsApi.Dto.FilterCommons;
 using AicaDocsUI.Extensions;
-using AicaDocsUI.Models;
+using AicaDocsUI.Repositories.ApiData.Dto.Commons;
+using AicaDocsUI.Repositories.ApiData.Dto.Documents;
+using AicaDocsUI.Repositories.ApiData.Dto.Documents.Filter;
+using AicaDocsUI.Repositories.ApiData.Dto.FilterCommons;
+using AicaDocsUI.Repositories.ApiData.Dto.Nomenclators;
 using AicaDocsUI.Repositories.Documents;
 using AicaDocsUI.Repositories.Nomenclators;
 using Microsoft.AspNetCore.Mvc;
@@ -30,6 +32,8 @@ public class Index : PageModel
     [BindProperty] public int? TypeId { get; set; }
     [BindProperty] public int? ProcessId { get; set; }
     [BindProperty] public int? ScopeId { get; set; }
+    
+    [BindProperty] public string? UserEmail { get; set; }
     [BindProperty] public SortByDocument SortBy { get; set; }
     [BindProperty] public SortOrder SortOrder { get; set; }
     [BindProperty] public DateComparator DateComparator { get; set; }
@@ -40,9 +44,9 @@ public class Index : PageModel
     public IEnumerable<SelectListItem> ListProcessId { get; set; } = new List<SelectListItem>();
     public IEnumerable<SelectListItem> ListScopeId { get; set; } = new List<SelectListItem>();
 
-    public IEnumerable<Nomenclator> TypesDoc { get; set; }
-    public IEnumerable<Nomenclator> ProcessDoc { get; set; }
-    public IEnumerable<Nomenclator> ScopeDoc { get; set; }
+    public IEnumerable<NomenclatorDto> TypesDoc { get; set; }
+    public IEnumerable<NomenclatorDto> ProcessDoc { get; set; }
+    public IEnumerable<NomenclatorDto> ScopeDoc { get; set; }
 
     public Index(INomenclatorRepository nomenclatorRepository,
         IDocumentRepository documentRepository)
@@ -51,12 +55,12 @@ public class Index : PageModel
         _documentRepository = documentRepository;
     }
 
-    public IEnumerable<Document> Documents { get; set; } = new List<Document>();
+    public IEnumerable<DocumentDto> Documents { get; set; } = new List<DocumentDto>();
 
     public async Task OnGetAsync(string? code, DateTimeOffset? dateOfValidity, string? title, int? edition, int? pages,
         int? typeId,
         int? processId, int? scopeId, SortByDocument? sortBy, SortOrder? sortOrder, DateComparator? dateComparator,
-        int? pageNumber)
+        int? pageNumber, string? UserEmail)
 
     {
         Filter = new()
@@ -64,6 +68,7 @@ public class Index : PageModel
             Code = code, Edition = edition, DateOfValidity = dateOfValidity,
             Pages = pages, Title = title, ProcessId = processId, ScopeId = scopeId, TypeId = typeId,
             DateComparator = DateComparator.Equal, SortOrder = SortOrder.Asc,
+            UserEmail = UserEmail,
             SortBy = SortByDocument.Title,
             PaginationParams = new PaginationParams() { PageSize = 5, PageNumber = 1 }
         };
@@ -116,8 +121,8 @@ public class Index : PageModel
 
         Filter.DateOfValidity = Filter.DateOfValidity?.UtcDateTime;
 
-        var data1 = (await _documentRepository.FilterDocuments(Filter))!;
-        Documents = data1!.Data;
+        var data1 = (await _documentRepository.FilterDocumentsAsync(Filter))!;
+        Documents = data1!.Response;
         PageTotal = data1.TotalPages;
 
         Code = Filter.Code;

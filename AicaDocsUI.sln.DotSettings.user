@@ -1,0 +1,42 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=4BE35EA3_002D1AD3_002D41C7_002D8CCD_002DAE91F260B656_002Fd_003APages_002Fd_003AShared_002Ff_003A_005FLayout_002Ecshtml_002Fz_003A2_002D0/@EntryIndexedValue">ExplicitlyExcluded</s:String>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FAccount_002FConfirmEmail/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FAccount_002FForgotPassword/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FAccount_002FLogin/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FAccount_002FManage_002FIndex/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FAccount_002FResetPassword/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FDocuments_002FCreate/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FDocuments_002FDetails/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FDocuments_002FDownload/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FDocuments_002FIndex/@EntryIndexedValue">False</s:Boolean>
+	
+	
+	
+	
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FError/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FIndex/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FReports_002FDocuments_002FDetails/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FReports_002FDocuments_002FDocumentsReport/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FReports_002FDocuments_002FDownload/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FReports_002FDocuments_002FIndex/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FReports_002FDownloads_002FDetails/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FReports_002FDownloads_002FDownloadReport/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FReports_002FDownloads_002FIndex/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FReports_002FProcess_002FCreate/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FReports_002FProcess_002FEdit/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FReports_002FProcess_002FIndex/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FReports_002FReason_002FCreate/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FReports_002FReason_002FEdit/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FReports_002FReason_002FIndex/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FReports_002FScope_002FCreate/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FReports_002FScope_002FEdit/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FReports_002FScope_002FIndex/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FReports_002FType_002FCreate/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FReports_002FType_002FEdit/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FReports_002FType_002FIndex/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FShared_002F_005FLayout/@EntryIndexedValue">False</s:Boolean>
+	
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FShared_002F_005FLoginPartial/@EntryIndexedValue">False</s:Boolean>
+	<s:String x:Key="/Default/ResxEditorPersonal/DisabledLanguages/@EntryValue">default-language</s:String>
+	
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/Initialized/@EntryValue">True</s:Boolean></wpf:ResourceDictionary>

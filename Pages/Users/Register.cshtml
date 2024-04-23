@@ -1,0 +1,48 @@
+@page
+@model AicaDocsUI.Pages.Users.Register
+
+@{
+    ViewData["Title"] = "Registrar Usuario";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-11 col-md-8 col-lg-4 mx-auto rounded border p-3">
+            <section>
+                <h2 class="text-center mb-3">Registrar Usuario</h2>
+                <hr/>
+                <form method="post">
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Nombre</label>
+                        <input asp-for="RegisterRequestModel.FullName" class="form-control" placeholder="Ingrese el nombre"/>
+                        <span asp-validation-for="RegisterRequestModel.FullName" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Correo</label>
+                        <input asp-for="RegisterRequestModel.Email" class="form-control" placeholder="Ingrese el correo"/>
+                        <span asp-validation-for="RegisterRequestModel.Email" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Rol</label>
+                        <span asp-validation-for="RegisterRequestModel.Role" class="text-danger"></span>
+                        <select class="form-select" asp-for="RegisterRequestModel.Role" asp-items="Model.ListRoles">
+                        </select>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col d-grid">
+                            <a class="btn btn-outline-primary" href="/Users/" role="button">Cancelar</a>
+                        </div>
+                        <div class="col d-grid">
+                            <button type="submit" class="btn btn-primary">Registrar</button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

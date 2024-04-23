@@ -1,13 +1,13 @@
-using AicaDocsApi.Dto.Nomenclators;
-using AicaDocsUI.Dto.Nomenclators;
-using AicaDocsUI.Models;
+using AicaDocsUI.Repositories.ApiData.Dto.Nomenclators;
 
 namespace AicaDocsUI.Repositories.Nomenclators;
 
 public interface INomenclatorRepository
 {
-    Task<IEnumerable<Nomenclator>?> GetNomenclatorsByTypeAsync(int type);
-    Task<Nomenclator> GetNomenclatorAsync(int type, int id);
-    Task CreateNomenclatorAsync(NomenclatorCreatedDto nomenclator);
-    Task PatchNomenclatorAsync(int id, NomenclatorPatchDto name);
+    Task<IEnumerable<NomenclatorDto>?> GetNomenclatorsByTypeAsync(int type);
+    Task<NomenclatorDto?> GetNomenclatorAsync(int type, int id);
+    Task<bool> CreateNomenclatorAsync(NomenclatorCreatedDto nomenclator);
+    Task<bool> PutNomenclatorAsync(int id, NomenclatorPutDto name);
+
+    Task<bool> DeleteNomenclatorAsync(int type, int id);
 }

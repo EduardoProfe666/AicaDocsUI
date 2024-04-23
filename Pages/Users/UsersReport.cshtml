@@ -1,0 +1,52 @@
+@page
+@model AicaDocsUI.Pages.Users.UsersReport
+
+@{
+    ViewData["Title"] = "Reporte de Usuarios";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-11 col-md-8 col-lg-5 col-xl-4 mx-auto rounded border p-3">
+            <section>
+                <h2 class="text-center mb-3">Reporte de Usuarios</h2>
+                <hr/>
+                <form method="post">
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Tipo de Reporte</label>
+                        <div>
+                            <input type="radio" id="notParametrized" name="IsParam" value="false" asp-for="IsParam"/>
+                            <label class="me-3" for="notParametrized">Completo</label>
+                            <input type="radio" id="parametrized" name="IsParam" value="true" asp-for="IsParam"/>
+                            <label for="parametrized">Por Rol</label>
+                        </div>
+
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Rol de Usuario</label>
+                        <select id="roles" class="form-select" asp-for="@Model.Role" asp-items="Model.ListRoles" disabled="@(!Model.IsParam)">
+                        </select>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col d-grid">
+                            <a class="btn btn-outline-primary" href="/Users/Index" role="button">Atrás</a>
+                        </div>
+                        <div class="col d-grid">
+                            <button type="submit" class="btn btn-primary">Exportar</button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('parametrized').addEventListener('change', function() {
+        document.getElementById('roles').disabled = false; 
+    });
+    
+    document.getElementById('notParametrized').addEventListener('change', function() {
+        document.getElementById('roles').disabled = true; 
+    });
+</script>

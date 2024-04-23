@@ -1,8 +1,7 @@
-using AicaDocsUI.Dto.Downloads;
-using AicaDocsUI.Dto.Nomenclators;
 using AicaDocsUI.Extensions;
-using AicaDocsUI.Models;
-using AicaDocsUI.Repositories.Documents;
+using AicaDocsUI.Pages.PagesModelsData.Models.Downloads;
+using AicaDocsUI.Repositories.ApiData.Dto.Commons;
+using AicaDocsUI.Repositories.ApiData.Dto.Downloads;
 using AicaDocsUI.Repositories.Downloads;
 using AicaDocsUI.Repositories.Nomenclators;
 using Microsoft.AspNetCore.Mvc;
@@ -18,7 +17,7 @@ public class Download : PageModel
     public IEnumerable<SelectListItem> ListFormat { get; set; }
     public IEnumerable<SelectListItem> ListReason { get; set; }
 
-    [BindProperty] public DownloadCreatedDto DownloadCreatedDto { get; set; }
+    [BindProperty] public DownloadCreatedModel DownloadCreatedModel { get; set; }
     [BindProperty] public IntegerWrapperValue Id11 { get; set; }
 
     public Download(INomenclatorRepository repository, IDownloadRepository downloadRepository)
@@ -30,8 +29,8 @@ public class Download : PageModel
     public async Task OnGetAsync(int id)
     {
         Id11 = new IntegerWrapperValue(){Id = id};
-        DownloadCreatedDto = new DownloadCreatedDto
-            { Format = Format.Pdf, Username = "", DocumentId = id, ReasonId = 2 };
+        DownloadCreatedModel = new DownloadCreatedModel
+            { Format = Format.Pdf, DocumentId = id, ReasonId = 2 };
 
         ListFormat = Enum.GetValues(typeof(Format))
             .Cast<Format>()
@@ -55,9 +54,14 @@ public class Download : PageModel
     {
         if (ModelState.IsValid)
         {
-            DownloadCreatedDto.DocumentId = Id11.Id;
-            var download = await _downloadRepository.DownloadDocument(DownloadCreatedDto);
-            Response.Redirect(download!);
+            DownloadCreatedModel.DocumentId = Id11.Id;
+            var download = await _downloadRepository.DownloadDocumentAsync(new DownloadCreatedDto
+            {
+                Format = DownloadCreatedModel.Format, DocumentId = DownloadCreatedModel.DocumentId,
+                ReasonId = DownloadCreatedModel.ReasonId
+            });
+            var indexUrl = Url.Page("./Index", new { downloadUrl = download, fileName = DownloadCreatedModel.Format==Format.Pdf ? "descarga.pdf" : "descarga.docx" });
+            Response.Redirect(indexUrl!);
 
             //clear the Form
             ModelState.Clear();

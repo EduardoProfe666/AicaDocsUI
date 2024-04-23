@@ -1,6 +1,8 @@
 @page
 @using Microsoft.AspNetCore.Mvc.TagHelpers
-@model Index
+@using AicaDocsUI.Extensions
+@using AicaDocsUI.Pages.Reports
+@model AicaDocsUI.Pages.Documents.Index
 
 @{
     ViewData["Title"] = "Documentos";
@@ -96,11 +98,14 @@
             <a href="/Documents/Create" class="btn btn-primary text-start">
                 <i class="fas fa-plus"> Agregar Documento</i>
             </a>
+            <a href="@($"/downloadReport/{DownloadReportEndpoint.TypeReport.Documents}/1/1")" class="btn btn-secondary text-start">
+                <i class="fas fa-file-pdf"> Exportar</i>
+            </a>
         </div>
         <div class="col-md text-end">
-            <a href="/Documents" class="btn btn-outline-warning text-end">
+            <button type="reset" class="btn btn-outline-warning text-end">
                 <i class="fas fa-recycle"> Resetear</i>
-            </a>
+            </button>
             <button type="submit" class="btn btn-outline-primary">
                 <i class="fas fa-search"> Buscar</i>
             </button>
@@ -140,10 +145,10 @@
 
 
             <td class="white-space:nowrap">
-                <a class="btn btn-outline-info btn-sm" asp-page="./Details" asp-route-id="@item.Id">
+                <a class="btn btn-outline-info btn-sm" asp-page="./Details" asp-route-id="@item.Id" data-toggle="tooltip" title="Detalles">
                     <i class="fas fa-book"></i>
                 </a>
-                <a class="btn btn-outline-success btn-sm" asp-page="./Download" asp-route-id="@item.Id">
+                <a class="btn btn-outline-success btn-sm" asp-page="./Download" asp-route-id="@item.Id" data-toggle="tooltip" title="Descargar">
                     <i class="fas fa-download"></i>
                 </a>
             </td>
@@ -212,4 +217,29 @@
         if (shouldShowEdited)
             toastInstance2.show();
     };
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var urlParams = new URLSearchParams(window.location.search);
+    var downloadUrl = urlParams.get('downloadUrl');
+    var fileName = urlParams.get('fileName');
+    if (downloadUrl) {
+        fetch(downloadUrl)
+            .then(response => response.blob())
+            .then(blob => {
+                var url = window.URL.createObjectURL(blob);
+                var a = document.createElement('a');
+                a.href = url;
+                a.download = fileName || 'descarga.pdf'; 
+                document.body.appendChild(a);
+                a.click();
+                window.URL.revokeObjectURL(url);
+                document.body.removeChild(a);
+            })
+            .catch(error => {
+                console.error("Error al descargar el archivo PDF: ", error);
+            });
+    }
+});
 </script>

@@ -1,14 +1,12 @@
-using AicaDocsApi.Dto.FilterCommons;
-using AicaDocsUI.Dto.Downloads;
-using AicaDocsUI.Dto.Downloads.Filter;
-using AicaDocsUI.Models;
-using AicaDocsUI.Responses;
+using AicaDocsUI.Repositories.ApiData.Dto.Downloads;
+using AicaDocsUI.Repositories.ApiData.Dto.Downloads.Filter;
+using AicaDocsUI.Repositories.ApiData.Dto.FilterCommons;
 
 namespace AicaDocsUI.Repositories.Downloads;
 
 public interface IDownloadRepository
 {
-    Task<Download?> GetDownloadById(int id);
-    Task<FilterResponse<Download>?> GetDownloadsFilter(FilterDownloadDto filter);
-    Task<string?> DownloadDocument(DownloadCreatedDto downloadCreatedDto);
+    Task<DownloadDto?> GetDownloadByIdAsync(int id);
+    Task<FilterResponse<DownloadDto>?> GetDownloadsFilterAsync(FilterDownloadDto filter);
+    Task<string?> DownloadDocumentAsync(DownloadCreatedDto downloadCreatedDto);
 }

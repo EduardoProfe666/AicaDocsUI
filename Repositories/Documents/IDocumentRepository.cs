@@ -1,13 +1,12 @@
-using AicaDocsApi.Dto.Documents.Filter;
-using AicaDocsApi.Dto.FilterCommons;
-using AicaDocsUI.Dto.Documents;
-using AicaDocsUI.Models;
+using AicaDocsUI.Repositories.ApiData.Dto.Documents;
+using AicaDocsUI.Repositories.ApiData.Dto.Documents.Filter;
+using AicaDocsUI.Repositories.ApiData.Dto.FilterCommons;
 
 namespace AicaDocsUI.Repositories.Documents;
 
 public interface IDocumentRepository
 {
-    Task<Document?> GetDocumentById(int id);
-    Task<FilterResponse<Document>?> FilterDocuments(FilterDocumentDto filter);
-    Task<bool> CreateDocument(DocumentCreatedDto documentCreatedDto);
+    Task<DocumentDto?> GetDocumentByIdAsync(int id);
+    Task<FilterResponse<DocumentDto>?> FilterDocumentsAsync(FilterDocumentDto filter);
+    Task<bool> CreateDocumentAsync(DocumentCreatedDto documentCreatedDto);
 }
