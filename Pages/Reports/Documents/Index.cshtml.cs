@@ -19,6 +19,7 @@ public class Index : PageModel
     
     public bool ShowCreated { get; set; }
     public bool ShowDownload { get; set; }
+    public string DownloadUrl { get; set; }
     
     public int PageTotal { get; set; }
 
@@ -139,7 +140,11 @@ public class Index : PageModel
         PageNumber = Filter.PaginationParams.PageNumber;
         
         ShowCreated = TempData["Created Document"] as bool? ?? false;
+        DownloadUrl = TempData["DownloadUrl"] as string ?? "";
         
         TempData["Created Document"] = false;
+        TempData["DownloadUrl"] = "";
     }
+
+   
 }
