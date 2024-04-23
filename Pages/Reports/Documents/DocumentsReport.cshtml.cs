@@ -86,6 +86,8 @@ public class DocumentsReport : PageModel
         {
             TempData["DownloadUrl"] = $"{_rootProvider.RootUI}/downloadReport/{DownloadReportEndpoint.TypeReport.Documents}/1/1";
         }
+
+        
         return RedirectToPage("/Reports/Documents/Index");
     }
 }

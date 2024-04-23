@@ -15,6 +15,7 @@
         nextPag = Model.PageNumber;
     bool showCreated = Model.ShowCreated;
     bool showEdited = Model.ShowDownload;
+    string downloadUrl = Model.DownloadUrl;
 }
 
 <h2 class="card-text md-5">@Localizer["ld"]</h2>
@@ -217,26 +218,11 @@
 </script>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    var urlParams = new URLSearchParams(window.location.search);
-    var downloadUrl = urlParams.get('downloadUrl');
-    var fileName = urlParams.get('fileName');
-    if (downloadUrl) {
-        fetch(downloadUrl)
-            .then(response => response.blob())
-            .then(blob => {
-                var url = window.URL.createObjectURL(blob);
-                var a = document.createElement('a');
-                a.href = url;
-                a.download = fileName || 'descarga.pdf'; 
-                document.body.appendChild(a);
-                a.click();
-                window.URL.revokeObjectURL(url);
-                document.body.removeChild(a);
-            })
-            .catch(error => {
-                console.error("Error al descargar el archivo PDF: ", error);
-            });
-    }
-});
+    document.addEventListener('DOMContentLoaded', function() {
+        var downloadUrl = '@downloadUrl';
+        console.log(downloadUrl);
+        if (downloadUrl.length !== 0) {
+            window.location.href = downloadUrl;
+        }
+    });
 </script>
