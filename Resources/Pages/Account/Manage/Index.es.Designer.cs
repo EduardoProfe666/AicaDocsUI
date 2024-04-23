@@ -58,5 +58,68 @@ namespace AicaDocsUI.Resources.Pages.Account.Manage {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cambiar Contraseña.
+        /// </summary>
+        internal static string cambiarCont {
+            get {
+                return ResourceManager.GetString("cambiarCont", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contraseña cambiada con éxito..
+        /// </summary>
+        internal static string cambiarContExito {
+            get {
+                return ResourceManager.GetString("cambiarContExito", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Correo.
+        /// </summary>
+        internal static string correo {
+            get {
+                return ResourceManager.GetString("correo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Información del Perfil.
+        /// </summary>
+        internal static string infoPerfil {
+            get {
+                return ResourceManager.GetString("infoPerfil", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ir a Inicio.
+        /// </summary>
+        internal static string irInicio {
+            get {
+                return ResourceManager.GetString("irInicio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nombre Completo.
+        /// </summary>
+        internal static string nombreComp {
+            get {
+                return ResourceManager.GetString("nombreComp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Perfil.
+        /// </summary>
+        internal static string perfil {
+            get {
+                return ResourceManager.GetString("perfil", resourceCulture);
+            }
+        }
     }
 }

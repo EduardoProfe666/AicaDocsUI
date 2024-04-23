@@ -60,11 +60,92 @@ namespace AicaDocsUI.Resources.Pages.Account.Manage {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Accept.
+        /// </summary>
+        internal static string aceptar {
+            get {
+                return ResourceManager.GetString("aceptar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last Password.
+        /// </summary>
+        internal static string antiguaCont {
+            get {
+                return ResourceManager.GetString("antiguaCont", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change Password.
+        /// </summary>
+        internal static string cambioCont {
+            get {
+                return ResourceManager.GetString("cambioCont", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        internal static string cancelar {
+            get {
+                return ResourceManager.GetString("cancelar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
-        internal static string _404 {
+        internal static string contFallo {
             get {
-                return ResourceManager.GetString("404", resourceCulture);
+                return ResourceManager.GetString("contFallo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter your last password.
+        /// </summary>
+        internal static string ingreseCont {
+            get {
+                return ResourceManager.GetString("ingreseCont", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter your new password.
+        /// </summary>
+        internal static string ingreseNuevaCont {
+            get {
+                return ResourceManager.GetString("ingreseNuevaCont", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New Password.
+        /// </summary>
+        internal static string nuevaCont {
+            get {
+                return ResourceManager.GetString("nuevaCont", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Repeat Password.
+        /// </summary>
+        internal static string repCont {
+            get {
+                return ResourceManager.GetString("repCont", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Repeat your new password.
+        /// </summary>
+        internal static string repitaCont {
+            get {
+                return ResourceManager.GetString("repitaCont", resourceCulture);
             }
         }
     }
