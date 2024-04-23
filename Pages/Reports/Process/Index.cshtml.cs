@@ -1,5 +1,7 @@
 using AicaDocsUI.Repositories.ApiData.Dto.Commons;
+using AicaDocsUI.Repositories.ApiData.Dto.IdentityCommons;
 using AicaDocsUI.Repositories.ApiData.Dto.Nomenclators;
+using AicaDocsUI.Repositories.Auth;
 using AicaDocsUI.Repositories.Nomenclators;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -9,6 +11,7 @@ namespace AicaDocsUI.Pages.Reports.Process;
 public class Index : PageModel
 {
     private readonly INomenclatorRepository _repository;
+    private readonly IAuthRepository _authRepository;
     public bool ShowCreated { get; set; }
     public bool ShowEdited { get; set; }
 
@@ -19,15 +22,33 @@ public class Index : PageModel
     public bool ShowErrorDelete { get; set; }
 
 
-    public Index(INomenclatorRepository repository)
+    public Index(INomenclatorRepository repository, IAuthRepository authRepository)
     {
         this._repository = repository;
+        _authRepository = authRepository;
     }
 
     public IEnumerable<NomenclatorDto> Nomenclators { get; set; } = new List<NomenclatorDto>();
 
-    public async Task OnGetAsync()
+    public async Task<IActionResult> OnGetAsync()
     {
+        bool b = await _authRepository.IsLoginAdvanceAsync();
+
+        if (!b)
+        {
+            TempData["Unauthorized"] = true;
+            return RedirectToPage("/Account/Login");
+        }
+
+        var c = await _authRepository.GetUserRoleAsync();
+        if (c == null)
+            return RedirectToPage();
+        
+        if (c != UserRole.Admin)
+        {
+            return RedirectToPage("/Error", new { code = 403 });
+        }
+        
         var data = await _repository.GetNomenclatorsByTypeAsync((int)TypeOfNomenclator.ProcessOfDocument);
         if (data != null)
             Nomenclators = data;
@@ -43,6 +64,8 @@ public class Index : PageModel
         TempData["Deleted Process"] = false;
         TempData["Error to delete"] = false;
         TempData["Error Unique"] = false;
+
+        return Page();
     }
 
     public async Task<IActionResult> OnGetDeleteAsync(int id)

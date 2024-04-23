@@ -3,6 +3,7 @@ using AicaDocsUI.Repositories.ApiData.Dto.FilterCommons;
 using AicaDocsUI.Repositories.ApiData.Dto.IdentityCommons;
 using AicaDocsUI.Repositories.ApiData.Dto.Users;
 using AicaDocsUI.Repositories.ApiData.Dto.Users.Filter;
+using AicaDocsUI.Repositories.Auth;
 using AicaDocsUI.Repositories.Users;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -13,6 +14,7 @@ namespace AicaDocsUI.Pages.Users;
 public class Index : PageModel
 {
     private readonly IUserRepository _userRepository;
+    private readonly IAuthRepository _authRepository;
     
     public bool ShowCreated { get; set; }
     public bool ShowDeleted { get; set; }
@@ -33,16 +35,34 @@ public class Index : PageModel
     
     public IEnumerable<SelectListItem> ListRoles { get; set; } = new List<SelectListItem>();
 
-    public Index(IUserRepository userRepository)
+    public Index(IUserRepository userRepository, IAuthRepository authRepository)
     {
         _userRepository = userRepository;
+        _authRepository = authRepository;
     }
 
     public IEnumerable<UserDataDto> Users { get; set; } = new List<UserDataDto>();
 
-    public async Task OnGetAsync(string? fullName, string? email, UserRole? role, SortOrder? sortOrder,
+    public async Task<IActionResult> OnGetAsync(string? fullName, string? email, UserRole? role, SortOrder? sortOrder,
         SortByUser? sortBy, int? pageNumber)
     {
+        bool b = await _authRepository.IsLoginAdvanceAsync();
+
+        if (!b)
+        {
+            TempData["Unauthorized"] = true;
+            return RedirectToPage("/Account/Login");
+        }
+
+        var c = await _authRepository.GetUserRoleAsync();
+        if (c == null)
+            return RedirectToPage();
+        
+        if (c != UserRole.Admin)
+        {
+            return RedirectToPage("/Error", new { code = 403 });
+        }
+        
         Filter = new FilterUserDto()
         {
             Fullname = fullName,
@@ -95,6 +115,8 @@ public class Index : PageModel
         TempData["Deleted User"] = false;
         TempData["User Exists"] = false;
         TempData["DownloadUrl"] = "";
+
+        return Page();
     }
     
     public async Task<IActionResult> OnGetDeleteAsync(string email)

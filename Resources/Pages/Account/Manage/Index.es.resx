@@ -18,4 +18,25 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
+    <data name="perfil" xml:space="preserve">
+        <value>Perfil</value>
+    </data>
+    <data name="infoPerfil" xml:space="preserve">
+        <value>Información del Perfil</value>
+    </data>
+    <data name="nombreComp" xml:space="preserve">
+        <value>Nombre Completo</value>
+    </data>
+    <data name="correo" xml:space="preserve">
+        <value>Correo</value>
+    </data>
+    <data name="irInicio" xml:space="preserve">
+        <value>Ir a Inicio</value>
+    </data>
+    <data name="cambiarCont" xml:space="preserve">
+        <value>Cambiar Contraseña</value>
+    </data>
+    <data name="cambiarContExito" xml:space="preserve">
+        <value>Contraseña cambiada con éxito.</value>
+    </data>
 </root>

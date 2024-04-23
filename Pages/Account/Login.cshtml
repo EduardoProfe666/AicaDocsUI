@@ -3,7 +3,7 @@
 @model AicaDocsUI.Pages.Account.Login
 
 @{
-    ViewData["Title"] = "Iniciar Sesión";
+    ViewData["Title"] = @Localizer["iniciarSesion"];
     bool showErrorLogin = Model.ShowErrorLogin;
     bool showResetPassword = Model.ShowResetPassword;
     bool showUnauthorized = Model.ShowUnauthorized;
@@ -13,29 +13,29 @@
     <div class="row justify-content-center">
         <div class="col-11 col-md-8 col-lg-4 mx-auto rounded border p-3">
             <section>
-                <h2 class="text-center mb-3">Iniciar Sesión</h2>
+                <h2 class="text-center mb-3">@Localizer["iniciarSesion"]</h2>
                 <hr/>
                 <form method="post">
                     <div class="mb-3">
-                        <label class="form-label fw-bold">Correo</label>
-                        <input asp-for="LoginRequest.Email" class="form-control" placeholder="Ingrese su Correo"/>
+                        <label class="form-label fw-bold">@Localizer["correo"]</label>
+                        <input asp-for="LoginRequest.Email" class="form-control" placeholder=@Localizer["ingreseCorreo"]/>
                         <span asp-validation-for="LoginRequest.Email" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label fw-bold">Contraseña</label>
-                        <input type="password" asp-for="LoginRequest.Password" class="form-control" placeholder="Ingrese su contraseña"/>
+                        <label class="form-label fw-bold">@Localizer["contrasenna"]</label>
+                        <input type="password" asp-for="LoginRequest.Password" class="form-control" placeholder=@Localizer["ingreseCont"]/>
                         <span asp-validation-for="LoginRequest.Password" class="text-danger"></span>
                     </div>
                     <div class="row mb-3">
                         <div class="col d-grid">
-                            <a class="btn btn-outline-primary" href="/" role="button">Cancelar</a>
+                            <a class="btn btn-outline-primary" href="/" role="button">@Localizer["cancelar"]</a>
                         </div>
                         <div class="col d-grid">
-                            <button type="submit" class="btn btn-primary">Ingresar</button>
+                            <button type="submit" class="btn btn-primary">@Localizer["ingresar"]</button>
                         </div>
                     </div>
                     <div class="text-end">
-                        <a class="btn btn-link" asp-page="./ForgotPassword">¿Olvidó su contraseña?</a>
+                        <a class="btn btn-link" asp-page="./ForgotPassword">@Localizer["olvidoCont"]</a>
                     </div>
                 </form>
             </section>
@@ -48,21 +48,21 @@
     <!-- Primer toast -->
     <div id="liveToast1" class="toast bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header bg-danger">
-            <strong class="me-auto text-light">Falló la autenticación. Por favor, revise su correo y contraseña.</strong>
+            <strong class="me-auto text-light">@Localizer["autFallo"]</strong>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
     </div>
     <!-- Segundo toast -->
     <div id="liveToast2" class="toast bg-success" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header bg-success">
-            <strong class="me-auto text-light">Operación completada con éxito. Inicie sesión con su nueva contraseña.</strong>
+            <strong class="me-auto text-light">@Localizer["autExito"]</strong>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
     </div>
     <!-- Segundo toast -->
     <div id="liveToast3" class="toast bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header bg-danger">
-            <strong class="me-auto text-light">Debe iniciar sesión para poder acceder al recurso solicitado.</strong>
+            <strong class="me-auto text-light">@Localizer["autInicioSesion"]</strong>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
     </div>

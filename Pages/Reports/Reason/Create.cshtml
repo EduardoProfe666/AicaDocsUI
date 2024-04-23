@@ -5,33 +5,32 @@
     ViewData["Title"] = "Agregar Razón de descarga";
 }
 
-
-<div class="row">
-    <div class="col-md-8 mx-auto rounded p-3">
-        <h1 class="text-center mb-5">Nuevo Razón de descarga</h1>
-        <form method="post">
-            <div class="row mb-3">
-                <label class="col-sm-4 col-form-label">Nombre</label>
-                <div class="col-sm-8">
-                    <input asp-for="NomenclatorModel.Name" class="form-control" placeholder="Ingrese el nombre"/>
-                    <span asp-validation-for="NomenclatorModel.Name" class="text-danger"></span>
-                </div>
-
-            </div>
-
-            <div class="row mb-3">
-                <div class="offset-md-4 col-sm-4 mb-2 d-grid">
-                    <a class="btn btn-outline-primary" href="/Reports/Reason/Index" role="button">Atrás </a>
-                </div>
-                <div class="col-sm-4 mb-2 d-grid">
-                    <button type="submit" class="btn btn-primary">
-                        Aceptar
-                    </button>
-                </div>
-            </div>
-        </form>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-11 col-md-8 col-lg-4 mx-auto rounded border p-3">
+            <section>
+                <h3 class="text-center mb-3">Crear Razón de descarga</h3>
+                <hr/>
+                <form method="post">
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Nombre</label>
+                        <input asp-for="NomenclatorModel.Name" class="form-control" placeholder="Ingrese el nombre"/>
+                        <span asp-validation-for="NomenclatorModel.Name" class="text-danger"></span>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col d-grid">
+                            <a class="btn btn-outline-primary" href="/Reports/Reason/Index" role="button">Cancelar</a>
+                        </div>
+                        <div class="col d-grid">
+                            <button type="submit" class="btn btn-primary">Aceptar</button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </div>
     </div>
 </div>
+
 
 @section Scripts
 {

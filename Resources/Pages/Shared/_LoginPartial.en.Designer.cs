@@ -69,7 +69,7 @@ namespace AicaDocsUI.Resources.Pages.Shared {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Log in.
+        ///   Looks up a localized string similar to Sign in.
         /// </summary>
         internal static string Login {
             get {
@@ -78,7 +78,7 @@ namespace AicaDocsUI.Resources.Pages.Shared {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Log out.
+        ///   Looks up a localized string similar to Sign out.
         /// </summary>
         internal static string Logout {
             get {

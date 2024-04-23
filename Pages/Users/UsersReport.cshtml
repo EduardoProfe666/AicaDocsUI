@@ -2,37 +2,37 @@
 @model AicaDocsUI.Pages.Users.UsersReport
 
 @{
-    ViewData["Title"] = "Reporte de Usuarios";
+    ViewData["Title"] = @Localizer["uR"];
 }
 
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-11 col-md-8 col-lg-5 col-xl-4 mx-auto rounded border p-3">
             <section>
-                <h2 class="text-center mb-3">Reporte de Usuarios</h2>
+                <h2 class="text-center mb-3">@Localizer["uR"]</h2>
                 <hr/>
                 <form method="post">
                     <div class="mb-3">
-                        <label class="form-label fw-bold">Tipo de Reporte</label>
+                        <label class="form-label fw-bold">@Localizer["rt"]</label>
                         <div>
                             <input type="radio" id="notParametrized" name="IsParam" value="false" asp-for="IsParam"/>
-                            <label class="me-3" for="notParametrized">Completo</label>
+                            <label class="me-3" for="notParametrized">@Localizer["c"]</label>
                             <input type="radio" id="parametrized" name="IsParam" value="true" asp-for="IsParam"/>
-                            <label for="parametrized">Por Rol</label>
+                            <label for="parametrized">@Localizer["pr"]</label>
                         </div>
 
                     </div>
                     <div class="mb-3">
-                        <label class="form-label fw-bold">Rol de Usuario</label>
+                        <label class="form-label fw-bold">@Localizer["uR"]</label>
                         <select id="roles" class="form-select" asp-for="@Model.Role" asp-items="Model.ListRoles" disabled="@(!Model.IsParam)">
                         </select>
                     </div>
                     <div class="row mb-3">
                         <div class="col d-grid">
-                            <a class="btn btn-outline-primary" href="/Users/Index" role="button">Atrás</a>
+                            <a class="btn btn-outline-primary" href="/Users/Index" role="button">@Localizer["back"]</a>
                         </div>
                         <div class="col d-grid">
-                            <button type="submit" class="btn btn-primary">Exportar</button>
+                            <button type="submit" class="btn btn-primary">@Localizer["export"]</button>
                         </div>
                     </div>
                 </form>
