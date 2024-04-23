@@ -1,5 +1,7 @@
 using AicaDocsUI.Repositories.ApiData.Dto.FilterCommons;
+using AicaDocsUI.Repositories.ApiData.Dto.IdentityCommons;
 using AicaDocsUI.Repositories.ApiData.Dto.Users.Filter;
+using AicaDocsUI.Repositories.Auth;
 using AicaDocsUI.Repositories.Users;
 using AicaDocsUI.Utils.RootProviderServices;
 using Microsoft.AspNetCore.Mvc;
@@ -12,11 +14,13 @@ public class DownloadsReport : PageModel
 {
     private readonly IUserRepository _userRepository;
     private readonly RootProvider _rootProvider;
+    private readonly IAuthRepository _authRepository;
 
-    public DownloadsReport(IUserRepository userRepository, RootProvider rootProvider)
+    public DownloadsReport(IUserRepository userRepository, RootProvider rootProvider, IAuthRepository authRepository)
     {
         _userRepository = userRepository;
         _rootProvider = rootProvider;
+        _authRepository = authRepository;
     }
 
     public IEnumerable<SelectListItem> ListEmail { get; set; } = new List<SelectListItem>();
@@ -25,8 +29,25 @@ public class DownloadsReport : PageModel
 
     
     
-    public async Task OnGet()
+    public async Task<IActionResult> OnGet()
     {
+        bool b = await _authRepository.IsLoginAdvanceAsync();
+
+        if (!b)
+        {
+            TempData["Unauthorized"] = true;
+            return RedirectToPage("/Account/Login");
+        }
+
+        var c = await _authRepository.GetUserRoleAsync();
+        if (c == null)
+            return RedirectToPage();
+        
+        if (c != UserRole.Admin)
+        {
+            return RedirectToPage("/Error", new { code = 403 });
+        }
+        
         var data = await _userRepository.GetUserDataFilterAsync(new FilterUserDto()
         {
             Email = null,
@@ -49,7 +70,8 @@ public class DownloadsReport : PageModel
         
         IsParam = false;
         Email = users.ToList()[0].Email;
-        
+
+        return Page();
     }
 
     public IActionResult OnPost()

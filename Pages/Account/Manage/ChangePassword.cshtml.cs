@@ -20,12 +20,21 @@ public class ChangePassword : PageModel
 
     public bool ShowError { get; set; }
 
-    public void OnGetAsync()
+    public async Task<IActionResult> OnGetAsync()
     {
+        bool b = await _authRepository.IsLoginAdvanceAsync();
+
+        if (!b)
+        {
+            TempData["Unauthorized"] = true;
+            return RedirectToPage("/Account/Login");
+        }
+        
         ChangePasswordModel = new ChangePasswordModel() { NewPassword = "", OldPassword = "", RepeatNewPassword = "" };
         ShowError = TempData["Error Password"] as bool? ?? false;
 
         TempData["Error Password"] = false;
+        return Page();
     }
 
     public async Task OnPostAsync()

@@ -1,6 +1,7 @@
 using AicaDocsUI.Extensions;
 using AicaDocsUI.Pages.Reports;
 using AicaDocsUI.Repositories.ApiData.Dto.IdentityCommons;
+using AicaDocsUI.Repositories.Auth;
 using AicaDocsUI.Repositories.Users;
 using AicaDocsUI.Utils.RootProviderServices;
 using Microsoft.AspNetCore.Mvc;
@@ -11,13 +12,13 @@ namespace AicaDocsUI.Pages.Users;
 
 public class UsersReport : PageModel
 {
-    private readonly IUserRepository _userRepository;
+    private readonly IAuthRepository _authRepository;
     private readonly RootProvider _rootProvider;
 
-    public UsersReport(IUserRepository userRepository, RootProvider rootProvider)
+    public UsersReport(RootProvider rootProvider, IAuthRepository authRepository)
     {
-        _userRepository = userRepository;
         _rootProvider = rootProvider;
+        _authRepository = authRepository;
     }
 
     public IEnumerable<SelectListItem> ListRoles { get; set; } = new List<SelectListItem>();
@@ -26,8 +27,25 @@ public class UsersReport : PageModel
 
     
     
-    public void OnGet()
+    public async Task<IActionResult> OnGet()
     {
+        bool b = await _authRepository.IsLoginAdvanceAsync();
+
+        if (!b)
+        {
+            TempData["Unauthorized"] = true;
+            return RedirectToPage("/Account/Login");
+        }
+
+        var c = await _authRepository.GetUserRoleAsync();
+        if (c == null)
+            return RedirectToPage();
+        
+        if (c != UserRole.Admin)
+        {
+            return RedirectToPage("/Error", new { code = 403 });
+        }
+        
         IsParam = false;
         Role = UserRole.Admin;
         ListRoles = Enum.GetValues(typeof(UserRole))
@@ -37,7 +55,9 @@ public class UsersReport : PageModel
                 Text = v.GetDescription(),
                 Value = v.ToString()
             });
-        
+
+        return Page();
+
     }
 
     public IActionResult OnPost()

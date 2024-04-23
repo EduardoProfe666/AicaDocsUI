@@ -3,7 +3,9 @@ using AicaDocsUI.Repositories.ApiData.Dto.Commons;
 using AicaDocsUI.Repositories.ApiData.Dto.Downloads;
 using AicaDocsUI.Repositories.ApiData.Dto.Downloads.Filter;
 using AicaDocsUI.Repositories.ApiData.Dto.FilterCommons;
+using AicaDocsUI.Repositories.ApiData.Dto.IdentityCommons;
 using AicaDocsUI.Repositories.ApiData.Dto.Nomenclators;
+using AicaDocsUI.Repositories.Auth;
 using AicaDocsUI.Repositories.Documents;
 using AicaDocsUI.Repositories.Downloads;
 using AicaDocsUI.Repositories.Nomenclators;
@@ -18,6 +20,7 @@ public class Index : PageModel
     private readonly IDownloadRepository _downloadRepository;
     private readonly INomenclatorRepository _nomenclatorRepository;
     private readonly IDocumentRepository _documentRepository;
+    private readonly IAuthRepository _authRepository;
 
     public string DownloadUrl { get; set; }
     public int PageTotal { get; set; }
@@ -41,19 +44,37 @@ public class Index : PageModel
     public IEnumerable<NomenclatorDto> Reasons { get; set; }
 
     public Index(IDownloadRepository downloadRepository,
-        INomenclatorRepository nomenclatorRepository, IDocumentRepository documentRepository)
+        INomenclatorRepository nomenclatorRepository, IDocumentRepository documentRepository, IAuthRepository authRepository)
     {
         _downloadRepository = downloadRepository;
         _nomenclatorRepository = nomenclatorRepository;
         _documentRepository = documentRepository;
+        _authRepository = authRepository;
     }
 
     public List<DownloadDtoDocument> Downloads { get; set; } = new();
 
-    public async Task OnGetAsync(Format? format, DateTimeOffset? dateDownload, string? username, int? documentId,
+    public async Task<IActionResult> OnGetAsync(Format? format, DateTimeOffset? dateDownload, string? username, int? documentId,
         int? reasonId, SortByDownload? sortBy, SortOrder? sortOrder, DateComparator? dateComparator, int? pageNumber)
 
     {
+        bool b = await _authRepository.IsLoginAdvanceAsync();
+
+        if (!b)
+        {
+            TempData["Unauthorized"] = true;
+            return RedirectToPage("/Account/Login");
+        }
+
+        var c = await _authRepository.GetUserRoleAsync();
+        if (c == null)
+            return RedirectToPage();
+        
+        if (c != UserRole.Admin)
+        {
+            return RedirectToPage("/Error", new { code = 403 });
+        }
+        
         Filter = new()
         {
             Format = format, UserEmail = username, DateDownload = dateDownload, DocumentId = documentId,
@@ -128,6 +149,7 @@ public class Index : PageModel
         }
         DownloadUrl = TempData["DownloadUrl"] as string ?? "";
         TempData["DownloadUrl"] = "";
+        return Page();
     }
 
     public class DownloadDtoDocument: DownloadDto
