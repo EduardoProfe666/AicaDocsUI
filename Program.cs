@@ -23,7 +23,7 @@ builder.Services.AddRazorPages()
 builder.Services.AddHttpClient();
 builder.Services.AddHttpContextAccessor();
 
-builder.Services.Configure<RootProviderOptions>(builder.Configuration.GetSection("RootProviderLocal"));
+builder.Services.Configure<RootProviderOptions>(builder.Configuration.GetSection("RootProviderOnline"));
 builder.Services.AddSingleton<RootProvider>();
 
 builder.Services.AddScoped<ITokenManager, CookieStorageTokenManager>();
