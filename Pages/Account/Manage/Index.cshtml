@@ -2,25 +2,27 @@
 @model AicaDocsUI.Pages.Account.Manage.Index
 
 @{
-    ViewData["Title"] = "Perfil";
+    ViewData["Title"] = @Localizer["perfil"];
     var showChangedPassword =  Model.ShowChangedPassword;
+    var a1 = @Localizer["nombreComp"];
+    var a2 = @Localizer["correo"];
 }
 
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-11 col-md-8 col-lg-6 col-xl-5 col-xxl-4 mx-auto rounded border p-3">
-            <h2 class="text-center">Información de Perfil</h2>
+            <h2 class="text-center">@Localizer["infoPerfil"]</h2>
             <hr/>
 
             <div class="table-responsive">
                 <table class="table table-borderless table-hover">
                     <tbody>
                     <tr>
-                        <th scope="row">@Html.Raw("Nombre Completo")</th>
+                        <th scope="row">@Html.Raw(a1.Value)</th>
                         <td>@Html.DisplayFor(model => model.FullName)</td>
                     </tr>
                     <tr>
-                        <th scope="row">@Html.Raw("Correo")</th>
+                        <th scope="row">@Html.Raw(a2.Value)</th>
                         <td>@Html.DisplayFor(model => model.Email)</td>
                     </tr>
                     </tbody>
@@ -28,10 +30,10 @@
             </div>
             <div class="row mb-3">
                 <div class="col d-grid">
-                    <a class="btn btn-outline-primary" href="/" role="button">Ir a Inicio</a>
+                    <a class="btn btn-outline-primary" href="/" role="button">@Localizer["irInicio"]</a>
                 </div>
                 <div class="col d-grid">
-                    <a class="btn btn-primary" asp-page="./ChangePassword" role="button">Cambiar Contraseña</a>
+                    <a class="btn btn-primary" asp-page="./ChangePassword" role="button">@Localizer["cambiarCont"]</a>
                 </div>
             </div>
         </div>
@@ -42,7 +44,7 @@
     <!-- Primer toast -->
     <div id="liveToast1" class="toast bg-success" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header bg-success">
-            <strong class="me-auto text-light">Contraseña cambiada con éxito.</strong>
+            <strong class="me-auto text-light">@Localizer["cambiarContExito"]</strong>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
     </div>
