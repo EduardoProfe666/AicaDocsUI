@@ -2,18 +2,62 @@
 @model AicaDocsUI.Pages.Account.Manage.Index
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Perfil";
+    var showChangedPassword =  Model.ShowChangedPassword;
 }
 
-<!DOCTYPE html>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-11 col-md-8 col-lg-6 col-xl-5 col-xxl-4 mx-auto rounded border p-3">
+            <h2 class="text-center">Información de Perfil</h2>
+            <hr/>
 
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-<div>
-    
+            <div class="table-responsive">
+                <table class="table table-borderless table-hover">
+                    <tbody>
+                    <tr>
+                        <th scope="row">@Html.Raw("Nombre Completo")</th>
+                        <td>@Html.DisplayFor(model => model.FullName)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">@Html.Raw("Correo")</th>
+                        <td>@Html.DisplayFor(model => model.Email)</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="row mb-3">
+                <div class="col d-grid">
+                    <a class="btn btn-outline-primary" href="/" role="button">Ir a Inicio</a>
+                </div>
+                <div class="col d-grid">
+                    <a class="btn btn-primary" asp-page="./ChangePassword" role="button">Cambiar Contraseña</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-</body>
-</html>
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index:  9999;">
+    <!-- Primer toast -->
+    <div id="liveToast1" class="toast bg-success" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header bg-success">
+            <strong class="me-auto text-light">Contraseña cambiada con éxito.</strong>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
+</div>
+
+<script>
+    let shouldShowError = @(showChangedPassword.ToString().ToLower());
+        
+    window.onload = (event) => {
+        let liveToast1 = document.getElementById('liveToast1');
+
+        let toastInstance1 = new bootstrap.Toast(liveToast1);
+
+        if (shouldShowError)
+            toastInstance1.show();
+        
+    };
+</script>

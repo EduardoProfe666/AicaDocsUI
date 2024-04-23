@@ -52,7 +52,7 @@ var localizationOptions = new RequestLocalizationOptions().SetDefaultCulture(sup
 app.UseRequestLocalization(localizationOptions);
 
 app.UseStatusCodePagesWithRedirects("/Error?code={0}");
-app.UseExceptionHandler("/Error");
+app.UseExceptionHandler("/Error?code=500");
 app.UseHsts();
 
 app.UseHttpsRedirection();

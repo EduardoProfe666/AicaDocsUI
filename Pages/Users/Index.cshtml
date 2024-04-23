@@ -103,6 +103,7 @@
     @foreach (var item in Model.Users)
     {
         var description = item.Role.GetDescription();
+        var isConf = item.IsConfirmed;
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.FullName)
@@ -111,7 +112,14 @@
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IsConfirmed)
+                @if (isConf)
+                {
+                    <i class="fas fa-check text-success"></i>
+                }
+                else
+                {
+                    <i class="fas fa-times text-danger"></i>
+                }
             </td>
             <td>
                 @Html.DisplayFor(modelItem => description)
@@ -170,14 +178,14 @@
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
     </div>
-    
+
     <!-- Tercer toast -->
-        <div id="liveToast3" class="toast bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-header bg-danger">
-                <strong class="me-auto text-light">El usuario ya existe</strong>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
-            </div>
+    <div id="liveToast3" class="toast bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header bg-danger">
+            <strong class="me-auto text-light">El usuario ya existe</strong>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
+    </div>
 </div>
 
 <script>
