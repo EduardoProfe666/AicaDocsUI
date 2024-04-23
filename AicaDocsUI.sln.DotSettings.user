@@ -3,7 +3,8 @@
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FAccount_002FConfirmEmail/@EntryIndexedValue">False</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FAccount_002FForgotPassword/@EntryIndexedValue">False</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FAccount_002FLogin/@EntryIndexedValue">False</s:Boolean>
-	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FAccount_002FManage_002FIndex/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FAccount_002FManage_002FChangePassword/@EntryIndexedValue">False</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FAccount_002FManage_002FIndex/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FAccount_002FResetPassword/@EntryIndexedValue">False</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FDocuments_002FCreate/@EntryIndexedValue">False</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FDocuments_002FDetails/@EntryIndexedValue">False</s:Boolean>
@@ -13,7 +14,7 @@
 	
 	
 	
-	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FError/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FError/@EntryIndexedValue">False</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FIndex/@EntryIndexedValue">False</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FReports_002FDocuments_002FDetails/@EntryIndexedValue">False</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=AicaDocsUI_002FResources_002FPages_002FReports_002FDocuments_002FDocumentsReport/@EntryIndexedValue">False</s:Boolean>

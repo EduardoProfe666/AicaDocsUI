@@ -58,5 +58,77 @@ namespace AicaDocsUI.Resources.Pages {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Solicitud Errónea.
+        /// </summary>
+        internal static string _400 {
+            get {
+                return ResourceManager.GetString("400", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Acceso Denegado.
+        /// </summary>
+        internal static string _403 {
+            get {
+                return ResourceManager.GetString("403", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Página no encontrada.
+        /// </summary>
+        internal static string _404 {
+            get {
+                return ResourceManager.GetString("404", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ir a la página de inicio.
+        /// </summary>
+        internal static string irInicio {
+            get {
+                return ResourceManager.GetString("irInicio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lo sentimos, la solicitud que proporcionó no es correcta..
+        /// </summary>
+        internal static string m400 {
+            get {
+                return ResourceManager.GetString("m400", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lo sentimos, no tiene permiso para acceder a la página solicitada..
+        /// </summary>
+        internal static string m403 {
+            get {
+                return ResourceManager.GetString("m403", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lo sentimos, la página solicitada no existe..
+        /// </summary>
+        internal static string m404 {
+            get {
+                return ResourceManager.GetString("m404", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lo sentimos, ha ocurrido un error durante el manejo de su solicitud. Vuelva a intentarlo más tarde.
+        /// </summary>
+        internal static string mError {
+            get {
+                return ResourceManager.GetString("mError", resourceCulture);
+            }
+        }
     }
 }
