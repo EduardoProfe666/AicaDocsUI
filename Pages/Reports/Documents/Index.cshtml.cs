@@ -163,9 +163,13 @@ public class Index : PageModel
         ShowCreated = TempData["Created Document"] as bool? ?? false;
         DownloadUrl = TempData["DownloadUrl"] as string ?? "";
         
+        Console.WriteLine(DownloadUrl);
+        
         TempData["Created Document"] = false;
         TempData["DownloadUrl"] = "";
 
+        
+        
         return Page();
     }
 
