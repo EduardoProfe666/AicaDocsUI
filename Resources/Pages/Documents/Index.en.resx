@@ -18,4 +18,79 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
+    <data name="d" xml:space="preserve">
+        <value>Documents</value>
+    </data>
+    <data name="ld" xml:space="preserve">
+        <value>Document's List</value>
+    </data>
+    <data name="cb" xml:space="preserve">
+        <value>Search Criterias</value>
+    </data>
+    <data name="sp" xml:space="preserve">
+        <value>Select a process</value>
+    </data>
+    <data name="pd" xml:space="preserve">
+        <value>Process of Document</value>
+    </data>
+    <data name="st" xml:space="preserve">
+        <value>Select a type</value>
+    </data>
+    <data name="td" xml:space="preserve">
+        <value>Type of Document</value>
+    </data>
+    <data name="sa" xml:space="preserve">
+        <value>Select a scope</value>
+    </data>
+    <data name="ad" xml:space="preserve">
+        <value>Document Scope</value>
+    </data>
+    <data name="f" xml:space="preserve">
+        <value>Date of Validity</value>
+    </data>
+    <data name="scf" xml:space="preserve">
+        <value>Select a Data Comparator</value>
+    </data>
+    <data name="cf" xml:space="preserve">
+        <value>Date Comparator</value>
+    </data>
+    <data name="p" xml:space="preserve">
+        <value>Pages Quantity</value>
+    </data>
+    <data name="t" xml:space="preserve">
+        <value>Title</value>
+    </data>
+    <data name="c" xml:space="preserve">
+        <value>Code</value>
+    </data>
+    <data name="e" xml:space="preserve">
+        <value>Edition</value>
+    </data>
+    <data name="add" xml:space="preserve">
+        <value>Add Document</value>
+    </data>
+    <data name="expo" xml:space="preserve">
+        <value>Export</value>
+    </data>
+    <data name="reset" xml:space="preserve">
+        <value>Reset</value>
+    </data>
+    <data name="search" xml:space="preserve">
+        <value>Search</value>
+    </data>
+    <data name="a" xml:space="preserve">
+        <value>Action</value>
+    </data>
+    <data name="det" xml:space="preserve">
+        <value>Details</value>
+    </data>
+    <data name="des" xml:space="preserve">
+        <value>Download</value>
+    </data>
+    <data name="t1" xml:space="preserve">
+        <value>Document has been succesfully created</value>
+    </data>
+    <data name="t2" xml:space="preserve">
+        <value>Document has been succesfully downloades</value>
+    </data>
 </root>

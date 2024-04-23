@@ -3,7 +3,7 @@
 <root>
     <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
         <xsd:element name="root" msdata:IsDataSet="true">
-            
+
         </xsd:element>
     </xsd:schema>
     <resheader name="resmimetype">
@@ -18,4 +18,55 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
+    <data name="t" xml:space="preserve">
+        <value>Razón de Descarga</value>
+    </data>
+    <data name="q" xml:space="preserve">
+        <value>¿Está seguro que desea eliminar?</value>
+    </data>
+    <data name="qE" xml:space="preserve">
+        <value>La eliminación falla si se encuentra en uso</value>
+    </data>
+    <data name="cbtn" xml:space="preserve">
+        <value>Cancelar</value>
+    </data>
+    <data name="confbtn" xml:space="preserve">
+        <value>Sí, estoy seguro</value>
+    </data>
+    <data name="list" xml:space="preserve">
+        <value>Listado de Razones de Descarga</value>
+    </data>
+    <data name="add" xml:space="preserve">
+        <value>Agregar Razón</value>
+    </data>
+    <data name="name" xml:space="preserve">
+        <value>Nombre</value>
+    </data>
+    <data name="action" xml:space="preserve">
+        <value>Acción</value>
+    </data>
+    <data name="del" xml:space="preserve">
+        <value>Eliminar</value>
+    </data>
+    <data name="edit" xml:space="preserve">
+        <value>Editar</value>
+    </data>
+    <data name="t1" xml:space="preserve">
+        <value>Razón de descarga creado con éxito</value>
+    </data>
+    <data name="t2" xml:space="preserve">
+        <value>Razón de descarga actualizado con éxito</value>
+    </data>
+    <data name="t3" xml:space="preserve">
+        <value>Razón de descarga eliminado con éxito</value>
+    </data>
+    <data name="t4" xml:space="preserve">
+        <value>Razón de descarga no puede ser eliminada por estar en uso</value>
+    </data>
+    <data name="t5" xml:space="preserve">
+        <value>El nombre de la razón de descarga se encuentra en uso</value>
+    </data>
+    <data name="exp" xml:space="preserve">
+        <value>Exportar</value>
+    </data>
 </root>

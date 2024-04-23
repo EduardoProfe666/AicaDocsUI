@@ -5,7 +5,7 @@
 @model AicaDocsUI.Pages.Reports.Downloads.Index
 
 @{
-    ViewData["Title"] = "Descargas";
+    ViewData["Title"] = @Localizer["d"];
     var currentUrl = HttpContext.Request.Path;
     var previousPag = Model.PageNumber - 1;
     var nextPag = Model.PageNumber + 1;
@@ -16,32 +16,32 @@
     string downloadUrl = Model.DownloadUrl;
 }
 
-<h2 class="card-text md-5">Listado de Descargas</h2>
+<h2 class="card-text md-5">@Localizer["ld"]</h2>
 
-<h4 class="card-text md-3">Criterios de Búsqueda</h4>
+<h4 class="card-text md-3">@Localizer["cb"]</h4>
 
 <form>
     <div class="row mb-4">
         <div class="col-md mb-1">
             <div class="form-floating">
                 <select id="floatingSelectFormat" class=" form-select me-2" asp-for="Format" asp-items="Model.ListFormat">
-                    <option selected>Seleccione un formato</option>
+                    <option selected>@Localizer["sf"]</option>
                 </select>
-                <label for="floatingSelectFormat">Formato</label>
+                <label for="floatingSelectFormat">@Localizer["f"]</label>
             </div>
         </div>
         <div class="col-md mb-1">
             <div class="form-floating">
                 <input max="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" id="floatingSelectDDownload" type="datetime-local" class=" form-control me-2" asp-for="DateDownload"/>
-                <label for="floatingSelectDDownload">Fecha de Descarga</label>
+                <label for="floatingSelectDDownload">@Localizer["fecha"]</label>
             </div>
         </div>
         <div class="col-md mb-1">
             <div class="form-floating">
                 <select id="floatingSelectDComp" class=" form-select me-2" asp-for="DateComparator" asp-items="Model.ListDateComparator">
-                    <option selected>Seleccione un comparador de fecha</option>
+                    <option selected>@Localizer["sdc"]</option>
                 </select>
-                <label for="floatingSelectDComp">Comparador de Fecha</label>
+                <label for="floatingSelectDComp">@Localizer["dc"]</label>
             </div>
         </div>
 
@@ -51,21 +51,21 @@
         <div class="col-md mb-1">
             <div class="form-floating">
                 <select id="floatingSelectReason" class="form-select me-2" asp-for="ReasonId" asp-items="Model.ListReasonId">
-                    <option selected>Seleccione una razón de descarga</option>
+                    <option selected>@Localizer["srd"]</option>
                 </select>
-                <label for="floatingSelectReason">Razón de Descarga</label>
+                <label for="floatingSelectReason">@Localizer["dr"]</label>
             </div>
         </div>
         <div class="col-md mb-1">
             <div class="form-floating">
                 <input id="floatingSelectUsername" type="text" class="form-control me-2" asp-for="Username"/>
-                <label for="floatingSelectUsername">Usuario</label>
+                <label for="floatingSelectUsername">@Localizer["cu"]</label>
             </div>
         </div>
         <div class="col-md mb-1">
             <div class="form-floating">
                 <input id="floatingSelectDocument" type="number" class="form-control me-2" asp-for="DocumentId"/>
-                <label for="floatingSelectDocument">Documento</label>
+                <label for="floatingSelectDocument">@Localizer["doc"]</label>
             </div>
         </div>
     </div>
@@ -73,15 +73,15 @@
     <div class="row mb-4">
          <div class="col-md text-start">
                     <a href="/Reports/Downloads/DownloadsReport" class="btn btn-secondary text-start">
-                        <i class="fas fa-file-pdf"> Exportar</i>
+                        <i class="fas fa-file-pdf"> @Localizer["exp"]</i>
                     </a>
                 </div>
         <div class="col-md text-end">
             <button type="reset" class="btn btn-outline-warning text-end">
-                <i class="fas fa-recycle"> Resetear</i>
+                <i class="fas fa-recycle"> @Localizer["reset"]</i>
             </button>
             <button type="submit" class="btn btn-outline-primary">
-                <i class="fas fa-search"> Buscar</i>
+                <i class="fas fa-search"> @Localizer["search"]</i>
             </button>
         </div>
     </div>
@@ -105,12 +105,12 @@
 <table class="table table-hover">
     <thead>
     <tr>
-        <th>Fecha de Descarga</th>
-        <th>Documento</th>
-        <th>Formato</th>
-        <th>Usuario</th>
-        <th>Razón de Descarga</th>
-        <th>Acción</th>
+        <th>@Localizer["fecha"]</th>
+        <th>@Localizer["doc"]</th>
+        <th>@Localizer["f"]</th>
+        <th>@Localizer["cu"]</th>
+        <th>@Localizer["dr"]</th>
+        <th>@Localizer["a"]</th>
 
     </tr>
     </thead>
@@ -139,7 +139,7 @@
 
 
             <td class="white-space:nowrap">
-                <a class="btn btn-outline-info btn-sm" asp-page="./Details" asp-route-id="@item.Id" data-toggle="tooltip" title="Detalles">
+                <a class="btn btn-outline-info btn-sm" asp-page="./Details" asp-route-id="@item.Id" data-toggle="tooltip" title="@Localizer["det"]">
                     <i class="fas fa-book"></i>
                 </a>
             </td>

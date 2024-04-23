@@ -36,4 +36,7 @@
     <data name="cambiarCont" xml:space="preserve">
         <value>Change Password</value>
     </data>
+    <data name="cambiarContExito" xml:space="preserve">
+        <value>Password has been succesfully changed</value>
+    </data>
 </root>

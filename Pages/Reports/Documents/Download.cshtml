@@ -2,34 +2,34 @@
 @model AicaDocsUI.Pages.Reports.Documents.Download
 
 @{
-    ViewData["Title"] = "Descargar Documento";
+    ViewData["Title"] = @Localizer["dd"];
 }
 
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-11 col-md-8 col-lg-4 mx-auto rounded border p-3">
             <section>
-                <h2 class="text-center mb-3">Descargar Documento</h2>
+                <h2 class="text-center mb-3"> @Localizer["dd"]</h2>
                 <hr/>
                 <form method="post">
                     <div class="mb-3">
-                        <label class="form-label fw-bold">Formato de Documento</label>
+                        <label class="form-label fw-bold">@Localizer["f"]</label>
                         <span asp-validation-for="DownloadCreatedModel.Format" class="text-danger"></span>
                         <select class="form-select" asp-for="DownloadCreatedModel.Format" asp-items="Model.ListFormat">
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label fw-bold">Razón de Descarga</label>
+                        <label class="form-label fw-bold">@Localizer["r"]</label>
                         <span asp-validation-for="DownloadCreatedModel.ReasonId" class="text-danger"></span>
                         <select class="form-select" asp-for="DownloadCreatedModel.ReasonId" asp-items="Model.ListReason">
                         </select>
                     </div>
                     <div class="row mb-3">
                         <div class="col d-grid">
-                            <a class="btn btn-outline-primary" href="/Reports/Documents/Index" role="button">Cancelar</a>
+                            <a class="btn btn-outline-primary" href="/Reports/Documents/Index" role="button">@Localizer["cancel"]</a>
                         </div>
                         <div class="col d-grid">
-                            <button type="submit" class="btn btn-primary">Descargar</button>
+                            <button type="submit" class="btn btn-primary">@Localizer["d"]</button>
                         </div>
                     </div>
                 </form>

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AicaDocsUI.Resources {
+namespace AicaDocsUI.Resources.Pages.Reports.Downloads {
     using System;
     
     
@@ -21,14 +21,14 @@ namespace AicaDocsUI.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class SharedResource_es {
+    internal class DownloadsReport_es {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal SharedResource_es() {
+        internal DownloadsReport_es() {
         }
         
         /// <summary>
@@ -38,7 +38,7 @@ namespace AicaDocsUI.Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AicaDocsUI.Resources.SharedResource.es", typeof(SharedResource_es).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AicaDocsUI.Resources.Pages.Reports.Downloads.DownloadsReport.es", typeof(DownloadsReport_es).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -60,11 +60,65 @@ namespace AicaDocsUI.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to El correo es requerido.
+        ///   Looks up a localized string similar to Atrás.
         /// </summary>
-        internal static string EmailRequired {
+        internal static string back {
             get {
-                return ResourceManager.GetString("EmailRequired", resourceCulture);
+                return ResourceManager.GetString("back", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Completo.
+        /// </summary>
+        internal static string c {
+            get {
+                return ResourceManager.GetString("c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exportar.
+        /// </summary>
+        internal static string e {
+            get {
+                return ResourceManager.GetString("e", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Correo.
+        /// </summary>
+        internal static string m {
+            get {
+                return ResourceManager.GetString("m", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Restringido.
+        /// </summary>
+        internal static string r {
+            get {
+                return ResourceManager.GetString("r", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reporte de descargas.
+        /// </summary>
+        internal static string rd {
+            get {
+                return ResourceManager.GetString("rd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tipo de Reporte.
+        /// </summary>
+        internal static string tr {
+            get {
+                return ResourceManager.GetString("tr", resourceCulture);
             }
         }
     }

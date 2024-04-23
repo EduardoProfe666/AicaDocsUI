@@ -4,7 +4,7 @@
 @model AicaDocsUI.Pages.Reports.Downloads.Details
 
 @{
-    ViewData["Title"] = "Detalles de Descarga";
+    ViewData["Title"] = @Localizer["dd"];
     var description = Model.DownloadDto.Format.GetDescription();
     var date = Model.DownloadDto.DateOfDownload.ToString("dd/MM/yyyy hh:mm:ss tt");
 }
@@ -13,34 +13,30 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-11 col-md-8 col-lg-5 mx-auto rounded border p-3">
-            <h2 class="text-center">Detalles de Descarga</h2>
+            <h2 class="text-center">@Localizer["dd"]</h2>
             <hr/>
 
             <div class="table-responsive">
                 <table class="table table-borderless table-hover">
                     <tbody>
                         <tr>
-                            <th scope="row">@Html.Raw("Formato")</th>
+                            <th scope="row">@Html.Raw(@Localizer["f"].Value)</th>
                             <td>@Html.Raw(description)</td>
                         </tr>
                         <tr>
-                            <th scope="row">@Html.Raw("Fecha de Descarga")</th>
+                            <th scope="row">@Html.Raw(@Localizer["fecha"].Value)</th>
                             <td>@Html.Raw(date)</td>
                         </tr>
                         <tr>
-                            <th scope="row">@Html.Raw("Usuario")</th>
+                            <th scope="row">@Html.Raw(@Localizer["u"].Value)</th>
                             <td>@Html.DisplayFor(model => model.DownloadDto.UserEmail)</td>
                         </tr>
                         <tr>
-                            <th scope="row">@Html.Raw("Documento")</th>
+                            <th scope="row">@Html.Raw(@Localizer["d"].Value)</th>
                             <td>@Html.DisplayFor(model => model.CodeEdition)</td>
                         </tr>
                         <tr>
-                            <th scope="row">@Html.Raw("Fecha de Vigencia")</th>
-                            <td>@Html.Raw(date)</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">@Html.Raw("Razón de descarga")</th>
+                            <th scope="row">@Html.Raw(@Localizer["rd"].Value)</th>
                             <td>@Html.DisplayFor(model => model.Reason)</td>
                         </tr>
                     </tbody>
@@ -48,7 +44,7 @@
             </div>
 
             <div class="text-start col">
-                <a class="btn btn-outline-primary ms-auto w-25 w-sm-50" asp-page="./Index">Atrás</a>
+                <a class="btn btn-outline-primary ms-auto w-25 w-sm-50" asp-page="./Index">@Localizer["back"]</a>
             </div>
         </div>
     </div>

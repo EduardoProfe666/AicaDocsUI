@@ -5,7 +5,7 @@
 @model Index
 
 @{
-    ViewData["Title"] = "Tipo de documento";
+    ViewData["Title"] = @Localizer["t"];
     bool showCreated = Model.ShowCreated;
     bool showEdited = Model.ShowEdited;
     bool showDeleted = Model.ShowDeleted;
@@ -16,14 +16,14 @@
 <script>
     function confirmDelete(id){
         Swal.fire({
-            title: "¿Está seguro que desea eliminar?",
-            text: "Una vez eliminado, no podrás recuperar este usuario",
+            title: "@Localizer["q"]",
+            text: "@Localizer["qE"]",
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
-            cancelButtonText: "Cancelar",
-            confirmButtonText: "Sí, estoy seguro"
+            cancelButtonText: "@Localizer["cbtn"]",
+            confirmButtonText: "@Localizer["confbtn"]"
         }).then((result) => {
                 if (result.isConfirmed){
                   window.location.href = `/Reports/Type?handler=Delete&id=${id}`;
@@ -32,25 +32,26 @@
     }
 </script>
 
-<h2 class="card-text md-5">Listado de Tipos de documento</h2>
+<h2 class="card-text md-5">@Localizer["list"]</h2>
 
 <div class="row mb-4">
     <div class="col">
-        <a class="btn btn-outline-primary " href="/Reports/Type/Create">
+        <a class="btn btn-outline-primary " asp-page="./Create">
             <i class="fas fa-plus"></i>
-            Agregar Tipo
+            @Localizer["add"]
         </a>
         <a href="@($"/downloadReport/{DownloadReportEndpoint.TypeReport.NomenclatorsByType}/3/1")" class="btn btn-secondary text-start">
-            <i class="fas fa-file-pdf"> Exportar</i>
+            <i class="fas fa-file-pdf"> @Localizer["exp"]</i>
         </a>
+
     </div>
 </div>
 
 <table class="table table-hover">
     <thead>
     <tr>
-        <th>Nombre</th>
-        <th>Acción</th>
+        <th>@Localizer["name"]</th>
+        <th>@Localizer["action"]</th>
 
     </tr>
     </thead>
@@ -63,10 +64,10 @@
             </td>
 
             <td class="white-space:nowrap">
-                <a class="btn btn-outline-warning btn-sm" asp-page="./Edit" asp-route-id="@item.Id" asp-route-typeOfNomenclator="@item.Type" data-toggle="tooltip" title="Editar">
+                <a class="btn btn-outline-warning btn-sm" asp-page="./Edit" asp-route-id="@item.Id" asp-route-typeOfNomenclator="@item.Type" data-toggle="tooltip" title="@Localizer["edit"]">
                     <i class="fas fa-edit"></i>
                 </a>
-                <a class="btn btn-outline-danger btn-sm" onclick="confirmDelete('@item.Id')" data-toggle="tooltip" title="Eliminar">
+                <a class="btn btn-outline-danger btn-sm" onclick="confirmDelete('@item.Id')" data-toggle="tooltip" title="@Localizer["del"]">
                     <i class="fas fa-trash"></i>
                 </a>
             </td>
@@ -82,7 +83,7 @@
     <!-- Primer toast -->
     <div id="liveToast1" class="toast bg-success" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header bg-success">
-            <strong class="me-auto text-light">Tipo de documento creado con éxito</strong>
+            <strong class="me-auto text-light">@Localizer["t1"]</strong>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
     </div>
@@ -90,7 +91,7 @@
     <!-- Segundo toast -->
     <div id="liveToast2" class="toast bg-success" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header bg-success">
-            <strong class="me-auto text-light">Tipo de documento actualizado con éxito</strong>
+            <strong class="me-auto text-light">@Localizer["t2"]</strong>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
     </div>
@@ -98,7 +99,7 @@
     <!-- Tercer toast -->
     <div id="liveToast3" class="toast bg-success" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header bg-success">
-            <strong class="me-auto text-light">Tipo de documento eliminado con éxito</strong>
+            <strong class="me-auto text-light">@Localizer["t3"]</strong>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
     </div>
@@ -106,7 +107,7 @@
     <!-- Cuarto toast -->
     <div id="liveToast4" class="toast bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header bg-danger">
-            <strong class="me-auto text-light">Tipo de documento no puede ser eliminado por estar en uso</strong>
+            <strong class="me-auto text-light">@Localizer["t4"]</strong>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
     </div>
@@ -114,7 +115,7 @@
     <!-- Quinto toast -->
     <div id="liveToast5" class="toast bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header bg-danger">
-            <strong class="me-auto text-light">El nombre del tipo de documento se encuentra en uso</strong>
+            <strong class="me-auto text-light">@Localizer["t5"]</strong>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
     </div>

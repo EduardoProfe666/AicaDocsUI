@@ -18,4 +18,49 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
+    <data name="cd" xml:space="preserve">
+        <value>Create Document</value>
+    </data>
+    <data name="t" xml:space="preserve">
+        <value>Title</value>
+    </data>
+    <data name="ii" xml:space="preserve">
+        <value>Enter the title</value>
+    </data>
+    <data name="c" xml:space="preserve">
+        <value>Code</value>
+    </data>
+    <data name="ic" xml:space="preserve">
+        <value>Enter the code</value>
+    </data>
+    <data name="e" xml:space="preserve">
+        <value>Edition</value>
+    </data>
+    <data name="ie" xml:space="preserve">
+        <value>Enter the edition</value>
+    </data>
+    <data name="f" xml:space="preserve">
+        <value>Validity Date</value>
+    </data>
+    <data name="td" xml:space="preserve">
+        <value>Type of Document</value>
+    </data>
+    <data name="pd" xml:space="preserve">
+        <value>Process of Document</value>
+    </data>
+    <data name="sd" xml:space="preserve">
+        <value>Scope of Document</value>
+    </data>
+    <data name="pdf" xml:space="preserve">
+        <value>Pdf File</value>
+    </data>
+    <data name="word" xml:space="preserve">
+        <value>Word File</value>
+    </data>
+    <data name="back" xml:space="preserve">
+        <value>Go Back</value>
+    </data>
+    <data name="create" xml:space="preserve">
+        <value>Create</value>
+    </data>
 </root>

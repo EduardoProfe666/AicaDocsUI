@@ -18,4 +18,25 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
+    <data name="rd" xml:space="preserve">
+        <value>Reporte de Documentos</value>
+    </data>
+    <data name="tr" xml:space="preserve">
+        <value>Tipo de Reporte</value>
+    </data>
+    <data name="c" xml:space="preserve">
+        <value>Completo</value>
+    </data>
+    <data name="r" xml:space="preserve">
+        <value>Restringido</value>
+    </data>
+    <data name="m" xml:space="preserve">
+        <value>Correo</value>
+    </data>
+    <data name="back" xml:space="preserve">
+        <value>Atrás</value>
+    </data>
+    <data name="e" xml:space="preserve">
+        <value>Exportar</value>
+    </data>
 </root>

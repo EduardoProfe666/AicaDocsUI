@@ -58,5 +58,158 @@ namespace AicaDocsUI.Resources.Pages.Reports.Reason {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Acción.
+        /// </summary>
+        internal static string action {
+            get {
+                return ResourceManager.GetString("action", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Agregar Razón.
+        /// </summary>
+        internal static string add {
+            get {
+                return ResourceManager.GetString("add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancelar.
+        /// </summary>
+        internal static string cbtn {
+            get {
+                return ResourceManager.GetString("cbtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sí, estoy seguro.
+        /// </summary>
+        internal static string confbtn {
+            get {
+                return ResourceManager.GetString("confbtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Eliminar.
+        /// </summary>
+        internal static string del {
+            get {
+                return ResourceManager.GetString("del", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Editar.
+        /// </summary>
+        internal static string edit {
+            get {
+                return ResourceManager.GetString("edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exportar.
+        /// </summary>
+        internal static string exp {
+            get {
+                return ResourceManager.GetString("exp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Listado de Razones de Descarga.
+        /// </summary>
+        internal static string list {
+            get {
+                return ResourceManager.GetString("list", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nombre.
+        /// </summary>
+        internal static string name {
+            get {
+                return ResourceManager.GetString("name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ¿Está seguro que desea eliminar?.
+        /// </summary>
+        internal static string q {
+            get {
+                return ResourceManager.GetString("q", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to La eliminación falla si se encuentra en uso.
+        /// </summary>
+        internal static string qE {
+            get {
+                return ResourceManager.GetString("qE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Razón de Descarga.
+        /// </summary>
+        internal static string t {
+            get {
+                return ResourceManager.GetString("t", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Razón de descarga creado con éxito.
+        /// </summary>
+        internal static string t1 {
+            get {
+                return ResourceManager.GetString("t1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Razón de descarga actualizado con éxito.
+        /// </summary>
+        internal static string t2 {
+            get {
+                return ResourceManager.GetString("t2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Razón de descarga eliminado con éxito.
+        /// </summary>
+        internal static string t3 {
+            get {
+                return ResourceManager.GetString("t3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Razón de descarga no puede ser eliminada por estar en uso.
+        /// </summary>
+        internal static string t4 {
+            get {
+                return ResourceManager.GetString("t4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to El nombre de la razón de descarga se encuentra en uso.
+        /// </summary>
+        internal static string t5 {
+            get {
+                return ResourceManager.GetString("t5", resourceCulture);
+            }
+        }
     }
 }

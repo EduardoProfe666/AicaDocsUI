@@ -2,27 +2,28 @@
 @model Create
 
 @{
-    ViewData["Title"] = "Agregar Tipo de documento";
+    ViewData["Title"] = @Localizer["title"];
 }
+
 
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-11 col-md-8 col-lg-4 mx-auto rounded border p-3">
             <section>
-                <h3 class="text-center mb-3">Crear Tipo de documento</h3>
+                <h3 class="text-center mb-3">@Localizer["title"]</h3>
                 <hr/>
                 <form method="post">
                     <div class="mb-3">
-                        <label class="form-label fw-bold">Nombre</label>
-                        <input asp-for="NomenclatorModel.Name" class="form-control" placeholder="Ingrese el nombre"/>
+                        <label class="form-label fw-bold">@Localizer["name"]</label>
+                        <input asp-for="NomenclatorModel.Name" class="form-control" placeholder="@Localizer["iname"]"/>
                         <span asp-validation-for="NomenclatorModel.Name" class="text-danger"></span>
                     </div>
                     <div class="row mb-3">
                         <div class="col d-grid">
-                            <a class="btn btn-outline-primary" href="/Reports/Type/Index" role="button">Cancelar</a>
+                            <a class="btn btn-outline-primary" href="/Reports/Type/Index" role="button">@Localizer["cancel"]</a>
                         </div>
                         <div class="col d-grid">
-                            <button type="submit" class="btn btn-primary">Aceptar</button>
+                            <button type="submit" class="btn btn-primary">@Localizer["create"]</button>
                         </div>
                     </div>
                 </form>

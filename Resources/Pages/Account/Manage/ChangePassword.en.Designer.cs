@@ -96,7 +96,7 @@ namespace AicaDocsUI.Resources.Pages.Account.Manage {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Password Check Failed. Please, check your last password.
         /// </summary>
         internal static string contFallo {
             get {

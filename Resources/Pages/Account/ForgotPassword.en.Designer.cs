@@ -96,7 +96,7 @@ namespace AicaDocsUI.Resources.Pages.Account {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Forget Password.
+        ///   Looks up a localized string similar to Forgot Password.
         /// </summary>
         internal static string olvidoCont {
             get {

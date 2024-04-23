@@ -18,4 +18,37 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
+    <data name="dd" xml:space="preserve">
+        <value>Detalles de Documento</value>
+    </data>
+    <data name="t" xml:space="preserve">
+        <value>Título</value>
+    </data>
+    <data name="c" xml:space="preserve">
+        <value>Código</value>
+    </data>
+    <data name="e" xml:space="preserve">
+        <value>Edición</value>
+    </data>
+    <data name="p" xml:space="preserve">
+        <value>Páginas</value>
+    </data>
+    <data name="f" xml:space="preserve">
+        <value>Fecha de vigencia</value>
+    </data>
+    <data name="m" xml:space="preserve">
+        <value>Correo</value>
+    </data>
+    <data name="td" xml:space="preserve">
+        <value>Tipo de documento</value>
+    </data>
+    <data name="pd" xml:space="preserve">
+        <value>Proceso de Documento</value>
+    </data>
+    <data name="ad" xml:space="preserve">
+        <value>Alcance de Documento</value>
+    </data>
+    <data name="back" xml:space="preserve">
+        <value>Atrás</value>
+    </data>
 </root>
