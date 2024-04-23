@@ -3,7 +3,7 @@
 <root>
     <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
         <xsd:element name="root" msdata:IsDataSet="true">
-            
+
         </xsd:element>
     </xsd:schema>
     <resheader name="resmimetype">
@@ -18,4 +18,55 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
+    <data name="t" xml:space="preserve">
+        <value>Document Process</value>
+    </data>
+    <data name="q" xml:space="preserve">
+        <value>Are you sure you want to delete it?</value>
+    </data>
+    <data name="list" xml:space="preserve">
+        <value>List of Document Process</value>
+    </data>
+    <data name="qE" xml:space="preserve">
+        <value>The deletion fails if its in usage</value>
+    </data>
+    <data name="confbtn" xml:space="preserve">
+        <value>Yes, I'm sure</value>
+    </data>
+    <data name="cbtn" xml:space="preserve">
+        <value>Cancel</value>
+    </data>
+    <data name="add" xml:space="preserve">
+        <value>Add Process</value>
+    </data>
+    <data name="name" xml:space="preserve">
+        <value>Name</value>
+    </data>
+    <data name="action" xml:space="preserve">
+        <value>Action</value>
+    </data>
+    <data name="del" xml:space="preserve">
+        <value>Delete</value>
+    </data>
+    <data name="edit" xml:space="preserve">
+        <value>Edit</value>
+    </data>
+    <data name="t1" xml:space="preserve">
+        <value>Succesfull process of document creation</value>
+    </data>
+    <data name="t2" xml:space="preserve">
+        <value>Succesfull process of document edition</value>
+    </data>
+    <data name="t3" xml:space="preserve">
+        <value>Succesfull process of document deletion</value>
+    </data>
+    <data name="t4" xml:space="preserve">
+        <value>Deletion of process of document failed because its in use</value>
+    </data>
+    <data name="t5" xml:space="preserve">
+        <value>The name of the process of document is already in use</value>
+    </data>
+    <data name="exp" xml:space="preserve">
+        <value>Export</value>
+    </data>
 </root>

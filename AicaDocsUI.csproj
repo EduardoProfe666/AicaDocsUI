@@ -211,11 +211,11 @@
         <Generator>ResXFileCodeGenerator</Generator>
         <LastGenOutput>Index.en.Designer.cs</LastGenOutput>
       </EmbeddedResource>
-      <EmbeddedResource Update="Resources\Pages\Reports\Downloads\DownloadReport.es.resx">
+      <EmbeddedResource Update="Resources\Pages\Reports\Downloads\DownloadsReport.es.resx">
         <Generator>ResXFileCodeGenerator</Generator>
         <LastGenOutput>DownloadReport.es.Designer.cs</LastGenOutput>
       </EmbeddedResource>
-      <EmbeddedResource Update="Resources\Pages\Reports\Downloads\DownloadReport.en.resx">
+      <EmbeddedResource Update="Resources\Pages\Reports\Downloads\DownloadsReport.en.resx">
         <Generator>ResXFileCodeGenerator</Generator>
         <LastGenOutput>DownloadReport.en.Designer.cs</LastGenOutput>
       </EmbeddedResource>
@@ -338,14 +338,6 @@
       <EmbeddedResource Update="Resources\Pages\Users\UsersReport.en.resx">
         <Generator>ResXFileCodeGenerator</Generator>
         <LastGenOutput>UsersReport.en.Designer.cs</LastGenOutput>
-      </EmbeddedResource>
-      <EmbeddedResource Update="Resources\SharedResource.en.resx">
-        <Generator>ResXFileCodeGenerator</Generator>
-        <LastGenOutput>SharedResource.en.Designer.cs</LastGenOutput>
-      </EmbeddedResource>
-      <EmbeddedResource Update="Resources\SharedResource.es.resx">
-        <Generator>ResXFileCodeGenerator</Generator>
-        <LastGenOutput>SharedResource.es.Designer.cs</LastGenOutput>
       </EmbeddedResource>
       <EmbeddedResource Update="Resources\Pages\Account\Manage\ChangePassword.en.resx">
         <Generator>ResXFileCodeGenerator</Generator>
@@ -548,15 +540,15 @@
         <AutoGen>True</AutoGen>
         <DependentUpon>Index.en.resx</DependentUpon>
       </Compile>
-      <Compile Update="Resources\Pages\Reports\Downloads\DownloadReport.es.Designer.cs">
+      <Compile Update="Resources\Pages\Reports\Downloads\DownloadsReport.es.Designer.cs">
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
-        <DependentUpon>DownloadReport.es.resx</DependentUpon>
+        <DependentUpon>DownloadsReport.es.resx</DependentUpon>
       </Compile>
-      <Compile Update="Resources\Pages\Reports\Downloads\DownloadReport.en.Designer.cs">
+      <Compile Update="Resources\Pages\Reports\Downloads\DownloadsReport.en.Designer.cs">
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
-        <DependentUpon>DownloadReport.en.resx</DependentUpon>
+        <DependentUpon>DownloadsReport.en.resx</DependentUpon>
       </Compile>
       <Compile Update="Resources\Pages\Reports\Process\Create.es.Designer.cs">
         <DesignTime>True</DesignTime>
@@ -707,16 +699,6 @@
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
         <DependentUpon>UsersReport.en.resx</DependentUpon>
-      </Compile>
-      <Compile Update="Resources\SharedResource.en.Designer.cs">
-        <DesignTime>True</DesignTime>
-        <AutoGen>True</AutoGen>
-        <DependentUpon>SharedResource.en.resx</DependentUpon>
-      </Compile>
-      <Compile Update="Resources\SharedResource.es.Designer.cs">
-        <DesignTime>True</DesignTime>
-        <AutoGen>True</AutoGen>
-        <DependentUpon>SharedResource.es.resx</DependentUpon>
       </Compile>
       <Compile Update="Resources\Pages\Account\Manage\ChangePassword.en.Designer.cs">
         <DesignTime>True</DesignTime>

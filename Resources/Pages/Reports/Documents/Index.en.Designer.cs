@@ -58,5 +58,230 @@ namespace AicaDocsUI.Resources.Pages.Reports.Documents {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Action.
+        /// </summary>
+        internal static string a {
+            get {
+                return ResourceManager.GetString("a", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Document Scope.
+        /// </summary>
+        internal static string ad {
+            get {
+                return ResourceManager.GetString("ad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Document.
+        /// </summary>
+        internal static string add {
+            get {
+                return ResourceManager.GetString("add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Code.
+        /// </summary>
+        internal static string c {
+            get {
+                return ResourceManager.GetString("c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search Criterias.
+        /// </summary>
+        internal static string cb {
+            get {
+                return ResourceManager.GetString("cb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date Comparator.
+        /// </summary>
+        internal static string cf {
+            get {
+                return ResourceManager.GetString("cf", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Documents.
+        /// </summary>
+        internal static string d {
+            get {
+                return ResourceManager.GetString("d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Download.
+        /// </summary>
+        internal static string des {
+            get {
+                return ResourceManager.GetString("des", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Details.
+        /// </summary>
+        internal static string det {
+            get {
+                return ResourceManager.GetString("det", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edition.
+        /// </summary>
+        internal static string e {
+            get {
+                return ResourceManager.GetString("e", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Export.
+        /// </summary>
+        internal static string expo {
+            get {
+                return ResourceManager.GetString("expo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date of Validity.
+        /// </summary>
+        internal static string f {
+            get {
+                return ResourceManager.GetString("f", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Document&apos;s List.
+        /// </summary>
+        internal static string ld {
+            get {
+                return ResourceManager.GetString("ld", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pages Quantity.
+        /// </summary>
+        internal static string p {
+            get {
+                return ResourceManager.GetString("p", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Process of Document.
+        /// </summary>
+        internal static string pd {
+            get {
+                return ResourceManager.GetString("pd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset.
+        /// </summary>
+        internal static string reset {
+            get {
+                return ResourceManager.GetString("reset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select a scope.
+        /// </summary>
+        internal static string sa {
+            get {
+                return ResourceManager.GetString("sa", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select a Data Comparator.
+        /// </summary>
+        internal static string scf {
+            get {
+                return ResourceManager.GetString("scf", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search.
+        /// </summary>
+        internal static string search {
+            get {
+                return ResourceManager.GetString("search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select a process.
+        /// </summary>
+        internal static string sp {
+            get {
+                return ResourceManager.GetString("sp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select a type.
+        /// </summary>
+        internal static string st {
+            get {
+                return ResourceManager.GetString("st", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Title.
+        /// </summary>
+        internal static string t {
+            get {
+                return ResourceManager.GetString("t", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Document has been succesfully created.
+        /// </summary>
+        internal static string t1 {
+            get {
+                return ResourceManager.GetString("t1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Document has been succesfully downloades.
+        /// </summary>
+        internal static string t2 {
+            get {
+                return ResourceManager.GetString("t2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type of Document.
+        /// </summary>
+        internal static string td {
+            get {
+                return ResourceManager.GetString("td", resourceCulture);
+            }
+        }
     }
 }

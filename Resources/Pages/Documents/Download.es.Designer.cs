@@ -58,5 +58,50 @@ namespace AicaDocsUI.Resources.Pages.Documents {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancelar.
+        /// </summary>
+        internal static string cancel {
+            get {
+                return ResourceManager.GetString("cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Descargar.
+        /// </summary>
+        internal static string d {
+            get {
+                return ResourceManager.GetString("d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Descargar documento.
+        /// </summary>
+        internal static string dd {
+            get {
+                return ResourceManager.GetString("dd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Formato de documento.
+        /// </summary>
+        internal static string f {
+            get {
+                return ResourceManager.GetString("f", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Razón de descarga.
+        /// </summary>
+        internal static string r {
+            get {
+                return ResourceManager.GetString("r", resourceCulture);
+            }
+        }
     }
 }

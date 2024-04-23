@@ -22,14 +22,14 @@
 <script>
     function confirmDelete(email){
         Swal.fire({
-            title: @Localizer["deleteQ"],
-            text: @Localizer["deleteE"],
+            title: "@Localizer["deleteQ"]",
+            text: "@Localizer["deleteE"]",
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
-            cancelButtonText: @Localizer["cancel"],
-            confirmButtonText: @Localizer["deleteSeg"]
+            cancelButtonText: "@Localizer["cancel"]",
+            confirmButtonText: "@Localizer["deleteSeg"]"
         }).then((result) => {
                 if (result.isConfirmed){
                   window.location.href = `/Users?handler=Delete&email=${email}`;

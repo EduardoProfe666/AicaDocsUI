@@ -2,70 +2,70 @@
 @model AicaDocsUI.Pages.Documents.Create
 
 @{
-    ViewData["Title"] = "Crear Documento";
+    ViewData["Title"] = @Localizer["cd"];
 }
 
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-11 col-md-8 col-lg-4 mx-auto rounded border p-3">
             <section>
-                <h2 class="text-center mb-3">Crear Documento</h2>
+                <h2 class="text-center mb-3">@Localizer["cd"]</h2>
                 <hr/>
                 <form method="post" enctype="multipart/form-data">
                     <div class="mb-3">
-                        <label class="form-label fw-bold">Título</label>
-                        <input asp-for="DocumentCreatedModel.Title" class="form-control" placeholder="Ingrese el título"/>
+                        <label class="form-label fw-bold">@Localizer["t"]</label>
+                        <input asp-for="DocumentCreatedModel.Title" class="form-control" placeholder="@Localizer["ii"]"/>
                         <span asp-validation-for="DocumentCreatedModel.Title" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label fw-bold">Código</label>
-                        <input asp-for="DocumentCreatedModel.Code" class="form-control" placeholder="Ingrese el código"/>
+                        <label class="form-label fw-bold">@Localizer["c"]</label>
+                        <input asp-for="DocumentCreatedModel.Code" class="form-control" placeholder="@Localizer["ic"]"/>
                         <span asp-validation-for="DocumentCreatedModel.Code" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label fw-bold">Edición</label>
-                        <input type="number" min="1" asp-for="DocumentCreatedModel.Edition" class="form-control" placeholder="Ingrese la edición"/>
+                        <label class="form-label fw-bold">@Localizer["e"]</label>
+                        <input type="number" min="1" asp-for="DocumentCreatedModel.Edition" class="form-control" placeholder="@Localizer["ie"]"/>
                         <span asp-validation-for="DocumentCreatedModel.Edition" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label fw-bold">Fecha de Vigencia</label>
+                        <label class="form-label fw-bold">@Localizer["f"]</label>
                         <input placeholder="Ingrese la fecha de vigencia" type="datetime-local" class=" form-control me-2" asp-for="DocumentCreatedModel.DateOfValidity"/>
                         <span asp-validation-for="DocumentCreatedModel.DateOfValidity" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label fw-bold">Tipo de documento</label>
+                        <label class="form-label fw-bold">@Localizer["td"]</label>
                         <span asp-validation-for="DocumentCreatedModel.TypeId" class="text-danger"></span>
                         <select class="form-select" asp-for="DocumentCreatedModel.TypeId" asp-items="Model.ListTypeId">
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label fw-bold">Proceso de documento</label>
+                        <label class="form-label fw-bold">@Localizer["pd"]</label>
                         <span asp-validation-for="DocumentCreatedModel.ProcessId" class="text-danger"></span>
                         <select class="form-select" asp-for="DocumentCreatedModel.ProcessId" asp-items="Model.ListProcessId">
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label fw-bold">Alcance de documento</label>
+                        <label class="form-label fw-bold">@Localizer["sd"]</label>
                         <span asp-validation-for="DocumentCreatedModel.ScopeId" class="text-danger"></span>
                         <select class="form-select" asp-for="DocumentCreatedModel.ScopeId" asp-items="Model.ListScopeId">
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label fw-bold">Fichero Pdf</label>
+                        <label class="form-label fw-bold">@Localizer["pdf"]</label>
                         <input type="file" asp-for="DocumentCreatedModel.Pdf" class="form-control"/>
                         <span asp-validation-for="DocumentCreatedModel.Pdf" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label fw-bold">Fichero Word</label>
+                        <label class="form-label fw-bold">@Localizer["word"]</label>
                         <input type="file" asp-for="DocumentCreatedModel.Word" class="form-control"/>
                         <span asp-validation-for="DocumentCreatedModel.Word" class="text-danger"></span>
                     </div>
                     <div class="row mb-3">
                         <div class="col d-grid">
-                            <a class="btn btn-outline-primary" href="/Documents/Index" role="button">Atrás </a>
+                            <a class="btn btn-outline-primary" href="/Documents/Index" role="button">@Localizer["back"]</a>
                         </div>
                         <div class="col d-grid">
-                            <button type="submit" class="btn btn-primary">Crear</button>
+                            <button type="submit" class="btn btn-primary">@Localizer["create"]</button>
                         </div>
                     </div>
                 </form>

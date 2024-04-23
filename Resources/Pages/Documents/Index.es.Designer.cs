@@ -58,5 +58,230 @@ namespace AicaDocsUI.Resources.Pages.Documents {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Acción.
+        /// </summary>
+        internal static string a {
+            get {
+                return ResourceManager.GetString("a", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Alcance de Documento.
+        /// </summary>
+        internal static string ad {
+            get {
+                return ResourceManager.GetString("ad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Agregar Documento.
+        /// </summary>
+        internal static string add {
+            get {
+                return ResourceManager.GetString("add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Código.
+        /// </summary>
+        internal static string c {
+            get {
+                return ResourceManager.GetString("c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Criterios de Búsqueda.
+        /// </summary>
+        internal static string cb {
+            get {
+                return ResourceManager.GetString("cb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Comparador de Fecha.
+        /// </summary>
+        internal static string cf {
+            get {
+                return ResourceManager.GetString("cf", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Documentos.
+        /// </summary>
+        internal static string d {
+            get {
+                return ResourceManager.GetString("d", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Descargar.
+        /// </summary>
+        internal static string des {
+            get {
+                return ResourceManager.GetString("des", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Detalles.
+        /// </summary>
+        internal static string det {
+            get {
+                return ResourceManager.GetString("det", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edición.
+        /// </summary>
+        internal static string e {
+            get {
+                return ResourceManager.GetString("e", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exportar.
+        /// </summary>
+        internal static string expo {
+            get {
+                return ResourceManager.GetString("expo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fecha de vigencia.
+        /// </summary>
+        internal static string f {
+            get {
+                return ResourceManager.GetString("f", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Listado de Documentos.
+        /// </summary>
+        internal static string ld {
+            get {
+                return ResourceManager.GetString("ld", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cantidad de páginas.
+        /// </summary>
+        internal static string p {
+            get {
+                return ResourceManager.GetString("p", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Proceso de Documento.
+        /// </summary>
+        internal static string pd {
+            get {
+                return ResourceManager.GetString("pd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Limpiar.
+        /// </summary>
+        internal static string reset {
+            get {
+                return ResourceManager.GetString("reset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Seleccione un alcance.
+        /// </summary>
+        internal static string sa {
+            get {
+                return ResourceManager.GetString("sa", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Seleccione un Comparador de fecha.
+        /// </summary>
+        internal static string scf {
+            get {
+                return ResourceManager.GetString("scf", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Buscar.
+        /// </summary>
+        internal static string search {
+            get {
+                return ResourceManager.GetString("search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Seleccione un proceso.
+        /// </summary>
+        internal static string sp {
+            get {
+                return ResourceManager.GetString("sp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Seleccione un tipo.
+        /// </summary>
+        internal static string st {
+            get {
+                return ResourceManager.GetString("st", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Título.
+        /// </summary>
+        internal static string t {
+            get {
+                return ResourceManager.GetString("t", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Documento creado con éxito.
+        /// </summary>
+        internal static string t1 {
+            get {
+                return ResourceManager.GetString("t1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Documento descargado con éxito.
+        /// </summary>
+        internal static string t2 {
+            get {
+                return ResourceManager.GetString("t2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tipo de documento.
+        /// </summary>
+        internal static string td {
+            get {
+                return ResourceManager.GetString("td", resourceCulture);
+            }
+        }
     }
 }

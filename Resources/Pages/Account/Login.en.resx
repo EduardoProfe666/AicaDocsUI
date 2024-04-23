@@ -42,4 +42,13 @@
     <data name="olvidoCont" xml:space="preserve">
         <value>Did you forget your password?</value>
     </data>
+    <data name="autInicioSesion" xml:space="preserve">
+        <value>You must sign in to have access to the requested resource</value>
+    </data>
+    <data name="autFallo" xml:space="preserve">
+        <value>Sign In Failed. Please, check your email and password.</value>
+    </data>
+    <data name="autExito" xml:space="preserve">
+        <value>Operation Succesfully completed. Sign in with your new password.</value>
+    </data>
 </root>

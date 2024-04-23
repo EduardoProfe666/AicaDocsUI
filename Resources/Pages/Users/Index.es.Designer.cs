@@ -96,7 +96,7 @@ namespace AicaDocsUI.Resources.Pages.Users {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Confirmed.
+        ///   Looks up a localized string similar to Confirmado.
         /// </summary>
         internal static string confirmed {
             get {

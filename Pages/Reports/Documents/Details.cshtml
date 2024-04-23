@@ -2,53 +2,53 @@
 @model AicaDocsUI.Pages.Reports.Documents.Details
 
 @{
-    ViewData["Title"] = "Detalles de Documento";
+    ViewData["Title"] = @Localizer["dd"];
     var date = Model.DocumentDto.DateOfValidity.ToString("dd/MM/yyyy hh:mm:ss tt");
 }
 
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-11 col-md-8 col-lg-5 mx-auto rounded border p-3">
-            <h2 class="text-center">Detalles de Documento</h2>
+            <h2 class="text-center">@Localizer["dd"]</h2>
             <hr/>
 
             <div class="table-responsive">
                 <table class="table table-borderless table-hover">
                     <tbody>
                         <tr>
-                            <th scope="row">@Html.Raw("Título")</th>
+                            <th scope="row">@Html.Raw(@Localizer["t"].Value)</th>
                             <td>@Html.DisplayFor(model => model.DocumentDto.Title)</td>
                         </tr>
                         <tr>
-                            <th scope="row">@Html.Raw("Código")</th>
+                            <th scope="row">@Html.Raw(@Localizer["c"].Value)</th>
                             <td>@Html.DisplayFor(model => model.DocumentDto.Code)</td>
                         </tr>
                         <tr>
-                            <th scope="row">@Html.Raw("Edición")</th>
+                            <th scope="row">@Html.Raw(@Localizer["e"].Value)</th>
                             <td>@Html.DisplayFor(model => model.DocumentDto.Edition)</td>
                         </tr>
                         <tr>
-                            <th scope="row">@Html.Raw("Páginas")</th>
+                            <th scope="row">@Html.Raw(@Localizer["p"].Value)</th>
                             <td>@Html.DisplayFor(model => model.DocumentDto.Pages)</td>
                         </tr>
                         <tr>
-                            <th scope="row">@Html.Raw("Fecha de Vigencia")</th>
+                            <th scope="row">@Html.Raw(@Localizer["f"].Value)</th>
                             <td>@Html.Raw(date)</td>
                         </tr>
                         <tr>
-                            <th scope="row">@Html.Raw("Correo")</th>
+                            <th scope="row">@Html.Raw(@Localizer["m"].Value)</th>
                             <td>@Html.DisplayFor(model => model.DocumentDto.UserEmail)</td>
                         </tr>
                         <tr>
-                            <th scope="row">@Html.Raw("Tipo de Documento")</th>
+                            <th scope="row">@Html.Raw(@Localizer["td"].Value)</th>
                             <td>@Html.DisplayFor(model => model.Type)</td>
                         </tr>
                         <tr>
-                            <th scope="row">@Html.Raw("Proceso de Documento")</th>
+                            <th scope="row">@Html.Raw(@Localizer["pd"].Value)</th>
                             <td>@Html.DisplayFor(model => model.Process)</td>
                         </tr>
                         <tr>
-                            <th scope="row">@Html.Raw("Alcance de Documento")</th>
+                            <th scope="row">@Html.Raw(@Localizer["ad"].Value)</th>
                             <td>@Html.DisplayFor(model => model.Scope)</td>
                         </tr>
                     </tbody>
@@ -56,7 +56,7 @@
             </div>
 
             <div class="text-start col">
-                <a class="btn btn-outline-primary ms-auto w-25 w-sm-50" asp-page="./Index">Atrás</a>
+                <a class="btn btn-outline-primary ms-auto w-25 w-sm-50" asp-page="./Index">@Localizer["back"]</a>
             </div>
         </div>
     </div>

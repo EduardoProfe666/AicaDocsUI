@@ -3,7 +3,7 @@
 <root>
     <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
         <xsd:element name="root" msdata:IsDataSet="true">
-            
+
         </xsd:element>
     </xsd:schema>
     <resheader name="resmimetype">
@@ -18,4 +18,79 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
+    <data name="d" xml:space="preserve">
+        <value>Documentos</value>
+    </data>
+    <data name="ld" xml:space="preserve">
+        <value>Listado de Documentos</value>
+    </data>
+    <data name="cb" xml:space="preserve">
+        <value>Criterios de Búsqueda</value>
+    </data>
+    <data name="sp" xml:space="preserve">
+        <value>Seleccione un proceso</value>
+    </data>
+    <data name="pd" xml:space="preserve">
+        <value>Proceso de Documento</value>
+    </data>
+    <data name="st" xml:space="preserve">
+        <value>Seleccione un tipo</value>
+    </data>
+    <data name="td" xml:space="preserve">
+        <value>Tipo de documento</value>
+    </data>
+    <data name="sa" xml:space="preserve">
+        <value>Seleccione un alcance</value>
+    </data>
+    <data name="ad" xml:space="preserve">
+        <value>Alcance de Documento</value>
+    </data>
+    <data name="f" xml:space="preserve">
+        <value>Fecha de vigencia</value>
+    </data>
+    <data name="scf" xml:space="preserve">
+        <value>Seleccione un Comparador de fecha</value>
+    </data>
+    <data name="cf" xml:space="preserve">
+        <value>Comparador de Fecha</value>
+    </data>
+    <data name="p" xml:space="preserve">
+        <value>Cantidad de páginas</value>
+    </data>
+    <data name="t" xml:space="preserve">
+        <value>Título</value>
+    </data>
+    <data name="c" xml:space="preserve">
+        <value>Código</value>
+    </data>
+    <data name="e" xml:space="preserve">
+        <value>Edición</value>
+    </data>
+    <data name="add" xml:space="preserve">
+        <value>Agregar Documento</value>
+    </data>
+    <data name="expo" xml:space="preserve">
+        <value>Exportar</value>
+    </data>
+    <data name="reset" xml:space="preserve">
+        <value>Limpiar</value>
+    </data>
+    <data name="search" xml:space="preserve">
+        <value>Buscar</value>
+    </data>
+    <data name="a" xml:space="preserve">
+        <value>Acción</value>
+    </data>
+    <data name="det" xml:space="preserve">
+        <value>Detalles</value>
+    </data>
+    <data name="des" xml:space="preserve">
+        <value>Descargar</value>
+    </data>
+    <data name="t1" xml:space="preserve">
+        <value>Documento creado con éxito</value>
+    </data>
+    <data name="t2" xml:space="preserve">
+        <value>Documento descargado con éxito</value>
+    </data>
 </root>

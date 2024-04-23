@@ -69,6 +69,15 @@ namespace AicaDocsUI.Resources.Pages.Account.Manage {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Password has been succesfully changed.
+        /// </summary>
+        internal static string cambiarContExito {
+            get {
+                return ResourceManager.GetString("cambiarContExito", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email.
         /// </summary>
         internal static string correo {

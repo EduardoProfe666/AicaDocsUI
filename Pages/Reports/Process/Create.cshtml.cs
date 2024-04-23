@@ -16,9 +16,10 @@ public class Create : PageModel
 
     [BindProperty] public NomenclatorCreatedModel NomenclatorModel { get; set; }
 
-    public Create(INomenclatorRepository repository)
+    public Create(INomenclatorRepository repository, IAuthRepository authRepository)
     {
         this._repository = repository;
+        _authRepository = authRepository;
     }
 
     public async Task<IActionResult> OnGet()

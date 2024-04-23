@@ -18,7 +18,25 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-    <data name="EmailRequired" xml:space="preserve">
-        <value>El correo es requerido</value>
+    <data name="rd" xml:space="preserve">
+        <value>Download Report</value>
+    </data>
+    <data name="tr" xml:space="preserve">
+        <value>Type of Report</value>
+    </data>
+    <data name="c" xml:space="preserve">
+        <value>Completed</value>
+    </data>
+    <data name="r" xml:space="preserve">
+        <value>Restricted</value>
+    </data>
+    <data name="m" xml:space="preserve">
+        <value>Email</value>
+    </data>
+    <data name="back" xml:space="preserve">
+        <value>Go Back</value>
+    </data>
+    <data name="e" xml:space="preserve">
+        <value>Export</value>
     </data>
 </root>

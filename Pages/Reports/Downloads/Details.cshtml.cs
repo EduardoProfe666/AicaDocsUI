@@ -21,11 +21,12 @@ public class Details : PageModel
     public string CodeEdition { get; set; }
 
     public Details(IDownloadRepository downloadRepository, INomenclatorRepository nomenclatorRepository,
-        IDocumentRepository documentRepository)
+        IDocumentRepository documentRepository, IAuthRepository authRepository)
     {
         _downloadRepository = downloadRepository;
         _nomenclatorRepository = nomenclatorRepository;
         _documentRepository = documentRepository;
+        _authRepository = authRepository;
     }
 
     public async Task<IActionResult> OnGetAsync(int id)

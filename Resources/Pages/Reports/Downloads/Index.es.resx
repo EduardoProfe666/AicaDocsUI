@@ -18,4 +18,55 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
+    <data name="d" xml:space="preserve">
+        <value>Descargas</value>
+    </data>
+    <data name="ld" xml:space="preserve">
+        <value>Listado de descargas</value>
+    </data>
+    <data name="cb" xml:space="preserve">
+        <value>Criterio de Búsqueda</value>
+    </data>
+    <data name="sf" xml:space="preserve">
+        <value>Seleccione un formato</value>
+    </data>
+    <data name="f" xml:space="preserve">
+        <value>Formato</value>
+    </data>
+    <data name="fecha" xml:space="preserve">
+        <value>Fecha de descarga</value>
+    </data>
+    <data name="scf" xml:space="preserve">
+        <value>Seleccione un comparador de fecha</value>
+    </data>
+    <data name="dc" xml:space="preserve">
+        <value>Comparador de fecha</value>
+    </data>
+    <data name="srd" xml:space="preserve">
+        <value>Seleccione una razón de descarga</value>
+    </data>
+    <data name="dr" xml:space="preserve">
+        <value>Razón de descarga</value>
+    </data>
+    <data name="cu" xml:space="preserve">
+        <value>Correo de Usuario</value>
+    </data>
+    <data name="doc" xml:space="preserve">
+        <value>Documento</value>
+    </data>
+    <data name="exp" xml:space="preserve">
+        <value>Exportar</value>
+    </data>
+    <data name="reset" xml:space="preserve">
+        <value>Limpiar</value>
+    </data>
+    <data name="search" xml:space="preserve">
+        <value>Buscar</value>
+    </data>
+    <data name="a" xml:space="preserve">
+        <value>Acción</value>
+    </data>
+    <data name="det" xml:space="preserve">
+        <value>Detalles</value>
+    </data>
 </root>

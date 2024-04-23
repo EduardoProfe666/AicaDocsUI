@@ -58,5 +58,68 @@ namespace AicaDocsUI.Resources.Pages.Reports.Documents {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Atrás.
+        /// </summary>
+        internal static string back {
+            get {
+                return ResourceManager.GetString("back", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Completo.
+        /// </summary>
+        internal static string c {
+            get {
+                return ResourceManager.GetString("c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exportar.
+        /// </summary>
+        internal static string e {
+            get {
+                return ResourceManager.GetString("e", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Correo.
+        /// </summary>
+        internal static string m {
+            get {
+                return ResourceManager.GetString("m", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Restringido.
+        /// </summary>
+        internal static string r {
+            get {
+                return ResourceManager.GetString("r", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reporte de Documentos.
+        /// </summary>
+        internal static string rd {
+            get {
+                return ResourceManager.GetString("rd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tipo de Reporte.
+        /// </summary>
+        internal static string tr {
+            get {
+                return ResourceManager.GetString("tr", resourceCulture);
+            }
+        }
     }
 }

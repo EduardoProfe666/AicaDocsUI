@@ -18,4 +18,25 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
+    <data name="dd" xml:space="preserve">
+        <value>Detalles de descarga</value>
+    </data>
+    <data name="f" xml:space="preserve">
+        <value>Formato</value>
+    </data>
+    <data name="fecha" xml:space="preserve">
+        <value>Fecha de descarga</value>
+    </data>
+    <data name="u" xml:space="preserve">
+        <value>Correo de Usuario</value>
+    </data>
+    <data name="d" xml:space="preserve">
+        <value>Documento</value>
+    </data>
+    <data name="rd" xml:space="preserve">
+        <value>Razón de descarga</value>
+    </data>
+    <data name="back" xml:space="preserve">
+        <value>Atrás</value>
+    </data>
 </root>

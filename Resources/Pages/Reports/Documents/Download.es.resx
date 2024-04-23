@@ -3,7 +3,7 @@
 <root>
     <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
         <xsd:element name="root" msdata:IsDataSet="true">
-            
+
         </xsd:element>
     </xsd:schema>
     <resheader name="resmimetype">
@@ -18,4 +18,19 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
+    <data name="dd" xml:space="preserve">
+        <value>Descargar documento</value>
+    </data>
+    <data name="f" xml:space="preserve">
+        <value>Formato de documento</value>
+    </data>
+    <data name="r" xml:space="preserve">
+        <value>Razón de descarga</value>
+    </data>
+    <data name="cancel" xml:space="preserve">
+        <value>Cancelar</value>
+    </data>
+    <data name="d" xml:space="preserve">
+        <value>Descargar</value>
+    </data>
 </root>

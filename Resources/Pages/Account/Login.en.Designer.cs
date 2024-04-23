@@ -60,6 +60,33 @@ namespace AicaDocsUI.Resources.Pages.Account {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Operation Succesfully completed. Sign in with your new password..
+        /// </summary>
+        internal static string autExito {
+            get {
+                return ResourceManager.GetString("autExito", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sign In Failed. Please, check your email and password..
+        /// </summary>
+        internal static string autFallo {
+            get {
+                return ResourceManager.GetString("autFallo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You must sign in to have access to the requested resource.
+        /// </summary>
+        internal static string autInicioSesion {
+            get {
+                return ResourceManager.GetString("autInicioSesion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
         internal static string cancelar {

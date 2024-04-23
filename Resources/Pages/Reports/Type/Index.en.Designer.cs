@@ -58,5 +58,158 @@ namespace AicaDocsUI.Resources.Pages.Reports.Type {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Action.
+        /// </summary>
+        internal static string action {
+            get {
+                return ResourceManager.GetString("action", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Process.
+        /// </summary>
+        internal static string add {
+            get {
+                return ResourceManager.GetString("add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        internal static string cbtn {
+            get {
+                return ResourceManager.GetString("cbtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes, I&apos;m sure.
+        /// </summary>
+        internal static string confbtn {
+            get {
+                return ResourceManager.GetString("confbtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        internal static string del {
+            get {
+                return ResourceManager.GetString("del", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit.
+        /// </summary>
+        internal static string edit {
+            get {
+                return ResourceManager.GetString("edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Export.
+        /// </summary>
+        internal static string exp {
+            get {
+                return ResourceManager.GetString("exp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to List of Document Type.
+        /// </summary>
+        internal static string list {
+            get {
+                return ResourceManager.GetString("list", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        internal static string name {
+            get {
+                return ResourceManager.GetString("name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to delete it?.
+        /// </summary>
+        internal static string q {
+            get {
+                return ResourceManager.GetString("q", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The deletion fails if its in usage.
+        /// </summary>
+        internal static string qE {
+            get {
+                return ResourceManager.GetString("qE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Document Type.
+        /// </summary>
+        internal static string t {
+            get {
+                return ResourceManager.GetString("t", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Succesfull creation.
+        /// </summary>
+        internal static string t1 {
+            get {
+                return ResourceManager.GetString("t1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Succesfull edition.
+        /// </summary>
+        internal static string t2 {
+            get {
+                return ResourceManager.GetString("t2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Succesfull deletion.
+        /// </summary>
+        internal static string t3 {
+            get {
+                return ResourceManager.GetString("t3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deletion failed because its in use.
+        /// </summary>
+        internal static string t4 {
+            get {
+                return ResourceManager.GetString("t4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The name of the type of document is already in use.
+        /// </summary>
+        internal static string t5 {
+            get {
+                return ResourceManager.GetString("t5", resourceCulture);
+            }
+        }
     }
 }
